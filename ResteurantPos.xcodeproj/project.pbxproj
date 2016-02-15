@@ -56,6 +56,7 @@
 		6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 2.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC671C7271AE00208E47 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dish+CoreDataProperties.swift"; path = "../Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6506EC681C7271AE00208E47 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dish.swift; path = ../Dish.swift; sourceTree = "<group>"; };
+		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,10 +533,11 @@
 		6506EC301C72523900208E47 /* ResteurantPos.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */,
 				6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */,
 				6506EC311C72523900208E47 /* ResteurantPos.xcdatamodel */,
 			);
-			currentVersion = 6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */;
+			currentVersion = 6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */;
 			path = ResteurantPos.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

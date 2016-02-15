@@ -152,7 +152,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dishDescriptionTextField" destination="woz-pa-IFa" id="L4f-Tp-DGm"/>
-                        <outlet property="dishImageView" destination="ZgJ-HQ-cn5" id="DYH-Wn-1OZ"/>
+                        <outlet property="dishImageView" destination="Jcf-b9-rlb" id="aZl-SA-bo3"/>
                         <outlet property="dishNameTextField" destination="Om9-Rd-Qsz" id="eQr-70-pV9"/>
                         <outlet property="dishPriceTextField" destination="4of-d5-atc" id="rd9-rO-6gi"/>
                     </connections>
