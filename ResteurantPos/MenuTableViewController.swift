@@ -16,6 +16,19 @@ class MenuTableViewController: UITableViewController {
     var managedObjectContext:NSManagedObjectContext?
     
     
+    func loadData(){
+        
+       managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        let fetchRequest =  NSFetchRequest(entityName: "Dish")
+        
+        try! dishes = managedObjectContext?.executeFetchRequest(fetchRequest) as! [Dish]
+        
+        
+    }
+    
+    
+    
     @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
         
@@ -23,12 +36,21 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        
+        
     }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,15 +66,16 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return dishes.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-//
-//        cell.textLabel?.text = dishes[indexPath.row].name! + " " + "\(dishes[indexPath.row].price!)"
-//        cell.detailTextLabel?.text = dishes [indexPath.row].ingredient!
+ 
+        cell.textLabel?.text = "Dish Name: " + dishes[indexPath.row].name! + " " + "\(dishes[indexPath.row].price!)"
+        cell.detailTextLabel?.text = "Description:" + dishes [indexPath.row].ingredient!
+    
         
         
         // Configure the cell...
@@ -96,14 +119,25 @@ class MenuTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "editSegue" {
+            
+            let editVC =  segue.destinationViewController as! EditViewController
+            
+            
+            
+        }
+        
+        
+        
     }
-    */
+    
 
 }

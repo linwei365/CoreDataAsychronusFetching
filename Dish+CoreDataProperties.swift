@@ -14,8 +14,9 @@ import CoreData
 
 extension Dish {
 
+    @NSManaged var ingredient: String?
     @NSManaged var name: String?
     @NSManaged var price: NSNumber?
-    @NSManaged var ingredient: String?
+    @NSManaged var dishPhoto: NSData?
 
 }

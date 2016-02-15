@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class EditViewController: UIViewController {
 
+    var dishes = [Dish]()
+    var managedObjectContext:NSManagedObjectContext?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
