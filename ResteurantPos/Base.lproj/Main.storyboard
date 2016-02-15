@@ -105,11 +105,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
                                                 <color key="backgroundColor" red="0.70681346365051989" green="0.86196263133084849" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Photo Library"/>
+                                                <connections>
+                                                    <action selector="photoLibraryOnClick:" destination="D8J-UK-kx4" eventType="touchUpInside" id="ddf-iH-IYZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TH-jN-JF5">
                                                 <rect key="frame" x="290" y="0.0" width="270" height="30"/>
                                                 <color key="backgroundColor" red="0.70681346365051989" green="0.86196263133084849" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Take A Photo"/>
+                                                <connections>
+                                                    <action selector="takeAPhotoOnClick:" destination="D8J-UK-kx4" eventType="touchUpInside" id="6Wk-qb-Juj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -133,9 +139,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit" id="6i4-nJ-DDE">
-                        <barButtonItem key="leftBarButtonItem" title="Canel" id="Zk1-gM-zu2"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="JHT-tM-5Vo"/>
+                        <barButtonItem key="leftBarButtonItem" title="Canel" id="Zk1-gM-zu2">
+                            <connections>
+                                <action selector="cancelOnClick:" destination="D8J-UK-kx4" id="dTd-2k-nR5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="JHT-tM-5Vo">
+                            <connections>
+                                <action selector="saveOnClick:" destination="D8J-UK-kx4" id="IqA-zF-RYE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dishDescriptionTextField" destination="woz-pa-IFa" id="L4f-Tp-DGm"/>
+                        <outlet property="dishImageView" destination="ZgJ-HQ-cn5" id="DYH-Wn-1OZ"/>
+                        <outlet property="dishNameTextField" destination="Om9-Rd-Qsz" id="eQr-70-pV9"/>
+                        <outlet property="dishPriceTextField" destination="4of-d5-atc" id="rd9-rO-6gi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogh-66-MC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

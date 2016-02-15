@@ -15,6 +15,13 @@ class EditViewController: UIViewController {
     var managedObjectContext:NSManagedObjectContext?
     
     
+    @IBOutlet weak var dishNameTextField: UITextField!
+    @IBOutlet weak var dishPriceTextField: UITextField!
+    @IBOutlet weak var dishDescriptionTextField: UITextField!
+    
+    @IBOutlet weak var dishImageView: UIStackView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +33,17 @@ class EditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelOnClick(sender: UIBarButtonItem) {
+    }
 
+    @IBAction func saveOnClick(sender: UIBarButtonItem) {
+    }
+    @IBAction func photoLibraryOnClick(sender: AnyObject) {
+    }
+    
+    @IBAction func takeAPhotoOnClick(sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
