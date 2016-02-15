@@ -11,7 +11,7 @@ import CoreData
 
 class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
-    var dishes = [Dish]()
+    var dish:Dish?
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
@@ -27,6 +27,16 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if dish != nil {
+            
+            dishNameTextField.text =  dish?.name
+            dishPriceTextField.text = "\(dish?.price)"
+            dishDescriptionTextField.text = dish?.dishDescription
+            dishImageView.image = UIImage(data: (dish?.dishPhoto)!)
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,18 +44,77 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         // Dispose of any resources that can be recreated.
     }
     
-    func saveData(){
+//    func loadData () {
+//        
+//        let fetchReqest =  NSFetchRequest(entityName: "Dish")
+//        
+//        try! dishes = managedObjectContext.executeFetchRequest(fetchReqest) as! [Dish]
+//    
+//        
+//    }
+    
+    
+    func createNewItem(){
         
       
         
-        let dish =  NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as! Dish
+          dish =  NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as? Dish
         
-       dish.setValue(self.dishNameTextField.text, forKey: "name")
-        dish.setValue(self.dishPriceTextField.text, forKey: "price")
-        dish.setValue(self.dishDescriptionTextField.text, forKey: "dishDescripiton")
-        dish.setValue(self.dishImageView, forKey: "dishPhoto")
+       dish!.setValue(self.dishNameTextField.text, forKey: "name")
+        dish!.setValue(self.dishPriceTextField.text, forKey: "price")
+        dish!.setValue(self.dishDescriptionTextField.text, forKey: "dishDescripiton")
+      
+        
+        dish!.dishPhoto = UIImagePNGRepresentation(self.dishImageView.image!)
+       
+        var error:NSError?
+        do {
+            try managedObjectContext.save()
+           
+            
+        } catch let error1 as NSError {
+            
+            error =  error1
+            
+        }
+        if error != nil {
+            print("failed to save Data")
+        }
+        
         
     }
+    
+    
+    func editItem(){
+        
+        
+        
+     
+        
+        dish!.setValue(self.dishNameTextField.text, forKey: "name")
+        dish!.setValue(self.dishPriceTextField.text, forKey: "price")
+        dish!.setValue(self.dishDescriptionTextField.text, forKey: "dishDescripiton")
+        
+        
+        dish!.dishPhoto = UIImagePNGRepresentation(self.dishImageView.image!)
+        
+        var error:NSError?
+        do {
+            try managedObjectContext.save()
+        
+            
+        } catch let error1 as NSError {
+            
+            error =  error1
+            
+        }
+        if error != nil {
+            print("failed to save Data")
+        }
+        
+        
+    }
+    
     
     
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
@@ -55,6 +124,12 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     }
 
     @IBAction func saveOnClick(sender: UIBarButtonItem) {
+        
+        
+        
+        
+        
+        
         dissmissVC()
     }
     @IBAction func photoLibraryOnClick(sender: AnyObject) {
@@ -74,6 +149,8 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
+    
+    //set image to dishImage view when dismiss from the ImagePickerController
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
