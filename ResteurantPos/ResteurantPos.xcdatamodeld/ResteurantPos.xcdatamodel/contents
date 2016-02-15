@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Dish" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Table" syncable="YES">
+        <attribute name="numberOfCustomers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tableNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Ticket" syncable="YES">
+        <attribute name="ticketNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dish" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Table" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="Ticket" positionX="-36" positionY="27" width="128" height="60"/>
+    </elements>
 </model>
