@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC291C72523900208E47 /* AppDelegate.swift */; };
-		6506EC2C1C72523900208E47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC2B1C72523900208E47 /* ViewController.swift */; };
 		6506EC2F1C72523900208E47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6506EC2D1C72523900208E47 /* Main.storyboard */; };
 		6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC301C72523900208E47 /* ResteurantPos.xcdatamodeld */; };
 		6506EC341C72523900208E47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6506EC331C72523900208E47 /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		6506EC261C72523900208E47 /* ResteurantPos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResteurantPos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6506EC291C72523900208E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6506EC2B1C72523900208E47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6506EC2E1C72523900208E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6506EC311C72523900208E47 /* ResteurantPos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResteurantPos.xcdatamodel; sourceTree = "<group>"; };
 		6506EC331C72523900208E47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				6506EC291C72523900208E47 /* AppDelegate.swift */,
-				6506EC2B1C72523900208E47 /* ViewController.swift */,
 				6506EC2D1C72523900208E47 /* Main.storyboard */,
 				6506EC331C72523900208E47 /* Assets.xcassets */,
 				6506EC351C72523900208E47 /* LaunchScreen.storyboard */,
@@ -259,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6506EC2C1C72523900208E47 /* ViewController.swift in Sources */,
 				6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
 			);
