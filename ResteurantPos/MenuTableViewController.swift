@@ -15,6 +15,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     var dishes = [Dish]()
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchResultController = NSFetchedResultsController()
+   
+    
+    
     func loadData(){
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -32,9 +35,14 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         }
         
     }
-        @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
+    
+    
+    
+    @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -49,16 +57,17 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.reloadData()
     }
-    override func viewDidAppear(animated: Bool) {
-        do{
-            try fetchResultController.performFetch()
-        } catch {
-            print("Failed to perform initial fetch")
-            return
-            
-        }
-        self.tableView.reloadData()
-    }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        do{
+//            try fetchResultController.performFetch()
+//        } catch {
+//            print("Failed to perform initial fetch")
+//            return
+//            
+//        }
+//        self.tableView.reloadData()
+//    }
   
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +95,8 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
  
         let dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
         
-        cell.textLabel?.text = "Dish Name: " + dish.name! + "     $" + "\(dish.price!)"
-        cell.detailTextLabel?.text = "Description:" + dish.dishDescription!
+        cell.textLabel?.text = dish.name! + "     $" + "\(dish.price!)"
+        cell.detailTextLabel?.text = dish.dishDescription!
     
         cell.imageView?.image = UIImage (data: (dish.dishPhoto)!)
         
@@ -129,7 +138,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
         do {
             try managedObjectContext.save()
-              self.tableView.reloadData()
+            
         }
         catch {
             print("failed to save ")
