@@ -10,14 +10,40 @@ import UIKit
 import CoreData
 
 
-class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
+class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,UISearchBarDelegate{
 //step 2 array stores managed object which here is the Dish
     var dishes = [Dish]()
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchResultController = NSFetchedResultsController()
-   
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchActive : Bool = false
+    
+    //search ---
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+
     
     
+    
+    
+    
+   //------
     func loadData(){
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
