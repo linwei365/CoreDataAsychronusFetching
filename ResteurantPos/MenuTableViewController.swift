@@ -13,8 +13,10 @@ import CoreData
 class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,UISearchBarDelegate{
 //step 2 array stores managed object which here is the Dish
     var dishes = [Dish]()
+    var filteredDish = [Dish]()
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchResultController = NSFetchedResultsController()
+    
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -40,8 +42,41 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
 
     
     
-    
-    
+    // searchbar delegate
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        //fixing error
+        self.searchBar.text = searchText
+        
+        
+        //       let fetchRequest = NSFetchRequest(entityName: "Instructor")
+        
+        let fetchRequestB = NSFetchRequest(entityName: "Dish")
+        let predicateB = NSPredicate(format: "title LIKE[c]'\(self.searchBar.text)*'" )
+        
+        fetchRequestB.predicate = predicateB
+        
+        
+        //         try! filteredInstructors = managedObjectContext!.executeFetchRequest(fetchRequest) as! [Instructor]
+        
+//        try! filteredCourses = managedObjectContext!.executeFetchRequest(fetchRequestB) as! [Course]
+        
+        
+        
+        
+        //        filtered = data.filter({ (text) -> Bool in
+        //            let tmp: NSString = text
+        //            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+        //            return range.location != NSNotFound
+        //        })
+        
+        if(filteredDish.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+    }
     
    //------
     func loadData(){
