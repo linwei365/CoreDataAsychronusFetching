@@ -14,19 +14,10 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
 //step 2 array stores managed object which here is the Dish
     var dishes = [Dish]()
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
     var fetchResultController = NSFetchedResultsController()
-    
-    
-    
     func loadData(){
-        
-        
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
-        
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
-        
         fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         var error :NSError?
@@ -34,53 +25,41 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             try fetchResultController.performFetch()
         }
       catch let error1 as NSError{
-        
          error =  error1
-        
         }
         if error != nil {
             print( "failed to load data")
         }
         
-        
     }
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.reloadData()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        fetchResultController.delegate = self
-        
-        loadData()
-        self.tableView.reloadData()
-    }
-    
-    @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
-        
+        @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        loadData()
         self.tableView.rowHeight = 60
         fetchResultController.delegate = self
         
-        loadData()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+       
          self.tableView.reloadData()
-        
-        
     }
     
     
-    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.reloadData()
+    }
+    override func viewDidAppear(animated: Bool) {
+        do{
+            try fetchResultController.performFetch()
+        } catch {
+            print("Failed to perform initial fetch")
+            return
+            
+        }
+        self.tableView.reloadData()
+    }
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -110,7 +89,21 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         cell.textLabel?.text = "Dish Name: " + dish.name! + "     $" + "\(dish.price!)"
         cell.detailTextLabel?.text = "Description:" + dish.dishDescription!
     
-        cell.imageView?.image = UIImage (data: dish.dishPhoto!)
+        cell.imageView?.image = UIImage (data: (dish.dishPhoto)!)
+        
+        
+        
+        /*
+        cell.textLabel?.text = item.name
+        let note = item.note
+        let quantity =  item.quantity
+        cell.detailTextLabel?.text = "Qty: \(quantity!) Note: \(note!)"
+        cell.imageView?.image = UIImage(data: (item.image)!)
+        
+        */
+        // Configure the cell...
+        
+        
         
         // Configure the cell...
 
@@ -126,17 +119,35 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     }
     */
 
-    /*
-    // Override to support editing the table view.
+  
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        let manageObject: NSManagedObject = fetchResultController.objectAtIndexPath(indexPath) as! NSManagedObject
+        
+        managedObjectContext.deleteObject(manageObject)
+        
+        do {
+            try managedObjectContext.save()
+              self.tableView.reloadData()
+        }
+        catch {
+            print("failed to save ")
+            
+            return
+        }
+        
+      
+        /*
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        // Delete the row from the data source
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+        */
     }
-    */
+   
 
     /*
     // Override to support rearranging the table view.

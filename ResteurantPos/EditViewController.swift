@@ -31,7 +31,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         if dish != nil {
             
             dishNameTextField.text =  dish?.name
-            dishPriceTextField.text = "\(dish?.price)"
+            dishPriceTextField.text = "\(dish!.price!)"
             dishDescriptionTextField.text = dish?.dishDescription
             dishImageView.image = UIImage(data: (dish?.dishPhoto)!)
             
@@ -93,8 +93,8 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
      
         
         dish!.setValue(self.dishNameTextField.text, forKey: "name")
-        dish!.setValue(self.dishPriceTextField.text, forKey: "price")
-        dish!.setValue(self.dishDescriptionTextField.text, forKey: "dishDescripiton")
+             dish!.price = Double(self.dishPriceTextField.text!)
+        dish!.dishDescription = self.dishDescriptionTextField.text
         
         
         dish!.dishPhoto = UIImagePNGRepresentation(self.dishImageView.image!)
