@@ -61,9 +61,10 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
           dish =  NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as? Dish
         
        dish!.setValue(self.dishNameTextField.text, forKey: "name")
-        dish!.setValue(self.dishPriceTextField.text, forKey: "price")
-        dish!.setValue(self.dishDescriptionTextField.text, forKey: "dishDescripiton")
-      
+        
+        dish!.price = Double(self.dishPriceTextField.text!)
+       
+        dish!.dishDescription = self.dishDescriptionTextField.text
         
         dish!.dishPhoto = UIImagePNGRepresentation(self.dishImageView.image!)
        
@@ -126,7 +127,13 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     @IBAction func saveOnClick(sender: UIBarButtonItem) {
         
         
-        
+        if dish != nil {
+            
+            editItem()
+        } else {
+            
+            createNewItem()
+        }
         
         
         

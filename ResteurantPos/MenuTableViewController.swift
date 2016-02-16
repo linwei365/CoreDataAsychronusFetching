@@ -10,24 +10,51 @@ import UIKit
 import CoreData
 
 
-class MenuTableViewController: UITableViewController {
+class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
 //step 2 array stores managed object which here is the Dish
     var dishes = [Dish]()
-    var managedObjectContext:NSManagedObjectContext?
+    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var fetchResultController = NSFetchedResultsController()
+    
     
     
     func loadData(){
         
-       managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         
-        try! dishes = managedObjectContext?.executeFetchRequest(fetchRequest) as! [Dish]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        var error :NSError?
+        do {
+            try fetchResultController.performFetch()
+        }
+      catch let error1 as NSError{
+        
+         error =  error1
+        
+        }
+        if error != nil {
+            print( "failed to load data")
+        }
         
         
     }
     
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.reloadData()
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        fetchResultController.delegate = self
+        
+        loadData()
+        self.tableView.reloadData()
+    }
     
     @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
@@ -35,7 +62,10 @@ class MenuTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+        self.tableView.rowHeight = 60
+        fetchResultController.delegate = self
+        
         loadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -44,7 +74,7 @@ class MenuTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        
+         self.tableView.reloadData()
         
         
     }
@@ -61,22 +91,26 @@ class MenuTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        
+        
+        return (fetchResultController.sections?.count)!
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dishes.count
+        return fetchResultController.sections![section].numberOfObjects
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
  
-        cell.textLabel?.text = "Dish Name: " + dishes[indexPath.row].name! + " " + "\(dishes[indexPath.row].price!)"
-        cell.detailTextLabel?.text = "Description:" + dishes [indexPath.row].ingredient!
-    
+        let dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
         
+        cell.textLabel?.text = "Dish Name: " + dish.name! + "     $" + "\(dish.price!)"
+        cell.detailTextLabel?.text = "Description:" + dish.dishDescription!
+    
+        cell.imageView?.image = UIImage (data: dish.dishPhoto!)
         
         // Configure the cell...
 
@@ -129,8 +163,11 @@ class MenuTableViewController: UITableViewController {
         
         if segue.identifier == "editSegue" {
             
-            let editVC =  segue.destinationViewController as! EditViewController
+            let vc =  segue.destinationViewController as! EditViewController
             
+            let index =  self.tableView.indexPathForCell(sender as! UITableViewCell)
+            
+            vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
             
             
         }
