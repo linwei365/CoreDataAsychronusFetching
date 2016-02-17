@@ -17,7 +17,10 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchResultController = NSFetchedResultsController()
     
+    var filterFetchResultController = NSFetchedResultsController()
     
+    
+    var searchText: String?
     @IBOutlet weak var searchBar: UISearchBar!
     
     var searchActive : Bool = false
@@ -41,45 +44,12 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     
 
     
-    
-    // searchbar delegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        //fixing error
-        self.searchBar.text = searchText
-        
-        
-        //       let fetchRequest = NSFetchRequest(entityName: "Instructor")
-        
-        let fetchRequestB = NSFetchRequest(entityName: "Dish")
-        let predicateB = NSPredicate(format: "title LIKE[c]'\(self.searchBar.text)*'" )
-        
-        fetchRequestB.predicate = predicateB
-        
-        
-        //         try! filteredInstructors = managedObjectContext!.executeFetchRequest(fetchRequest) as! [Instructor]
-        
-//        try! filteredCourses = managedObjectContext!.executeFetchRequest(fetchRequestB) as! [Course]
-        
-        
-        
-        
-        //        filtered = data.filter({ (text) -> Bool in
-        //            let tmp: NSString = text
-        //            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-        //            return range.location != NSNotFound
-        //        })
-        
-        if(filteredDish.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
-        self.tableView.reloadData()
-    }
-    
-   //------
+
     func loadData(){
+        
+    
+        
+      
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -95,10 +65,10 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             print( "failed to load data")
         }
         
+        
     }
     
-    
-    
+ 
     @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
     }
@@ -109,7 +79,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         loadData()
         self.tableView.rowHeight = 60
         fetchResultController.delegate = self
-        
+        filterFetchResultController.delegate = self
        
          self.tableView.reloadData()
     }
@@ -119,17 +89,10 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         self.tableView.reloadData()
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        do{
-//            try fetchResultController.performFetch()
-//        } catch {
-//            print("Failed to perform initial fetch")
-//            return
-//            
-//        }
-//        self.tableView.reloadData()
-//    }
+ 
   
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -140,13 +103,15 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        
-        
+    
         return (fetchResultController.sections?.count)!
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+       
+   
+        
         return fetchResultController.sections![section].numberOfObjects
     }
 
@@ -154,25 +119,22 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
  
-        let dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
+        let dish :Dish
         
-        cell.textLabel?.text = dish.name! + "     $" + "\(dish.price!)"
+    
+            
+              dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
+
+        
+        
+        
+        cell.textLabel?.text = dish.name! + "     $" + "\(Double(dish.price!))"
         cell.detailTextLabel?.text = dish.dishDescription!
     
         cell.imageView?.image = UIImage (data: (dish.dishPhoto)!)
         
         
-        
-        /*
-        cell.textLabel?.text = item.name
-        let note = item.note
-        let quantity =  item.quantity
-        cell.detailTextLabel?.text = "Qty: \(quantity!) Note: \(note!)"
-        cell.imageView?.image = UIImage(data: (item.image)!)
-        
-        */
-        // Configure the cell...
-        
+ 
         
         
         // Configure the cell...
@@ -248,7 +210,11 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             
             let index =  self.tableView.indexPathForCell(sender as! UITableViewCell)
             
-            vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
+     
+                
+                vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
+            
+  
             
             
         }

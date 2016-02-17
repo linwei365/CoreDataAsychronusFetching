@@ -31,7 +31,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         if dish != nil {
             
             dishNameTextField.text =  dish?.name
-            dishPriceTextField.text = "\(dish!.price!)"
+            dishPriceTextField.text =     "\(Double(dish!.price!))"
             dishDescriptionTextField.text = dish?.dishDescription
             dishImageView.image = UIImage(data: (dish?.dishPhoto)!)
             
@@ -115,8 +115,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         
         
     }
-    
-    
+ 
     
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
     

@@ -141,7 +141,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZgJ-HQ-cn5">
                                         <rect key="frame" x="0.0" y="160" width="560" height="336"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Jcf-b9-rlb">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Jcf-b9-rlb">
                                                 <rect key="frame" x="0.0" y="128" width="560" height="80"/>
                                             </imageView>
                                         </subviews>
