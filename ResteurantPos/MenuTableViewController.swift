@@ -42,12 +42,30 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         searchActive = false;
     }
     
-
+//testing generating data
+    func generateData(){
+        
+        for var index = 0; index < 1000; ++index {
+            print("index is \(index)")
+              let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish
+            dish.name = "delicious \(index)"
+            dish.price = 9.95
+            dish.dishDescription = "delicious meal \(index)"
+            let image = UIImage(named: "images")
+            dish.dishPhoto = UIImagePNGRepresentation(image!)
+            
+        }
+        
+      try! managedObjectContext.save()
+        
+        
+        
+    }
     
 
     func loadData(){
         
-    
+    generateData()
         
       
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
@@ -102,7 +120,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     }
   
     
-    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
