@@ -28,6 +28,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
 
         // Do any additional setup after loading the view.
         
+       
         if dish != nil {
             
             dishNameTextField.text =  dish?.name
@@ -38,6 +39,27 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         }
         
     }
+   
+    //testing generating data
+    func generateData(){
+        
+        for var index = 0; index < 20000; ++index {
+            print("index is \(index)")
+            let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish
+            dish.name = "delicious \(index)"
+            dish.price = 9.95
+            dish.dishDescription = "delicious meal \(index)"
+            let image = UIImage(named: "images")
+            dish.dishPhoto = UIImagePNGRepresentation(image!)
+            
+        }
+        
+        try! managedObjectContext.save()
+        
+        
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

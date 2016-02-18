@@ -45,7 +45,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
 //testing generating data
     func generateData(){
         
-        for var index = 0; index < 1000; ++index {
+        for var index = 0; index < 20000; ++index {
             print("index is \(index)")
               let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish
             dish.name = "delicious \(index)"
@@ -65,23 +65,36 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
 
     func loadData(){
         
-    generateData()
+//    generateData()
         
       
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+
         let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
+       
+            self.dishes = result.finalResult as! [Dish]
             
-           self.dishes = result.finalResult as! [Dish]
-        }
-      
+            self.tableView.reloadData()
+         }
         
 //        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
+       
         var error :NSError?
         do {
+            
+//            try dishes =   managedObjectContext.executeFetchRequest(fetchRequest) as! [Dish]
 //            try fetchResultController.performFetch()
-            try managedObjectContext.executeRequest(async)
+            
+//            managedObjectContext.performBlock({ () -> Void in
+//                
+//                
+//            })
+//            
+//            
+             try    managedObjectContext.executeRequest(async)
+          
         }
       catch let error1 as NSError{
          error =  error1
@@ -90,7 +103,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             print( "failed to load data")
         }
         
-        
+         
     }
     
  
@@ -101,26 +114,33 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+//       generateData()
+        
         
         self.tableView.rowHeight = 60
-        fetchResultController.delegate = self
-        filterFetchResultController.delegate = self
+//        fetchResultController.delegate = self
+//        filterFetchResultController.delegate = self
        
          self.tableView.reloadData()
     }
     
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.reloadData()
-    }
+//    
+//    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+//     
+//        self.tableView.reloadData()
+//    }
     
     override func viewWillAppear(animated: Bool) {
+    
+//        loadData()
         self.tableView.reloadData()
     }
   
     
     override func viewDidAppear(animated: Bool) {
+       
+        loadData()
+        
         self.tableView.reloadData()
     }
 
