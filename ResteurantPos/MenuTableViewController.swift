@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 
+
+
 class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,UISearchBarDelegate{
 //step 2 array stores managed object which here is the Dish
     var dishes = [Dish]()
@@ -18,8 +20,8 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     var fetchResultController = NSFetchedResultsController()
     
     var filterFetchResultController = NSFetchedResultsController()
-    
-    
+    private var myProgressObserverContext = 0
+ 
     var searchText: String?
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -62,7 +64,53 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
     }
     
-
+// add loadData with observer 
+  /*
+    func loadDataWithKVO (){
+        
+        let fetchRequest =  NSFetchRequest(entityName: "Dish")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
+            
+            self.dishes = result.finalResult as! [Dish]
+            
+            self.tableView.reloadData()
+        }
+        
+        self.managedObjectContext.performBlock { () -> Void in
+       //create progress
+            let progress: NSProgress = NSProgress(totalUnitCount: 1)
+         //become current
+            progress.becomeCurrentWithPendingUnitCount(1)
+            
+            
+            var asynchronousFetchRequestError: NSError?
+            
+            do {
+                
+                
+                 let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+//
+//                result.progress(addObserver(self, forKeyPath: "completedUnitCount", options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>))
+ }
+            catch let error1 as NSError {
+                
+                asynchronousFetchRequestError = error1
+            }
+            
+            if asynchronousFetchRequestError != nil {
+                
+                print("failed")
+            }
+            
+            
+            
+            
+            
+        }
+    }
+    */
+    //-------
     func loadData(){
         
 //    generateData()
