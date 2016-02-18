@@ -52,11 +52,18 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
       
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
+            
+           self.dishes = result.finalResult as! [Dish]
+        }
+      
+        
+//        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         var error :NSError?
         do {
-            try fetchResultController.performFetch()
+//            try fetchResultController.performFetch()
+            try managedObjectContext.executeRequest(async)
         }
       catch let error1 as NSError{
          error =  error1
@@ -77,6 +84,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        
         self.tableView.rowHeight = 60
         fetchResultController.delegate = self
         filterFetchResultController.delegate = self
@@ -89,7 +97,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         self.tableView.reloadData()
     }
     
- 
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
   
     
     
@@ -104,15 +114,17 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
     
-        return (fetchResultController.sections?.count)!
+        
+        return 1
+//        return (fetchResultController.sections?.count)!
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
        
    
-        
-        return fetchResultController.sections![section].numberOfObjects
+        return dishes.count
+//        return fetchResultController.sections![section].numberOfObjects
     }
 
     
@@ -123,9 +135,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
     
             
-              dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
+//              dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
 
-        
+        dish = dishes[indexPath.row]
         
         
         cell.textLabel?.text = dish.name! + "     $" + "\(Double(dish.price!))"
@@ -154,9 +166,14 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
   
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
+//        
+//        let manageObject: NSManagedObject = fetchResultController.objectAtIndexPath(indexPath) as! NSManagedObject
+//        
+//        managedObjectContext.deleteObject(manageObject)
         
-        let manageObject: NSManagedObject = fetchResultController.objectAtIndexPath(indexPath) as! NSManagedObject
+        let manageObject =  dishes[indexPath.row]
         
+        dishes.removeAtIndex(indexPath.row)
         managedObjectContext.deleteObject(manageObject)
         
         do {
@@ -168,7 +185,8 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             
             return
         }
-        
+        self.tableView.reloadData()
+
       
         /*
         if editingStyle == .Delete {
@@ -208,12 +226,15 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             
             let vc =  segue.destinationViewController as! EditViewController
             
-            let index =  self.tableView.indexPathForCell(sender as! UITableViewCell)
+//            let index =  self.tableView.indexPathForCell(sender as! UITableViewCell)
             
      
                 
-                vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
+//                vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
             
+            let index =  self.tableView.indexPathForSelectedRow
+
+            vc.dish = dishes[(index?.row)!]
   
             
             
