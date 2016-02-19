@@ -138,18 +138,32 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
 
     @IBAction func saveOnClick(sender: UIBarButtonItem) {
         
+        if (dishDescriptionTextField.text == "" || dishNameTextField.text == "" || dishDescriptionTextField.text == "" || dishImageView.image == nil) {
         
-        if dish != nil {
+            let alert = UIAlertController(title: "warning", message: "please complete fill in all the blank", preferredStyle: .Alert)
+            
+            let action =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+            
+            
+            alert.addAction(action)
+            
+            presentViewController(alert, animated: true, completion: nil)
+            
+        } else
+        {
+        
+            if dish != nil {
             
             editItem()
-        } else {
+            } else {
             
             createNewItem()
+            }
+            dissmissVC()
         }
         
         
         
-        dissmissVC()
     }
     @IBAction func photoLibraryOnClick(sender: AnyObject) {
         let pickerController = UIImagePickerController()

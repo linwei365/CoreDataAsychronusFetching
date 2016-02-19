@@ -69,10 +69,27 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
  
     func loadDataWithKVO (){
         
-        loadData()
+//        if (searchActive){
+//            loadDataFilter()
+//        }
+//      
+        
+             loadData()
+       
+        
+       
 
     }
-   
+   // searchbar delegate
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+       self.searchText = searchText
+    
+            
+        loadDataFilter()
+        
+    }
     
     //Progress Reporting
     
@@ -105,19 +122,103 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         
     }
     
- 
+    //load from filter
+   func loadDataFilter(){
+    
+    
+    // cocaopods SVProgressHUD class method show indidicator with string
+    SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+    
+    // fetchRequest
+    let fetchRequest =  NSFetchRequest(entityName: "Dish")
+    
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    
+    
+    if (self.searchText != nil)
+        
+    {
+//        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@",self.searchText!)
+        
+        fetchRequest.predicate = NSPredicate(format: "name LIKE[c]'\(self.searchText!)*'")
+    }
+    
+    //NSAsynchronousFetchRequest
+    let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
+        
+        self.filteredDish = result.finalResult as! [Dish]
+        //Remove Observer
+        result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
+        
+        //dismiss indicator
+        SVProgressHUD.dismiss()
+        self.tableView.reloadData()
+        
+    }
+    
+    //perform block
+    self.managedObjectContext.performBlock { () -> Void in
+        
+        //create NSProgress
+        let progress: NSProgress = NSProgress(totalUnitCount: 1)
+        
+        //become current
+        progress.becomeCurrentWithPendingUnitCount(1)
+        
+        // create NSError
+        var asynchronousFetchRequestError: NSError?
+        
+        do {
+            
+            //NSAsynchronousFetchResult
+            let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+            
+            //add observer
+            result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
+        }
+            
+        catch let error1 as NSError {
+            //catch error
+            asynchronousFetchRequestError = error1
+        }
+        
+        if asynchronousFetchRequestError != nil {
+            print("failed")
+        }
+        //resigin NSProgress
+        progress.resignCurrent()
+    }
+    
+    
+    if(filteredDish.count == 0){
+        searchActive = false;
+    } else {
+        searchActive = true;
+    }
+    
+    }
     
  
     
-  // 
+  //
     func loadData(){
+        
         
         // cocaopods SVProgressHUD class method show indidicator with string
         SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
         
         // fetchRequest
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+       
+//        if (self.searchText != nil)
+//            
+//        {
+//            //        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@",self.searchText!)
+//            
+//            fetchRequest.predicate = NSPredicate(format: "name LIKE[c]'\(self.searchText!)*'")
+//        }
         
         //NSAsynchronousFetchRequest
         let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
@@ -164,7 +265,8 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
             //resigin NSProgress
             progress.resignCurrent()
         }
-         
+  
+        
     }
     
  
@@ -174,19 +276,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     }
     
  
-    //searchbar
-
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
  
-    
-        
-        
-        
-    }
 
   //put searchBar in navigationBar
     func loadSearchBar(){
         
+        searchBar.delegate = self
         searchBar.placeholder = "Search Menu"
 //        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
         self.navigationItem.titleView = searchBar
@@ -199,7 +294,9 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
-           self.populateDummyData()
+//           self.populateDummyData()
+            
+            //don't use this one
             //       generateData()
             dispatch_async(dispatch_get_main_queue()) {
                 
@@ -228,7 +325,8 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     override func viewWillAppear(animated: Bool) {
     
- 
+        searchBar.text = ""
+        
         self.tableView.reloadData()
     }
   
@@ -262,8 +360,19 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
        
-   
+        
+        
+ 
+        if (searchActive && searchBar.text != ""){
+            
+             return filteredDish.count
+        }
+       
         return dishes.count
+      
+        
+   
+        
         //use fetchResultController
         //return fetchResultController.sections![section].numberOfObjects
     }
@@ -278,7 +387,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
          //use NSFetchedResultsController
         //dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
 
-        dish = dishes[indexPath.row]
+        if (searchActive && searchBar.text != ""){
+            
+             dish = filteredDish[indexPath.row]
+        }
+        else { dish = dishes[indexPath.row]
+        }
         
         
         cell.textLabel?.text = dish.name! + "     $" + "\(Double(dish.price!))"
@@ -373,8 +487,20 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
 
             let index =  self.tableView.indexPathForSelectedRow
 
+            
+            if (searchActive && searchBar.text != ""){
+                
+                 vc.dish = filteredDish[(index?.row)!]
+            }
+            
+          
+            else {
+            
+            
             vc.dish = dishes[(index?.row)!]
   
+            }
+            
             
             //use nsfetchResultController
             /*
