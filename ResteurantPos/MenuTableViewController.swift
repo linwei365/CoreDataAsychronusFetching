@@ -44,7 +44,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         searchActive = false;
     }
     
-//testing generating data
+//testing generating data not in use
     func generateData(){
         
         for var index = 0; index < 20000; ++index {
@@ -64,61 +64,61 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
     }
     
-// add loadData with observer 
+// add loadData with observer  in use
  
     func loadDataWithKVO (){
-       SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+      
+        // cocaopods SVProgressHUD class method show indidicator with string
+        SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
        
-        
+        // fetchRequest
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
+        //NSAsynchronousFetchRequest
         let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
             
-    
-            self.dishes = result.finalResult as! [Dish]
-             // Remove Observer
-            result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
+                    self.dishes = result.finalResult as! [Dish]
+                   //Remove Observer
+                    result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
             
-            //
-             SVProgressHUD.dismiss()
-            self.tableView.reloadData()
+                   //dismiss indicator
+                  SVProgressHUD.dismiss()
+                  self.tableView.reloadData()
     
         }
         
+        //perform block
         self.managedObjectContext.performBlock { () -> Void in
-       //create progress
-            let progress: NSProgress = NSProgress(totalUnitCount: 1)
-         //become current
-            progress.becomeCurrentWithPendingUnitCount(1)
+       
+        //create NSProgress
+        let progress: NSProgress = NSProgress(totalUnitCount: 1)
+        
+        //become current
+        progress.becomeCurrentWithPendingUnitCount(1)
             
-            
-            var asynchronousFetchRequestError: NSError?
+        // create NSError
+        var asynchronousFetchRequestError: NSError?
             
             do {
                 
-                
-                let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+            //NSAsynchronousFetchResult
+            let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
 
-            
-                result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
-                
-  
+            //add observer
+            result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
             }
-            catch let error1 as NSError {
                 
+            catch let error1 as NSError {
+                //catch error
                 asynchronousFetchRequestError = error1
             }
             
             if asynchronousFetchRequestError != nil {
-                
-                print("failed")
+               print("failed")
             }
-            
-            
+            //resigin NSProgress
             progress.resignCurrent()
-            
-            
         }
     }
    
@@ -156,9 +156,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     
  
     
-    //
+ 
     
-    
+  // not in use
     func loadData(){
         
  
@@ -174,22 +174,17 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             self.tableView.reloadData()
          }
         
-//        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
+        /*  to use NSFetchedResultsController
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+          try! fetchResultController.performFetch()
+        */
        
         var error :NSError?
         do {
-            
-//            try dishes =   managedObjectContext.executeFetchRequest(fetchRequest) as! [Dish]
-//            try fetchResultController.performFetch()
-            
-//            managedObjectContext.performBlock({ () -> Void in
-//                
-//                
-//            })
-//            
-//            
-             try    managedObjectContext.executeRequest(async)
+         //executeFetchRequest not NSFetchedResultsController
+         // try dishes =   managedObjectContext.executeFetchRequest(fetchRequest) as! [Dish]
+         try    managedObjectContext.executeRequest(async)
           
         }
       catch let error1 as NSError{
@@ -205,11 +200,12 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
  
     @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
+    
     }
+    
  
     //searchbar
-    
-    
+
     override func scrollViewDidScroll(scrollView: UIScrollView) {
  
     
@@ -218,15 +214,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
     }
 
-
-    
-    func searchBarLoad(){
-//        self.searchBar = UISearchBar(frame: CGRectMake(0, 0, 320, self.searchBar.frame.height))
-        self.tableView.contentInset = UIEdgeInsetsMake(self.searchBar.frame.height, 0, 0, 0)
-        self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-    }
-    
-     
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -242,32 +230,39 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             }
         }
        
-//        searchBarLoad()
+ 
         
         self.tableView.rowHeight = 60
-//        fetchResultController.delegate = self
-//        filterFetchResultController.delegate = self
+        
+       //use fetchResultController delegate
+       //fetchResultController.delegate = self
+ 
        
          self.tableView.reloadData()
     }
     
-//    
-//    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-//     
-//        self.tableView.reloadData()
-//    }
+    
+    //use fetchResultController delegate method
+    /*
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+     
+        self.tableView.reloadData()
+    }
+    */
     
     override func viewWillAppear(animated: Bool) {
     
-//        loadData()
+ 
         self.tableView.reloadData()
     }
   
     
     override func viewDidAppear(animated: Bool) {
-//      SVProgressHUD.showWithStatus(" it's wokring ")
-         loadDataWithKVO()
-//        loadData()
+ 
+          loadDataWithKVO()
+        
+        //non asyna load fetch
+        //loadData()
         
         self.tableView.reloadData()
     }
@@ -284,7 +279,8 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     
         
         return 1
-//        return (fetchResultController.sections?.count)!
+        //use fetchResultController
+        //return (fetchResultController.sections?.count)!
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -292,7 +288,8 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
        
    
         return dishes.count
-//        return fetchResultController.sections![section].numberOfObjects
+        //use fetchResultController
+        //return fetchResultController.sections![section].numberOfObjects
     }
 
     
@@ -302,8 +299,8 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         let dish :Dish
         
     
-            
-//              dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
+         //use NSFetchedResultsController
+        //dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
 
         dish = dishes[indexPath.row]
         
@@ -334,10 +331,14 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
   
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-//        
-//        let manageObject: NSManagedObject = fetchResultController.objectAtIndexPath(indexPath) as! NSManagedObject
-//        
-//        managedObjectContext.deleteObject(manageObject)
+        //use NSFetchedResultsController
+       /*
+        let manageObject: NSManagedObject = fetchResultController.objectAtIndexPath(indexPath) as! NSManagedObject
+        
+        managedObjectContext.deleteObject(manageObject)
+        
+        try managedObjectContext.save()
+        */
         
         let manageObject =  dishes[indexPath.row]
         
@@ -393,18 +394,17 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         if segue.identifier == "editSegue" {
             
             let vc =  segue.destinationViewController as! EditViewController
-            
-//            let index =  self.tableView.indexPathForCell(sender as! UITableViewCell)
-            
-     
-                
-//                vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
-            
+
             let index =  self.tableView.indexPathForSelectedRow
 
             vc.dish = dishes[(index?.row)!]
   
             
+            //use nsfetchResultController
+            /*
+            let index =  self.tableView.indexPathForCell(sender as! UITableViewCell)
+            vc.dish =  fetchResultController.objectAtIndexPath(index!) as? Dish
+            */
             
         }
         

@@ -66,21 +66,12 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         // Dispose of any resources that can be recreated.
     }
     
-//    func loadData () {
-//        
-//        let fetchReqest =  NSFetchRequest(entityName: "Dish")
-//        
-//        try! dishes = managedObjectContext.executeFetchRequest(fetchReqest) as! [Dish]
-//    
-//        
-//    }
-    
-    
+ 
     func createNewItem(){
         
       
         
-          dish =  NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as? Dish
+        dish =  NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as? Dish
         
        dish!.setValue(self.dishNameTextField.text, forKey: "name")
         
