@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import SVProgressHUD
 
 
 
@@ -65,16 +65,31 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     }
     
 // add loadData with observer 
-  /*
+ 
     func loadDataWithKVO (){
+       SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+       
         
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+       
+        
+        
+        
         let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
             
-            self.dishes = result.finalResult as! [Dish]
             
+           
+            
+            self.dishes = result.finalResult as! [Dish]
+             // Remove Observer
+            result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
+            
+            //
+             SVProgressHUD.dismiss()
             self.tableView.reloadData()
+            
+            
         }
         
         self.managedObjectContext.performBlock { () -> Void in
@@ -89,10 +104,13 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             do {
                 
                 
-                 let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
-//
-//                result.progress(addObserver(self, forKeyPath: "completedUnitCount", options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>))
- }
+                let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+
+            
+                result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
+                
+  
+            }
             catch let error1 as NSError {
                 
                 asynchronousFetchRequestError = error1
@@ -104,16 +122,27 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             }
             
             
-            
+            progress.resignCurrent()
             
             
         }
     }
-    */
+   
+    
+    //Progress Reporting
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        let text = "\(change!["new"])"
+        SVProgressHUD.setStatus(text)
+    }
+    
     //-------
+    
+    
+    
     func loadData(){
         
-//    generateData()
+ 
         
       
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
@@ -158,12 +187,47 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     @IBAction func addButtonOnClick(sender: UIBarButtonItem) {
         
     }
+ 
+    //searchbar
     
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+//        let offset =  scrollView.contentOffset
+//        let move = offset.y + self.searchBar.frame.height
+//        if (move > -2*self.searchBar.frame.height && move < 3*self.searchBar.frame.height){
+//            UIView.animateWithDuration(0.1, delay: 0, options: [.CurveEaseInOut, .AllowUserInteraction] , animations: { () -> Void in
+//                
+//               var searchBarFrame = self.searchBar.frame
+//                
+//                searchBarFrame.origin.y = min(max(-move, -self.searchBar.frame.height), 0)
+//                
+//                self.searchBar.frame = searchBarFrame
+//           
+//                
+//                },
+//           completion: nil)
+//        }
+        
+ 
+    
+        
+        
+        
+    }
+
+
+    
+    func searchBarLoad(){
+//        self.searchBar = UISearchBar(frame: CGRectMake(0, 0, 320, self.searchBar.frame.height))
+        self.tableView.contentInset = UIEdgeInsetsMake(self.searchBar.frame.height, 0, 0, 0)
+        self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //       generateData()
-        
+       
+//        searchBarLoad()
         
         self.tableView.rowHeight = 60
 //        fetchResultController.delegate = self
@@ -186,8 +250,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
   
     
     override func viewDidAppear(animated: Bool) {
-       
-        loadData()
+//      SVProgressHUD.showWithStatus(" it's wokring ")
+         loadDataWithKVO()
+//        loadData()
         
         self.tableView.reloadData()
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5B2CE8D67991188FF27F30 /* Pods_ResteurantPos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */; };
 		6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC291C72523900208E47 /* AppDelegate.swift */; };
 		6506EC2F1C72523900208E47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6506EC2D1C72523900208E47 /* Main.storyboard */; };
 		6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC301C72523900208E47 /* ResteurantPos.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		462438A10CC5669272C50E51 /* Pods-ResteurantPos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.debug.xcconfig"; sourceTree = "<group>"; };
 		6506EC261C72523900208E47 /* ResteurantPos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResteurantPos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6506EC291C72523900208E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6506EC2E1C72523900208E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6506EC6E1C72912400208E47 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E5B2CE8D67991188FF27F30 /* Pods_ResteurantPos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CFA0DE9C894C0967D88F6A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6506EC1D1C72523900208E47 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +106,8 @@
 				6506EC401C72523900208E47 /* ResteurantPosTests */,
 				6506EC4B1C72523900208E47 /* ResteurantPosUITests */,
 				6506EC271C72523900208E47 /* Products */,
+				9734BDFD1F0E5128BEFA9AB5 /* Pods */,
+				3CFA0DE9C894C0967D88F6A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +162,15 @@
 			name = CoreDataModel;
 			sourceTree = "<group>";
 		};
+		9734BDFD1F0E5128BEFA9AB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				462438A10CC5669272C50E51 /* Pods-ResteurantPos.debug.xcconfig */,
+				D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6506EC511C72523900208E47 /* Build configuration list for PBXNativeTarget "ResteurantPos" */;
 			buildPhases = (
+				1D676B95A407630CF472F3D1 /* Check Pods Manifest.lock */,
 				6506EC221C72523900208E47 /* Sources */,
 				6506EC231C72523900208E47 /* Frameworks */,
 				6506EC241C72523900208E47 /* Resources */,
+				D6D17CBBF5AED2857D57F31E /* Embed Pods Frameworks */,
+				12CA1EE4CFC6FC1869D32FC7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,6 +299,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12CA1EE4CFC6FC1869D32FC7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D676B95A407630CF472F3D1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6D17CBBF5AED2857D57F31E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6506EC221C72523900208E47 /* Sources */ = {
@@ -423,6 +498,7 @@
 		};
 		6506EC521C72523900208E47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 462438A10CC5669272C50E51 /* Pods-ResteurantPos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ResteurantPos/Info.plist;
@@ -434,6 +510,7 @@
 		};
 		6506EC531C72523900208E47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ResteurantPos/Info.plist;
@@ -510,6 +587,7 @@
 				6506EC531C72523900208E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6506EC541C72523900208E47 /* Build configuration list for PBXNativeTarget "ResteurantPosTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +596,7 @@
 				6506EC561C72523900208E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6506EC571C72523900208E47 /* Build configuration list for PBXNativeTarget "ResteurantPosUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +605,7 @@
 				6506EC591C72523900208E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
