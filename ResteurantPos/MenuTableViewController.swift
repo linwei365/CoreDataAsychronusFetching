@@ -72,15 +72,10 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-       
-        
-        
         
         let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
             
-            
-           
-            
+    
             self.dishes = result.finalResult as! [Dish]
              // Remove Observer
             result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
@@ -88,8 +83,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
             //
              SVProgressHUD.dismiss()
             self.tableView.reloadData()
-            
-            
+    
         }
         
         self.managedObjectContext.performBlock { () -> Void in
@@ -132,12 +126,37 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     //Progress Reporting
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        let text = "\(change!["new"])"
+        let text = "fetching data count \(change!["new"]!)"
         SVProgressHUD.setStatus(text)
     }
     
-    //-------
+    //------- dumpy data
     
+    func populateDummyData (){
+      // Helpers
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        if ((userDefault.objectForKey("didPopulateDatabase")) != nil){
+            return}
+        for var index = 0 ; index < 1000000; index++ {
+            
+            print("index is \(index)")
+            let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish
+            dish.name = "delicious \(index)"
+            dish.price = 9.95
+            dish.dishDescription = "delicious meal \(index)"
+            let image = UIImage(named: "images")
+            dish.dishPhoto = UIImagePNGRepresentation(image!)
+            
+        }
+        
+     try! managedObjectContext.save()
+        userDefault.setBool(true, forKey: "didPopulateDatabase")
+        
+    }
+    
+ 
+    
+    //
     
     
     func loadData(){
@@ -192,22 +211,6 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-//        let offset =  scrollView.contentOffset
-//        let move = offset.y + self.searchBar.frame.height
-//        if (move > -2*self.searchBar.frame.height && move < 3*self.searchBar.frame.height){
-//            UIView.animateWithDuration(0.1, delay: 0, options: [.CurveEaseInOut, .AllowUserInteraction] , animations: { () -> Void in
-//                
-//               var searchBarFrame = self.searchBar.frame
-//                
-//                searchBarFrame.origin.y = min(max(-move, -self.searchBar.frame.height), 0)
-//                
-//                self.searchBar.frame = searchBarFrame
-//           
-//                
-//                },
-//           completion: nil)
-//        }
-        
  
     
         
@@ -223,9 +226,20 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
     }
     
+     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //       generateData()
+    
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            self.populateDummyData()
+            dispatch_async(dispatch_get_main_queue()) {
+                
+            }
+        }
        
 //        searchBarLoad()
         
