@@ -75,7 +75,18 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         
        dish!.setValue(self.dishNameTextField.text, forKey: "name")
         
-        dish!.price = Double(self.dishPriceTextField.text!)
+        if(Double(self.dishPriceTextField.text!) != nil ) {
+            dish!.price = Double(self.dishPriceTextField.text!)
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Alert", message: "\"Price\" must be a number" , preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
+            
+            presentViewController(alert, animated: true, completion: nil)
+            
+        }
        
         dish!.dishDescription = self.dishDescriptionTextField.text
         
@@ -106,7 +117,22 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
      
         
         dish!.setValue(self.dishNameTextField.text, forKey: "name")
-             dish!.price = Double(self.dishPriceTextField.text!)
+        
+        
+        if(Double(self.dishPriceTextField.text!) != nil ) {
+            dish!.price = Double(self.dishPriceTextField.text!)
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Alert", message: "\"Price\" must be a number", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
+            
+            presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        
+        
         dish!.dishDescription = self.dishDescriptionTextField.text
         
         
