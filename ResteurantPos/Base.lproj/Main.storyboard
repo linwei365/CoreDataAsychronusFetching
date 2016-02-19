@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Menu-->
+        <!--Menu Table View Controller-->
         <scene sceneID="D91-Sq-tsU">
             <objects>
                 <tableViewController id="wGc-AP-MTq" customClass="MenuTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
@@ -14,21 +14,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="n7Y-vc-ebO">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                            <connections>
-                                <outlet property="delegate" destination="wGc-AP-MTq" id="vCn-Hl-GFJ"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="6fc-f0-90m" detailTextLabel="jw1-K2-WzD" style="IBUITableViewCellStyleSubtitle" id="hsJ-A3-0ye">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hsJ-A3-0ye" id="Tiv-hK-SKI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -60,7 +48,7 @@
                             <outlet property="delegate" destination="wGc-AP-MTq" id="KfC-rj-MCb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Menu" id="I4w-Se-vsS">
+                    <navigationItem key="navigationItem" id="I4w-Se-vsS">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Ycr-kR-H8b">
                             <connections>
                                 <action selector="addButtonOnClick:" destination="wGc-AP-MTq" id="UzU-2Q-WiO"/>
@@ -68,9 +56,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="searchBar" destination="n7Y-vc-ebO" id="iRl-uF-zxj"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7m-k0-Lhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,8 +23,9 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     private var myProgressObserverContext = 0
  
     var searchText: String?
-    @IBOutlet weak var searchBar: UISearchBar!
+ 
     
+lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     var searchActive : Bool = false
     
     //search ---
@@ -214,12 +215,18 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         
     }
 
-  
+  //put searchBar in navigationBar
+    func loadSearchBar(){
+        
+        searchBar.placeholder = "Search Menu"
+//        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.titleView = searchBar
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    
+    loadSearchBar()
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
