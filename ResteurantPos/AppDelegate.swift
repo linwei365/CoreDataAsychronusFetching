@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefault = NSUserDefaults.standardUserDefaults()
         if ((userDefault.objectForKey("didPopulateDatabase")) != nil){
             return}
-        for var index = 0 ; index < 1000000; index++ {
+        for var index = 0 ; index < 30000; index++ {
             
             print("index is \(index)")
             let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish

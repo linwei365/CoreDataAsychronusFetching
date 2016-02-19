@@ -137,7 +137,7 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
         let userDefault = NSUserDefaults.standardUserDefaults()
         if ((userDefault.objectForKey("didPopulateDatabase")) != nil){
             return}
-        for var index = 0 ; index < 1000000; index++ {
+        for var index = 0 ; index < 30000; index++ {
             
             print("index is \(index)")
             let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish
@@ -230,12 +230,13 @@ class MenuTableViewController: UITableViewController, NSFetchedResultsController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//       generateData()
+
     
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
-            self.populateDummyData()
+           self.populateDummyData()
+            //       generateData()
             dispatch_async(dispatch_get_main_queue()) {
                 
             }
