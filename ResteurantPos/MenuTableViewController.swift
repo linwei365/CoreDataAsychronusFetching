@@ -65,62 +65,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         
     }
     
-// add loadData with observer  in use
+ 
  
     func loadDataWithKVO (){
-      
-        // cocaopods SVProgressHUD class method show indidicator with string
-        SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
-       
-        // fetchRequest
-        let fetchRequest =  NSFetchRequest(entityName: "Dish")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        //NSAsynchronousFetchRequest
-        let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
-            
-                    self.dishes = result.finalResult as! [Dish]
-                   //Remove Observer
-                    result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
-            
-                   //dismiss indicator
-                  SVProgressHUD.dismiss()
-                  self.tableView.reloadData()
-    
-        }
-        
-        //perform block
-        self.managedObjectContext.performBlock { () -> Void in
-       
-        //create NSProgress
-        let progress: NSProgress = NSProgress(totalUnitCount: 1)
-        
-        //become current
-        progress.becomeCurrentWithPendingUnitCount(1)
-            
-        // create NSError
-        var asynchronousFetchRequestError: NSError?
-            
-            do {
-                
-            //NSAsynchronousFetchResult
-            let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+        loadData()
 
-            //add observer
-            result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
-            }
-                
-            catch let error1 as NSError {
-                //catch error
-                asynchronousFetchRequestError = error1
-            }
-            
-            if asynchronousFetchRequestError != nil {
-               print("failed")
-            }
-            //resigin NSProgress
-            progress.resignCurrent()
-        }
     }
    
     
@@ -159,42 +109,61 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
  
     
-  // not in use
+  // 
     func loadData(){
         
- 
+        // cocaopods SVProgressHUD class method show indidicator with string
+        SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
         
-      
+        // fetchRequest
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-
+        
+        //NSAsynchronousFetchRequest
         let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
-       
-            self.dishes = result.finalResult as! [Dish]
             
+            self.dishes = result.finalResult as! [Dish]
+            //Remove Observer
+            result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
+            
+            //dismiss indicator
+            SVProgressHUD.dismiss()
             self.tableView.reloadData()
-         }
-        
-        
-        /*  to use NSFetchedResultsController
-        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-          try! fetchResultController.performFetch()
-        */
-       
-        var error :NSError?
-        do {
-         //executeFetchRequest not NSFetchedResultsController
-         // try dishes =   managedObjectContext.executeFetchRequest(fetchRequest) as! [Dish]
-         try    managedObjectContext.executeRequest(async)
-          
-        }
-      catch let error1 as NSError{
-         error =  error1
-        }
-        if error != nil {
-            print( "failed to load data")
+            
         }
         
+        //perform block
+        self.managedObjectContext.performBlock { () -> Void in
+            
+            //create NSProgress
+            let progress: NSProgress = NSProgress(totalUnitCount: 1)
+            
+            //become current
+            progress.becomeCurrentWithPendingUnitCount(1)
+            
+            // create NSError
+            var asynchronousFetchRequestError: NSError?
+            
+            do {
+                
+                //NSAsynchronousFetchResult
+                let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+                
+                //add observer
+                result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
+            }
+                
+            catch let error1 as NSError {
+                //catch error
+                asynchronousFetchRequestError = error1
+            }
+            
+            if asynchronousFetchRequestError != nil {
+                print("failed")
+            }
+            //resigin NSProgress
+            progress.resignCurrent()
+        }
          
     }
     
