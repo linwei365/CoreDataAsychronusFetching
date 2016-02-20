@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Dish" representedClassName=".Dish" syncable="YES">
+        <attribute name="dishPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="ingredient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Table" syncable="YES">
+        <attribute name="isBooth" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="numberOfCustomers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tableNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Ticket" syncable="YES">
+        <attribute name="grutuity" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="subTotal" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tax" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ticketNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dish" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Table" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Ticket" positionX="-36" positionY="27" width="128" height="120"/>
+    </elements>
+</model>
