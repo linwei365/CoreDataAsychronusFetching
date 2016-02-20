@@ -12,7 +12,7 @@ import SVProgressHUD
 
 
 
-class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,UISearchBarDelegate{
+class MenuTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,UISearchBarDelegate,EditViewControllerDelegate{
 //step 2 array stores managed object which here is the Dish
     var dishes = [Dish]()
     var filteredDish = [Dish]()
@@ -44,6 +44,8 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchActive = false;
     }
+    
+
     
 //testing generating data not in use
     func generateData(){
@@ -199,7 +201,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     }
     
- 
+    
+    //delegate
+    func onClickFetchData() {
+        loadData()
+        self.tableView.reloadData()
+    }
     
   //
     func loadData(){
@@ -300,10 +307,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
             // do some task
 //           self.populateDummyData()
             
-            //don't use this one
-            //       generateData()
+            self.loadData()
+            
+            
+     
             dispatch_async(dispatch_get_main_queue()) {
-                
+                       self.tableView.reloadData()
             }
         }
        
@@ -315,7 +324,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
        //fetchResultController.delegate = self
  
        
-         self.tableView.reloadData()
+//         self.tableView.reloadData()
     }
     
     
@@ -332,17 +341,23 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
      searchBar.text = ""
         
         self.tableView.reloadData()
+     
     }
   
     
+    
+    
     override func viewDidAppear(animated: Bool) {
+
  
-       
-        loadData()
-        //non asyna load fetch
-        //loadData()
         
-        self.tableView.reloadData()
+//        if (dishes.count > dishes.count){
+//        loadData()
+//        
+//        
+//            self.tableView.reloadData()
+//        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -485,12 +500,18 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        
+        let vc =  segue.destinationViewController as! EditViewController
+        
+            vc.delgate = self
+        
         if segue.identifier == "editSegue" {
             
-            let vc =  segue.destinationViewController as! EditViewController
+    
 
             let index =  self.tableView.indexPathForSelectedRow
-
+            
+        
             
             if (searchActive && searchBar.text != ""){
                 

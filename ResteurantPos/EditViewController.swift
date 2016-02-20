@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 
+protocol EditViewControllerDelegate {
+    
+    func onClickFetchData ()
+    
+}
+
 class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     var dish:Dish?
@@ -21,6 +27,8 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     
     @IBOutlet weak var dishImageView: UIImageView!
    
+    
+    var delgate:EditViewControllerDelegate?
     
     
     override func viewDidLoad() {
@@ -173,6 +181,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
             
             alert.addAction(action)
             
+            
             presentViewController(alert, animated: true, completion: nil)
             
         } else
@@ -185,9 +194,13 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
             
             createNewItem()
             }
+            
+              self.delgate?.onClickFetchData()
+            
             dissmissVC()
         }
         
+      
         
         
     }
