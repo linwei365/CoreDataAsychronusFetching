@@ -329,7 +329,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     override func viewWillAppear(animated: Bool) {
     
-//        searchBar.text = ""
+     searchBar.text = ""
         
         self.tableView.reloadData()
     }
@@ -337,8 +337,8 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     override func viewDidAppear(animated: Bool) {
  
-          loadDataWithKVO()
-        
+       
+        loadData()
         //non asyna load fetch
         //loadData()
         
