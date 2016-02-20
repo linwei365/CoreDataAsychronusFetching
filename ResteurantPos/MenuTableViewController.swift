@@ -85,10 +85,13 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
        self.searchText = searchText
-    
+     
             
-        loadDataFilter()
+            loadDataFilter()
         
+        
+        
+    
     }
     
     //Progress Reporting
@@ -133,15 +136,13 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     let fetchRequest =  NSFetchRequest(entityName: "Dish")
     
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-    
-    
-    if (self.searchText != nil)
+    if (self.searchText != nil) {
         
-    {
-//        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@",self.searchText!)
-        
-        fetchRequest.predicate = NSPredicate(format: "name LIKE[c]'\(self.searchText!)*'")
+          fetchRequest.predicate = NSPredicate(format: "name LIKE[c]'\(self.searchText!)*'")
     }
+    
+  
+ 
     
     //NSAsynchronousFetchRequest
     let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
@@ -203,6 +204,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
   //
     func loadData(){
         
+      
         
         // cocaopods SVProgressHUD class method show indidicator with string
         SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
@@ -290,7 +292,9 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
     loadSearchBar()
+    loadDataFilter()
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
@@ -325,7 +329,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     override func viewWillAppear(animated: Bool) {
     
-        searchBar.text = ""
+//        searchBar.text = ""
         
         self.tableView.reloadData()
     }
@@ -387,7 +391,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
          //use NSFetchedResultsController
         //dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
 
-        if (searchActive && searchBar.text != ""){
+        if (searchActive && searchBar.text != nil){
             
              dish = filteredDish[indexPath.row]
         }
