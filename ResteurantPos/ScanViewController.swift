@@ -9,12 +9,22 @@
 import UIKit
 import Foundation
 
+protocol ScanViewControllerDelegate{
+    
+    func scanText(text:String)
+}
+
 class ScanViewController: UIViewController,UITextViewDelegate,UINavigationControllerDelegate {
  //need to be modified
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var findTextField: UITextField!
     @IBOutlet weak var replaceTextField: UITextField!
     @IBOutlet weak var topMarginConstraint: NSLayoutConstraint!
+    
+    var scanText:String = ""
+    
+    var delegate: ScanViewControllerDelegate?
+    
     
     var activityIndicator:UIActivityIndicatorView!
     var originalTopMargin:CGFloat!
@@ -32,6 +42,20 @@ class ScanViewController: UIViewController,UITextViewDelegate,UINavigationContro
         originalTopMargin = topMarginConstraint.constant
     }
     
+    @IBAction func cancelOnClick(sender: UIBarButtonItem) {
+        
+        navigationController!.popViewControllerAnimated(true)        
+ 
+        
+        
+    }
+    
+    
+    @IBAction func saveOnClick(sender: UIBarButtonItem) {
+           delegate?.scanText(textView.text)
+        navigationController!.popViewControllerAnimated(true)  
+    }
+    
     @IBAction func takePhoto(sender: AnyObject) {
         
         // 1
@@ -39,6 +63,7 @@ class ScanViewController: UIViewController,UITextViewDelegate,UINavigationContro
         moveViewDown()
         
         // 2
+    
         let imagePickerActionSheet = UIAlertController(title: "Snap/Upload Photo",
             message: nil, preferredStyle: .ActionSheet)
         
@@ -188,6 +213,10 @@ class ScanViewController: UIViewController,UITextViewDelegate,UINavigationContro
         // 7
         textView.text = tesseract.recognizedText
         textView.editable = true
+        
+        
+        
+     
         
         // 8
         removeActivityIndicator()

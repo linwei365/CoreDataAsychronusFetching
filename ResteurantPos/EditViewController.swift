@@ -15,7 +15,7 @@ protocol EditViewControllerDelegate {
     
 }
 
-class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ScanViewControllerDelegate{
 
     var dish:Dish?
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -30,6 +30,10 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     
     var delgate:EditViewControllerDelegate?
     
+    func scanText(text: String) {
+        dishNameTextField.text = text
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -236,14 +240,20 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         
         navigationController?.popToRootViewControllerAnimated(true)
     }
-    /*
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let vc =  segue.destinationViewController as! ScanViewController
+        vc.delegate = self
+        
+      
+         
     }
-    */
+    
 
 }
