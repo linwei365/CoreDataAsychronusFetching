@@ -19,6 +19,11 @@
 		6506EC651C725E1800208E47 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC641C725E1800208E47 /* EditViewController.swift */; };
 		6506EC6F1C72912400208E47 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */; };
 		6506EC701C72912400208E47 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC6E1C72912400208E47 /* Dish.swift */; };
+		65B7316D1C7930840071D42C /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B7316C1C7930840071D42C /* TesseractOCR.framework */; };
+		65B7316F1C79308F0071D42C /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 65B7316E1C79308F0071D42C /* tessdata */; };
+		65B731711C7930AF0071D42C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B731701C7930AF0071D42C /* libstdc++.tbd */; };
+		65B731731C79310A0071D42C /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B731721C79310A0071D42C /* libstdc++.6.0.9.tbd */; };
+		65B731751C7931140071D42C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B731741C7931140071D42C /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,12 @@
 		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6506EC6E1C72912400208E47 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		65B7316C1C7930840071D42C /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		65B7316E1C79308F0071D42C /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		65B731701C7930AF0071D42C /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		65B731721C79310A0071D42C /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		65B731741C7931140071D42C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		65B731761C7935A70071D42C /* ResteurantPos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ResteurantPos-Bridging-Header.h"; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B731751C7931140071D42C /* CoreImage.framework in Frameworks */,
+				65B731731C79310A0071D42C /* libstdc++.6.0.9.tbd in Frameworks */,
+				65B731711C7930AF0071D42C /* libstdc++.tbd in Frameworks */,
+				65B7316D1C7930840071D42C /* TesseractOCR.framework in Frameworks */,
 				1E5B2CE8D67991188FF27F30 /* Pods_ResteurantPos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +107,9 @@
 		3CFA0DE9C894C0967D88F6A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65B731741C7931140071D42C /* CoreImage.framework */,
+				65B731721C79310A0071D42C /* libstdc++.6.0.9.tbd */,
+				65B731701C7930AF0071D42C /* libstdc++.tbd */,
 				77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */,
 			);
 			name = Frameworks;
@@ -100,6 +118,8 @@
 		6506EC1D1C72523900208E47 = {
 			isa = PBXGroup;
 			children = (
+				65B7316E1C79308F0071D42C /* tessdata */,
+				65B7316C1C7930840071D42C /* TesseractOCR.framework */,
 				6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */,
 				6506EC6E1C72912400208E47 /* Dish.swift */,
 				6506EC281C72523900208E47 /* ResteurantPos */,
@@ -108,6 +128,7 @@
 				6506EC271C72523900208E47 /* Products */,
 				9734BDFD1F0E5128BEFA9AB5 /* Pods */,
 				3CFA0DE9C894C0967D88F6A7 /* Frameworks */,
+				65B731761C7935A70071D42C /* ResteurantPos-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6506EC371C72523900208E47 /* LaunchScreen.storyboard in Resources */,
+				65B7316F1C79308F0071D42C /* tessdata in Resources */,
 				6506EC341C72523900208E47 /* Assets.xcassets in Resources */,
 				6506EC2F1C72523900208E47 /* Main.storyboard in Resources */,
 			);
@@ -433,6 +455,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -478,6 +501,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -501,10 +525,24 @@
 			baseConfigurationReference = 462438A10CC5669272C50E51 /* Pods-ResteurantPos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ResteurantPos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = company.ResteurantPos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResteurantPos-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -513,10 +551,23 @@
 			baseConfigurationReference = D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ResteurantPos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = company.ResteurantPos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResteurantPos-Bridging-Header.h";
 			};
 			name = Release;
 		};
