@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 class ScanViewController: UIViewController,UITextViewDelegate,UINavigationControllerDelegate {
-
+ //need to be modified
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var findTextField: UITextField!
     @IBOutlet weak var replaceTextField: UITextField!
