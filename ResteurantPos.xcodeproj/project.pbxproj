@@ -25,6 +25,8 @@
 		65B731731C79310A0071D42C /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B731721C79310A0071D42C /* libstdc++.6.0.9.tbd */; };
 		65B731751C7931140071D42C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B731741C7931140071D42C /* CoreImage.framework */; };
 		65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7317A1C7A0BD10071D42C /* ScanViewController.swift */; };
+		65B731831C7AE7D00071D42C /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B731821C7AE7D00071D42C /* KeyboardViewController.swift */; };
+		65B731871C7AE7D00071D42C /* CustomKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65B731801C7AE7D00071D42C /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,28 @@
 			remoteGlobalIDString = 6506EC251C72523900208E47;
 			remoteInfo = ResteurantPos;
 		};
+		65B731851C7AE7D00071D42C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6506EC1E1C72523900208E47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B7317F1C7AE7D00071D42C;
+			remoteInfo = CustomKeyboard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		65B7318B1C7AE7D00071D42C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				65B731871C7AE7D00071D42C /* CustomKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		462438A10CC5669272C50E51 /* Pods-ResteurantPos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +95,10 @@
 		65B731741C7931140071D42C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		65B731761C7935A70071D42C /* ResteurantPos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ResteurantPos-Bridging-Header.h"; sourceTree = "<group>"; };
 		65B7317A1C7A0BD10071D42C /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		65B731801C7AE7D00071D42C /* CustomKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CustomKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B731821C7AE7D00071D42C /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		65B731841C7AE7D00071D42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65B7318C1C7B5B2E0071D42C /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +130,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65B7317D1C7AE7D00071D42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -127,6 +161,7 @@
 				6506EC281C72523900208E47 /* ResteurantPos */,
 				6506EC401C72523900208E47 /* ResteurantPosTests */,
 				6506EC4B1C72523900208E47 /* ResteurantPosUITests */,
+				65B731811C7AE7D00071D42C /* CustomKeyboard */,
 				6506EC271C72523900208E47 /* Products */,
 				9734BDFD1F0E5128BEFA9AB5 /* Pods */,
 				3CFA0DE9C894C0967D88F6A7 /* Frameworks */,
@@ -140,6 +175,7 @@
 				6506EC261C72523900208E47 /* ResteurantPos.app */,
 				6506EC3D1C72523900208E47 /* ResteurantPosTests.xctest */,
 				6506EC481C72523900208E47 /* ResteurantPosUITests.xctest */,
+				65B731801C7AE7D00071D42C /* CustomKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +222,16 @@
 			name = CoreDataModel;
 			sourceTree = "<group>";
 		};
+		65B731811C7AE7D00071D42C /* CustomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				65B7318C1C7B5B2E0071D42C /* CustomKeyboard.entitlements */,
+				65B731821C7AE7D00071D42C /* KeyboardViewController.swift */,
+				65B731841C7AE7D00071D42C /* Info.plist */,
+			);
+			path = CustomKeyboard;
+			sourceTree = "<group>";
+		};
 		9734BDFD1F0E5128BEFA9AB5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,10 +254,12 @@
 				6506EC241C72523900208E47 /* Resources */,
 				D6D17CBBF5AED2857D57F31E /* Embed Pods Frameworks */,
 				12CA1EE4CFC6FC1869D32FC7 /* Copy Pods Resources */,
+				65B7318B1C7AE7D00071D42C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				65B731861C7AE7D00071D42C /* PBXTargetDependency */,
 			);
 			name = ResteurantPos;
 			productName = ResteurantPos;
@@ -254,6 +302,23 @@
 			productReference = 6506EC481C72523900208E47 /* ResteurantPosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		65B7317F1C7AE7D00071D42C /* CustomKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B7318A1C7AE7D00071D42C /* Build configuration list for PBXNativeTarget "CustomKeyboard" */;
+			buildPhases = (
+				65B7317C1C7AE7D00071D42C /* Sources */,
+				65B7317D1C7AE7D00071D42C /* Frameworks */,
+				65B7317E1C7AE7D00071D42C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomKeyboard;
+			productName = CustomKeyboard;
+			productReference = 65B731801C7AE7D00071D42C /* CustomKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +340,15 @@
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 6506EC251C72523900208E47;
 					};
+					65B7317F1C7AE7D00071D42C = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 775J78N5FZ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = 6506EC211C72523900208E47 /* Build configuration list for PBXProject "ResteurantPos" */;
@@ -293,6 +367,7 @@
 				6506EC251C72523900208E47 /* ResteurantPos */,
 				6506EC3C1C72523900208E47 /* ResteurantPosTests */,
 				6506EC471C72523900208E47 /* ResteurantPosUITests */,
+				65B7317F1C7AE7D00071D42C /* CustomKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -317,6 +392,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6506EC461C72523900208E47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B7317E1C7AE7D00071D42C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -404,6 +486,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65B7317C1C7AE7D00071D42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B731831C7AE7D00071D42C /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -416,6 +506,11 @@
 			isa = PBXTargetDependency;
 			target = 6506EC251C72523900208E47 /* ResteurantPos */;
 			targetProxy = 6506EC491C72523900208E47 /* PBXContainerItemProxy */;
+		};
+		65B731861C7AE7D00071D42C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B7317F1C7AE7D00071D42C /* CustomKeyboard */;
+			targetProxy = 65B731851C7AE7D00071D42C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -531,6 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -557,6 +653,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -623,6 +720,36 @@
 			};
 			name = Release;
 		};
+		65B731881C7AE7D00071D42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CustomKeyboard/CustomKeyboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CustomKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = company.ResteurantPos.CustomKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		65B731891C7AE7D00071D42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CustomKeyboard/CustomKeyboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CustomKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = company.ResteurantPos.CustomKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +788,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		65B7318A1C7AE7D00071D42C /* Build configuration list for PBXNativeTarget "CustomKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B731881C7AE7D00071D42C /* Debug */,
+				65B731891C7AE7D00071D42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
