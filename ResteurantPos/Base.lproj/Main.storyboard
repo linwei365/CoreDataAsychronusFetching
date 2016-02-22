@@ -64,7 +64,7 @@
         <!--Add/Edit-->
         <scene sceneID="vev-Ed-HgC">
             <objects>
-                <viewController id="D8J-UK-kx4" customClass="EditViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addEdit" id="D8J-UK-kx4" customClass="EditViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gnq-oQ-Wg6"/>
                         <viewControllerLayoutGuide type="bottom" id="yvV-sa-9od"/>
@@ -179,7 +179,7 @@
         <!--Title-->
         <scene sceneID="xKp-0C-Sw0">
             <objects>
-                <viewController id="kUr-z5-HhK" customClass="ScanViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanView" id="kUr-z5-HhK" customClass="ScanViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2cG-ca-NXm"/>
                         <viewControllerLayoutGuide type="bottom" id="BGl-xB-YFx"/>
@@ -188,8 +188,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap/upload a clear picture of your poem then edit below. Tap outside of the text box once your sweet nothings are complete." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGF-ej-LUC">
-                                <rect key="frame" x="181" y="64" width="237" height="114"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap/upload a clear picture of your Item then edit below. Tap outside of the text box once your sweet nothings are complete." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGF-ej-LUC">
+                                <rect key="frame" x="181.5" y="64" width="237" height="114"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="114" id="8i4-IS-Cb1"/>
                                     <constraint firstAttribute="width" constant="237" id="hO1-0B-3iD"/>

@@ -37,6 +37,24 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 310.0, 44.0))
+        
+        toolBar.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.64, alpha: 1)
+        
+        
+        
+  
+        toolBar.translucent = false;
+        toolBar.items = [UIBarButtonItem(title: "Scan", style: .Done, target: self, action: "scanOnClick"), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)]
+        
+        
+     
+        // some more items could be added
+        
+        self.dishNameTextField.inputAccessoryView = toolBar;
 
         // Do any additional setup after loading the view.
         
@@ -51,6 +69,16 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         }
         
     }
+    
+    func scanOnClick(){
+//        
+//      let vc = UIStoryboardSegue.init(identifier: "home", source: EditViewController, destination: ScanViewController)
+//        
+//        self.performSegueWithIdentifier("home" , sender: self)
+//        
+        print("click")
+    }
+    
    
     //testing generating data
     func generateData(){
