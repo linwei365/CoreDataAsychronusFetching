@@ -15,8 +15,8 @@ protocol EditViewControllerDelegate {
     
 }
 
-class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ScanViewControllerDelegate{
-
+class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ScanViewControllerDelegate,UITextFieldDelegate{
+    var text:String = ""
     var dish:Dish?
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -29,14 +29,64 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
    
     
     var delgate:EditViewControllerDelegate?
-    
+   //this is my delegate method
     func scanText(text: String) {
-        dishNameTextField.text = text
+        
+        self.text = text
         
     }
     
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if  ( dishNameTextField.isFirstResponder()){
+            
+            if text != "" {
+            
+                dishNameTextField.text = text }
+         
+            
+ 
+        }
+        else if  ( dishPriceTextField.editing){
+            
+             if text != "" {
+            dishPriceTextField.text = text
+            }
+        }
+        else   if  ( dishDescriptionTextField.editing){
+            if text != "" {
+           
+                dishDescriptionTextField.text = text
+            }
+        }
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 310.0, 44.0))
+        
+        toolBar.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.64, alpha: 1)
+        
+        
+        
+ 
+        toolBar.translucent = false;
+        toolBar.items = [UIBarButtonItem(title: "Scan", style: .Done, target: self, action: "scanOnClick"), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)]
+        
+        
+     
+        // some more items could be added
+        
+        self.dishNameTextField.inputAccessoryView = toolBar
+        self.dishPriceTextField.inputAccessoryView = toolBar
+        self.dishDescriptionTextField.inputAccessoryView = toolBar
 
         // Do any additional setup after loading the view.
         
@@ -44,13 +94,23 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         if dish != nil {
             
             dishNameTextField.text =  dish?.name
-            dishPriceTextField.text =     "\(Double(dish!.price!))"
+            dishPriceTextField.text =  "\(round(Double(dish!.price!) * 100) / 100)"
             dishDescriptionTextField.text = dish?.dishDescription
             dishImageView.image = UIImage(data: (dish?.dishPhoto)!)
             
         }
         
     }
+    
+    func scanOnClick(){
+//        
+//      let vc = UIStoryboardSegue.init(identifier: "home", source: EditViewController, destination: ScanViewController)
+//        
+         self.performSegueWithIdentifier("scan" , sender: self)
+//        
+        print("click")
+    }
+    
    
     //testing generating data
     func generateData(){
@@ -92,7 +152,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         }
         else
         {
-            let alert = UIAlertController(title: "Alert", message: "\"Price\" must be a number" , preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Alert", message: "\"Second text field\" must be a valid number" , preferredStyle: .Alert)
             
             alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
             
