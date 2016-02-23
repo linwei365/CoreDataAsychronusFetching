@@ -29,7 +29,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
    
     
     var delgate:EditViewControllerDelegate?
-    
+   //this is my delegate method
     func scanText(text: String) {
         
         self.text = text
@@ -39,14 +39,26 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        if  ( dishNameTextField.editing){
-            dishNameTextField.text = text
+        if  ( dishNameTextField.isFirstResponder()){
+            
+            if text != "" {
+            
+                dishNameTextField.text = text }
+         
+            
+ 
         }
         else if  ( dishPriceTextField.editing){
+            
+             if text != "" {
             dishPriceTextField.text = text
+            }
         }
         else   if  ( dishDescriptionTextField.editing){
-            dishDescriptionTextField.text = text
+            if text != "" {
+           
+                dishDescriptionTextField.text = text
+            }
         }
         
         
@@ -140,7 +152,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         }
         else
         {
-            let alert = UIAlertController(title: "Alert", message: "\"Price\" must be a number" , preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Alert", message: "\"Second text field\" must be a valid number" , preferredStyle: .Alert)
             
             alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
             
