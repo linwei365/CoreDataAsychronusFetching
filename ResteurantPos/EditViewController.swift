@@ -15,8 +15,8 @@ protocol EditViewControllerDelegate {
     
 }
 
-class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ScanViewControllerDelegate{
-
+class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ScanViewControllerDelegate,UITextFieldDelegate{
+    var text:String = ""
     var dish:Dish?
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -31,9 +31,27 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     var delgate:EditViewControllerDelegate?
     
     func scanText(text: String) {
-        dishNameTextField.text = text
+        
+        self.text = text
         
     }
+    
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if  ( dishNameTextField.editing){
+            dishNameTextField.text = text
+        }
+        else if  ( dishPriceTextField.editing){
+            dishPriceTextField.text = text
+        }
+        else   if  ( dishDescriptionTextField.editing){
+            dishDescriptionTextField.text = text
+        }
+        
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +72,9 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
      
         // some more items could be added
         
-        self.dishNameTextField.inputAccessoryView = toolBar;
+        self.dishNameTextField.inputAccessoryView = toolBar
+        self.dishPriceTextField.inputAccessoryView = toolBar
+        self.dishDescriptionTextField.inputAccessoryView = toolBar
 
         // Do any additional setup after loading the view.
         
@@ -74,7 +94,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
 //        
 //      let vc = UIStoryboardSegue.init(identifier: "home", source: EditViewController, destination: ScanViewController)
 //        
-//        self.performSegueWithIdentifier("home" , sender: self)
+         self.performSegueWithIdentifier("scan" , sender: self)
 //        
         print("click")
     }

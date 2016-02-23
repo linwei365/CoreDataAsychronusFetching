@@ -79,18 +79,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-bT-sTE">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dish Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-Rd-Qsz">
-                                                <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dish Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-Rd-Qsz">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk7-Ea-l2m">
-                                                <rect key="frame" x="285" y="0.0" width="275" height="30"/>
-                                                <state key="normal" title="scan"/>
                                                 <connections>
-                                                    <segue destination="kUr-z5-HhK" kind="show" id="y1G-Ev-6hw"/>
+                                                    <outlet property="delegate" destination="D8J-UK-kx4" id="MTF-va-Fs5"/>
                                                 </connections>
-                                            </button>
+                                            </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f8n-h0-PNd">
@@ -100,6 +96,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="D8J-UK-kx4" id="YBY-O0-dkw"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -110,6 +109,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="D8J-UK-kx4" id="YsS-4L-jWM"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -170,6 +172,7 @@
                         <outlet property="dishImageView" destination="Jcf-b9-rlb" id="aZl-SA-bo3"/>
                         <outlet property="dishNameTextField" destination="Om9-Rd-Qsz" id="eQr-70-pV9"/>
                         <outlet property="dishPriceTextField" destination="4of-d5-atc" id="rd9-rO-6gi"/>
+                        <segue destination="kUr-z5-HhK" kind="show" identifier="scan" id="jHR-Eu-NTG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogh-66-MC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +234,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="JN2-fi-BoB">
-                        <barButtonItem key="leftBarButtonItem" title="cancel" id="XcQ-xb-EFQ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="XcQ-xb-EFQ">
                             <connections>
                                 <action selector="cancelOnClick:" destination="kUr-z5-HhK" id="RTr-Xy-P9x"/>
                             </connections>
