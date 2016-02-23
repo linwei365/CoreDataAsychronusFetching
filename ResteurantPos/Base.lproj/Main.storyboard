@@ -179,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="2178" y="-71"/>
         </scene>
-        <!--Title-->
+        <!--Scan Text-->
         <scene sceneID="xKp-0C-Sw0">
             <objects>
                 <viewController storyboardIdentifier="scanView" id="kUr-z5-HhK" customClass="ScanViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
@@ -233,7 +233,7 @@
                             <constraint firstItem="vgu-Qw-ncN" firstAttribute="centerX" secondItem="mGF-ej-LUC" secondAttribute="centerX" id="yMt-YZ-D72"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="JN2-fi-BoB">
+                    <navigationItem key="navigationItem" title="Scan Text" id="JN2-fi-BoB">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="XcQ-xb-EFQ">
                             <connections>
                                 <action selector="cancelOnClick:" destination="kUr-z5-HhK" id="RTr-Xy-P9x"/>

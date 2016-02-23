@@ -414,7 +414,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         }
         
         
-        cell.textLabel?.text = dish.name! + "     $" + "\(Double(dish.price!))"
+        cell.textLabel?.text = dish.name! + "     $" + "\(round(Double(dish.price!) * 100) / 100)"
         cell.detailTextLabel?.text = dish.dishDescription!
     
         cell.imageView?.image = UIImage (data: (dish.dishPhoto)!)

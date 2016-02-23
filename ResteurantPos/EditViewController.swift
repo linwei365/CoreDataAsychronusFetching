@@ -76,7 +76,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         
         
         
-  
+ 
         toolBar.translucent = false;
         toolBar.items = [UIBarButtonItem(title: "Scan", style: .Done, target: self, action: "scanOnClick"), UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)]
         
@@ -94,7 +94,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         if dish != nil {
             
             dishNameTextField.text =  dish?.name
-            dishPriceTextField.text =     "\(Double(dish!.price!))"
+            dishPriceTextField.text =  "\(round(Double(dish!.price!) * 100) / 100)"
             dishDescriptionTextField.text = dish?.dishDescription
             dishImageView.image = UIImage(data: (dish?.dishPhoto)!)
             
