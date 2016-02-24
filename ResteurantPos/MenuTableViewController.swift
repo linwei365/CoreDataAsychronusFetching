@@ -132,7 +132,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     
     // cocaopods SVProgressHUD class method show indidicator with string
-    SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+//    SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
     
     // fetchRequest
     let fetchRequest =  NSFetchRequest(entityName: "Dish")
@@ -154,7 +154,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
         
         //dismiss indicator
-        SVProgressHUD.dismiss()
+//        SVProgressHUD.dismiss()
         self.tableView.reloadData()
         
     }
@@ -299,6 +299,14 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+       self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
+        
+        //------
         
     loadSearchBar()
     loadDataFilter()
@@ -476,6 +484,15 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         */
     }
    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        
+        
+        
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        
+        return indexPath
+    }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -492,6 +509,13 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     }
     */
 
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        
+        
+    }
+    
     
     // MARK: - Navigation
 
@@ -499,6 +523,8 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+ 
         
         
         let vc =  segue.destinationViewController as! EditViewController
