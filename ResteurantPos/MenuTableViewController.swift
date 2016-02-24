@@ -284,7 +284,35 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     }
     
+    var onOff = false
  
+    @IBAction func selectOnClick(sender: UIBarButtonItem) {
+        
+        
+        
+        
+        if(onOff != true)
+        {
+            
+                    self.tableView.editing = true;
+            
+                    onOff = true
+            
+            // switch is on
+        }
+        else if (onOff == true)
+        
+        {
+            self.tableView.editing = false;
+            onOff = false
+            // switch is off
+        }
+        
+
+    
+        
+        
+    }
  
 
   //put searchBar in navigationBar
@@ -303,7 +331,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-       self.navigationItem.leftBarButtonItem = self.editButtonItem()
+       //self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         
         //------
@@ -474,24 +502,39 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         self.tableView.reloadData()
 
       
-        /*
-        if editingStyle == .Delete {
-        // Delete the row from the data source
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-        */
-    }
+//        if editingStyle == .Delete {
+//        // Delete the row from the data source
+//        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        } else if editingStyle == .Insert {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
    
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        
-        
-        
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        
-        return indexPath
     }
+    
+    
+    
+  
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        
+         return UITableViewCellEditingStyle(rawValue: 3)!
+        
+//        return .None
+    }
+    
+//    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+//        
+//        return .Delete
+//    }
+   
+//    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        
+//        
+//        
+//        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+//        
+//        return indexPath
+//    }
     
 
     /*
@@ -509,12 +552,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     }
     */
 
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        
-        
-    }
+//    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+//        
+//        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+//        
+//        
+//    }
     
     
     // MARK: - Navigation
@@ -562,6 +605,17 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         }
         
         
+        
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        
+        if( self.tableView.editing) {     
+            return false
+        
+        }
+        
+     return true
         
     }
     

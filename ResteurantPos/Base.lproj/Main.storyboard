@@ -49,6 +49,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="I4w-Se-vsS">
+                        <barButtonItem key="leftBarButtonItem" title="Select" id="X1U-EP-YdX">
+                            <connections>
+                                <action selector="selectOnClick:" destination="wGc-AP-MTq" id="7g9-BG-BzH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Ycr-kR-H8b">
                             <connections>
                                 <action selector="addButtonOnClick:" destination="wGc-AP-MTq" id="UzU-2Q-WiO"/>
@@ -79,7 +84,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-bT-sTE">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dish Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-Rd-Qsz">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dish Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-Rd-Qsz">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -177,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogh-66-MC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="-71"/>
+            <point key="canvasLocation" x="2272" y="-71"/>
         </scene>
         <!--Scan Text-->
         <scene sceneID="xKp-0C-Sw0">
