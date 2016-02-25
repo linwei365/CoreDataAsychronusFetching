@@ -17,8 +17,12 @@
 		6506EC4D1C72523900208E47 /* ResteurantPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC4C1C72523900208E47 /* ResteurantPosUITests.swift */; };
 		6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */; };
 		6506EC651C725E1800208E47 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC641C725E1800208E47 /* EditViewController.swift */; };
-		6506EC6F1C72912400208E47 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */; };
-		6506EC701C72912400208E47 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC6E1C72912400208E47 /* Dish.swift */; };
+		655B590A1C7E7B2700D3D72A /* CheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59091C7E7B2700D3D72A /* CheckTableViewController.swift */; };
+		655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */; };
+		655B59181C7E7C9600D3D72A /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59141C7E7C9600D3D72A /* Dish.swift */; };
+		655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */; };
+		655B591A1C7E7C9600D3D72A /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59161C7E7C9600D3D72A /* Ticket.swift */; };
+		655B591C1C7E865500D3D72A /* DetailedCheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B591B1C7E865500D3D72A /* DetailedCheckTableViewController.swift */; };
 		65B7316D1C7930840071D42C /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B7316C1C7930840071D42C /* TesseractOCR.framework */; };
 		65B7316F1C79308F0071D42C /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 65B7316E1C79308F0071D42C /* tessdata */; };
 		65B731711C7930AF0071D42C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B731701C7930AF0071D42C /* libstdc++.tbd */; };
@@ -86,8 +90,12 @@
 		6506EC641C725E1800208E47 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 2.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
-		6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6506EC6E1C72912400208E47 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		655B59091C7E7B2700D3D72A /* CheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewController.swift; sourceTree = "<group>"; };
+		655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		655B59141C7E7C9600D3D72A /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		655B59161C7E7C9600D3D72A /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		655B591B1C7E865500D3D72A /* DetailedCheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedCheckTableViewController.swift; sourceTree = "<group>"; };
 		65B7316C1C7930840071D42C /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		65B7316E1C79308F0071D42C /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		65B731701C7930AF0071D42C /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -156,8 +164,6 @@
 			children = (
 				65B7316E1C79308F0071D42C /* tessdata */,
 				65B7316C1C7930840071D42C /* TesseractOCR.framework */,
-				6506EC6D1C72912400208E47 /* Dish+CoreDataProperties.swift */,
-				6506EC6E1C72912400208E47 /* Dish.swift */,
 				6506EC281C72523900208E47 /* ResteurantPos */,
 				6506EC401C72523900208E47 /* ResteurantPosTests */,
 				6506EC4B1C72523900208E47 /* ResteurantPosUITests */,
@@ -183,9 +189,15 @@
 		6506EC281C72523900208E47 /* ResteurantPos */ = {
 			isa = PBXGroup;
 			children = (
+				655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */,
+				655B59141C7E7C9600D3D72A /* Dish.swift */,
+				655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */,
+				655B59161C7E7C9600D3D72A /* Ticket.swift */,
 				6506EC6B1C7271C500208E47 /* CoreDataModel */,
 				6506EC291C72523900208E47 /* AppDelegate.swift */,
 				6506EC2D1C72523900208E47 /* Main.storyboard */,
+				655B59091C7E7B2700D3D72A /* CheckTableViewController.swift */,
+				655B591B1C7E865500D3D72A /* DetailedCheckTableViewController.swift */,
 				65B7317A1C7A0BD10071D42C /* ScanViewController.swift */,
 				6506EC641C725E1800208E47 /* EditViewController.swift */,
 				6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */,
@@ -460,12 +472,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */,
 				6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */,
 				65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
-				6506EC6F1C72912400208E47 /* Dish+CoreDataProperties.swift in Sources */,
-				6506EC701C72912400208E47 /* Dish.swift in Sources */,
+				655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
+				655B59181C7E7C9600D3D72A /* Dish.swift in Sources */,
+				655B591A1C7E7C9600D3D72A /* Ticket.swift in Sources */,
+				655B591C1C7E865500D3D72A /* DetailedCheckTableViewController.swift in Sources */,
+				655B590A1C7E7B2700D3D72A /* CheckTableViewController.swift in Sources */,
 				6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

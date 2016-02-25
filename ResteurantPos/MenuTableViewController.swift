@@ -297,14 +297,19 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
                     self.tableView.editing = true;
             
                     onOff = true
+            sender.title = "Send"
+            
             
             // switch is on
         }
         else if (onOff == true)
         
-        {
+        {   sender.title = "Select"
             self.tableView.editing = false;
             onOff = false
+            
+            performSegueWithIdentifier("check", sender: self)
+            
             // switch is off
         }
         
@@ -568,16 +573,23 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         // Pass the selected object to the new view controller.
         
  
+      
         
         
-        let vc =  segue.destinationViewController as! EditViewController
         
-            vc.delgate = self
-        
-        if segue.identifier == "editSegue" {
+        if segue.identifier == "check" {
             
-    
-
+            let vcb = segue.destinationViewController as! CheckTableViewController
+            
+            
+        }
+        
+        else if segue.identifier == "editSegue" {
+            
+            let vc =  segue.destinationViewController as! EditViewController
+            
+            vc.delgate = self
+            
             let index =  self.tableView.indexPathForSelectedRow
             
         
@@ -588,9 +600,9 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
             }
             
           
-            else {
+            else  {
             
-            
+           
             vc.dish = dishes[(index?.row)!]
   
             }
