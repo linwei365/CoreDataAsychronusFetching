@@ -284,7 +284,40 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     }
     
+    var onOff = false
  
+    @IBAction func selectOnClick(sender: UIBarButtonItem) {
+        
+        
+        
+        
+        if(onOff != true)
+        {
+            
+                    self.tableView.editing = true;
+            
+                    onOff = true
+            sender.title = "Send"
+            
+            
+            // switch is on
+        }
+        else if (onOff == true)
+        
+        {   sender.title = "Select"
+            self.tableView.editing = false;
+            onOff = false
+            
+            performSegueWithIdentifier("check", sender: self)
+            
+            // switch is off
+        }
+        
+
+    
+        
+        
+    }
  
 
   //put searchBar in navigationBar
@@ -303,7 +336,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-       self.navigationItem.leftBarButtonItem = self.editButtonItem()
+       //self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         
         //------
@@ -474,24 +507,39 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         self.tableView.reloadData()
 
       
-        /*
-        if editingStyle == .Delete {
-        // Delete the row from the data source
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-        */
-    }
+//        if editingStyle == .Delete {
+//        // Delete the row from the data source
+//        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        } else if editingStyle == .Insert {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
    
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        
-        
-        
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        
-        return indexPath
     }
+    
+    
+    
+  
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        
+         return UITableViewCellEditingStyle(rawValue: 3)!
+        
+//        return .None
+    }
+    
+//    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+//        
+//        return .Delete
+//    }
+   
+//    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        
+//        
+//        
+//        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+//        
+//        return indexPath
+//    }
     
 
     /*
@@ -509,12 +557,12 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     }
     */
 
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        
-        
-    }
+//    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+//        
+//        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+//        
+//        
+//    }
     
     
     // MARK: - Navigation
@@ -525,16 +573,23 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         // Pass the selected object to the new view controller.
         
  
+      
         
         
-        let vc =  segue.destinationViewController as! EditViewController
         
-            vc.delgate = self
-        
-        if segue.identifier == "editSegue" {
+        if segue.identifier == "check" {
             
-    
-
+            let vcb = segue.destinationViewController as! CheckTableViewController
+            
+            
+        }
+        
+        else if segue.identifier == "editSegue" {
+            
+            let vc =  segue.destinationViewController as! EditViewController
+            
+            vc.delgate = self
+            
             let index =  self.tableView.indexPathForSelectedRow
             
         
@@ -545,9 +600,9 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
             }
             
           
-            else {
+            else  {
             
-            
+           
             vc.dish = dishes[(index?.row)!]
   
             }
@@ -562,6 +617,17 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         }
         
         
+        
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        
+        if( self.tableView.editing) {     
+            return false
+        
+        }
+        
+     return true
         
     }
     

@@ -52,6 +52,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
             
              if text != "" {
             dishPriceTextField.text = text
+                
             }
         }
         else   if  ( dishDescriptionTextField.editing){
