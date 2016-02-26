@@ -2,7 +2,7 @@
 //  CheckTableViewController.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 2/24/16.
+//  Created by Lin Wei on 2/25/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 
@@ -37,15 +37,15 @@ class CheckTableViewController: UITableViewController {
         return 0
     }
 
-   
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellB", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("checkCell", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-
+    
 
     /*
     // Override to support conditional editing of the table view.
