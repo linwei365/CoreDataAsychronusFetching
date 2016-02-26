@@ -31,6 +31,7 @@
 		65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7317A1C7A0BD10071D42C /* ScanViewController.swift */; };
 		65B731831C7AE7D00071D42C /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B731821C7AE7D00071D42C /* KeyboardViewController.swift */; };
 		65B731871C7AE7D00071D42C /* CustomKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65B731801C7AE7D00071D42C /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		65B731821C7AE7D00071D42C /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		65B731841C7AE7D00071D42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B7318C1C7B5B2E0071D42C /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
+		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				6506EC291C72523900208E47 /* AppDelegate.swift */,
 				6506EC2D1C72523900208E47 /* Main.storyboard */,
 				655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */,
+				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
 				65B7317A1C7A0BD10071D42C /* ScanViewController.swift */,
 				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
 				6506EC641C725E1800208E47 /* EditViewController.swift */,
@@ -476,6 +479,7 @@
 				6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */,
 				65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */,
 				655B59201C7FF97100D3D72A /* CheckTableViewController.swift in Sources */,
+				65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */,
 				655B591E1C7FF95B00D3D72A /* DiningTableTableViewController.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */,
