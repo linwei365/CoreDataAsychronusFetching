@@ -198,7 +198,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="User Settings" id="ArB-VJ-yxp">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Ns5-9X-4UO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Ns5-9X-4UO">
+                            <connections>
+                                <action selector="logOutOnClick:" destination="ib2-Lb-aLM" id="cwJ-JF-cJK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Users" id="cOh-tT-fL9"/>
                     </navigationItem>
                 </viewController>

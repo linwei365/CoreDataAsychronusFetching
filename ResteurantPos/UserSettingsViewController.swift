@@ -31,6 +31,11 @@ class UserSettingsViewController: UIViewController {
         printerPicker.presentAnimated(true, completionHandler: nil)
     }
 
+    @IBAction func logOutOnClick(sender: UIBarButtonItem) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 
