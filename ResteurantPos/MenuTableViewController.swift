@@ -130,9 +130,13 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     //load from filter
    func loadDataFilter(){
     
-    
+ 
     // cocaopods SVProgressHUD class method show indidicator with string
-//    SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+   /*
+    dispatch_async(dispatch_get_main_queue(), {
+        SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+    })
+   */
     
     // fetchRequest
     let fetchRequest =  NSFetchRequest(entityName: "Dish")
@@ -214,7 +218,14 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
       
         
         // cocaopods SVProgressHUD class method show indidicator with string
-        SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+        dispatch_async(dispatch_get_main_queue(), {
+            // code here
+            
+            
+             SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+        })
+        
+       
         
         // fetchRequest
         let fetchRequest =  NSFetchRequest(entityName: "Dish")
@@ -579,7 +590,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         
         if segue.identifier == "check" {
             
-            let vcb = segue.destinationViewController as! CheckTableViewController
+            let vcb = segue.destinationViewController as! DiningTableTableViewController
             
             
         }
