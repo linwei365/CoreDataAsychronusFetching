@@ -58,6 +58,12 @@ class EmployeeTableViewController: UITableViewController {
         
         let addAction =  UIAlertAction(title: "add", style: UIAlertActionStyle.Default) { (action:UIAlertAction) -> Void in
             
+                    let fetchRequest = NSFetchRequest(entityName: "Employee")
+           
+            
+ 
+ 
+            
             
             let firstName = alert.textFields![0]
             let lastName = alert.textFields![1]
@@ -76,8 +82,33 @@ class EmployeeTableViewController: UITableViewController {
                 
             }
             else {
+                 fetchRequest.predicate = NSPredicate(format: "employeePinNumber contains[c] %@", pinNumber.text!)
                 
-                self.saveText(firstName.text!, lastName: lastName.text!, pinNumber: pinNumber.text!)
+         
+                
+                let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequest)
+                
+                if results?.count == 0
+                {
+                     self.saveText(firstName.text!, lastName: lastName.text!, pinNumber: pinNumber.text!)
+                }
+               
+                else
+                {
+                    
+                    let alertController =  UIAlertController(title: "Error", message: "that pin is already taken please use a different Pin", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    
+                    print("Error:")
+                    
+                }
+
+                
+                
+      
             }
             
         }
@@ -101,8 +132,11 @@ class EmployeeTableViewController: UITableViewController {
             
         }
         alert.addTextFieldWithConfigurationHandler { (courseTitle:UITextField) -> Void in
+           
+           
             
             courseTitle.placeholder = "Pin Number"
+            
             
             
         }
@@ -117,7 +151,7 @@ class EmployeeTableViewController: UITableViewController {
         
     }
     
-    
+    //load data
     func loadData () {
         let fetchRequest = NSFetchRequest(entityName: "Employee")
 
