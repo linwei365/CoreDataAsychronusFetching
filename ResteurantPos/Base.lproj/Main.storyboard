@@ -819,8 +819,8 @@
         <image name="images" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mCc-zN-tM6"/>
         <segue reference="giW-8N-4QL"/>
+        <segue reference="mCc-zN-tM6"/>
         <segue reference="Yks-do-bBX"/>
     </inferredMetricsTieBreakers>
 </document>
