@@ -17,7 +17,6 @@
 		6506EC4D1C72523900208E47 /* ResteurantPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC4C1C72523900208E47 /* ResteurantPosUITests.swift */; };
 		6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */; };
 		6506EC651C725E1800208E47 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC641C725E1800208E47 /* EditViewController.swift */; };
-		6551C92F1C86CEA000B6F325 /* OrderMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551C92E1C86CEA000B6F325 /* OrderMenuTableViewController.swift */; };
 		655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */; };
 		655B59181C7E7C9600D3D72A /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59141C7E7C9600D3D72A /* Dish.swift */; };
 		655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */; };
@@ -93,7 +92,6 @@
 		6506EC641C725E1800208E47 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 2.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
-		6551C92E1C86CEA000B6F325 /* OrderMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewController.swift; sourceTree = "<group>"; };
 		655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655B59141C7E7C9600D3D72A /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -195,25 +193,10 @@
 		6506EC281C72523900208E47 /* ResteurantPos */ = {
 			isa = PBXGroup;
 			children = (
-				655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */,
-				655B59141C7E7C9600D3D72A /* Dish.swift */,
-				655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */,
-				655B59161C7E7C9600D3D72A /* Ticket.swift */,
-				6506EC6B1C7271C500208E47 /* CoreDataModel */,
-				6506EC291C72523900208E47 /* AppDelegate.swift */,
-				6506EC2D1C72523900208E47 /* Main.storyboard */,
-				6551C92E1C86CEA000B6F325 /* OrderMenuTableViewController.swift */,
-				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
-				655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */,
-				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
-				65B7317A1C7A0BD10071D42C /* ScanViewController.swift */,
-				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
-				6506EC641C725E1800208E47 /* EditViewController.swift */,
-				6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */,
-				6506EC331C72523900208E47 /* Assets.xcassets */,
-				6506EC351C72523900208E47 /* LaunchScreen.storyboard */,
-				6506EC381C72523900208E47 /* Info.plist */,
-				6506EC301C72523900208E47 /* ResteurantPos.xcdatamodeld */,
+				6506EC6B1C7271C500208E47 /* Model */,
+				6545D8851C876937004B5D5B /* View */,
+				6545D8841C8768FA004B5D5B /* Controller */,
+				6545D8861C876977004B5D5B /* Support */,
 			);
 			path = ResteurantPos;
 			sourceTree = "<group>";
@@ -236,11 +219,73 @@
 			path = ResteurantPosUITests;
 			sourceTree = "<group>";
 		};
-		6506EC6B1C7271C500208E47 /* CoreDataModel */ = {
+		6506EC6B1C7271C500208E47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */,
+				655B59141C7E7C9600D3D72A /* Dish.swift */,
+				655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */,
+				655B59161C7E7C9600D3D72A /* Ticket.swift */,
 			);
-			name = CoreDataModel;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6545D8831C8768B2004B5D5B /* stage one complete */ = {
+			isa = PBXGroup;
+			children = (
+				65B7317A1C7A0BD10071D42C /* ScanViewController.swift */,
+				6506EC641C725E1800208E47 /* EditViewController.swift */,
+				6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */,
+			);
+			name = "stage one complete";
+			sourceTree = "<group>";
+		};
+		6545D8841C8768FA004B5D5B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6545D8831C8768B2004B5D5B /* stage one complete */,
+				6545D8871C876A0E004B5D5B /* in progress */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6545D8851C876937004B5D5B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6506EC351C72523900208E47 /* LaunchScreen.storyboard */,
+				6506EC2D1C72523900208E47 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6545D8861C876977004B5D5B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				6506EC291C72523900208E47 /* AppDelegate.swift */,
+				6506EC331C72523900208E47 /* Assets.xcassets */,
+				6506EC381C72523900208E47 /* Info.plist */,
+				6506EC301C72523900208E47 /* ResteurantPos.xcdatamodeld */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		6545D8871C876A0E004B5D5B /* in progress */ = {
+			isa = PBXGroup;
+			children = (
+				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
+				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
+				655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */,
+				6545D8881C876A3F004B5D5B /* currentlyWorking */,
+			);
+			name = "in progress";
+			sourceTree = "<group>";
+		};
+		6545D8881C876A3F004B5D5B /* currentlyWorking */ = {
+			isa = PBXGroup;
+			children = (
+				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
+			);
+			name = currentlyWorking;
 			sourceTree = "<group>";
 		};
 		65B731811C7AE7D00071D42C /* CustomKeyboard */ = {
@@ -494,7 +539,6 @@
 				655B591A1C7E7C9600D3D72A /* Ticket.swift in Sources */,
 				65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */,
 				6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */,
-				6551C92F1C86CEA000B6F325 /* OrderMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
