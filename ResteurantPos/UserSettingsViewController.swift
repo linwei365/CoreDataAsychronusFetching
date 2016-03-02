@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import CoreData
+
+
 
 class UserSettingsViewController: UIViewController {
 
+let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+  
+var employee = Employee()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +44,10 @@ class UserSettingsViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+       
+
+    
     /*
     // MARK: - Navigation
 

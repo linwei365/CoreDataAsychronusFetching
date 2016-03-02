@@ -357,7 +357,10 @@
                                                     <constraint firstAttribute="width" constant="127" id="d9b-A0-lqS"/>
                                                     <constraint firstAttribute="height" constant="30" id="zOp-sm-CfA"/>
                                                 </constraints>
-                                                <state key="normal" title="Closing"/>
+                                                <state key="normal" title="Employees"/>
+                                                <connections>
+                                                    <segue destination="SVb-kw-M6K" kind="show" id="3AB-r6-PZi"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -376,31 +379,44 @@
                                 <action selector="logOutOnClick:" destination="ib2-Lb-aLM" id="cwJ-JF-cJK"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add Users" id="cOh-tT-fL9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="cOh-tT-fL9"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="SVb-kw-M6K" kind="show" id="ReL-Ug-1RW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5H-WB-nNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3407" y="-1394"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Employees-->
         <scene sceneID="5VT-4k-Wgp">
             <objects>
-                <tableViewController id="SVb-kw-M6K" sceneMemberID="viewController">
+                <tableViewController id="SVb-kw-M6K" customClass="EmployeeTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ls-Il-eeJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qGf-K0-09l">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="employee" textLabel="PT5-jl-qQJ" detailTextLabel="Er2-a9-Lzh" style="IBUITableViewCellStyleSubtitle" id="qGf-K0-09l">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qGf-K0-09l" id="3N3-f5-5nI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PT5-jl-qQJ">
+                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Er2-a9-Lzh">
+                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -409,6 +425,18 @@
                             <outlet property="delegate" destination="SVb-kw-M6K" id="nZR-bP-FS9"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Employees" id="iEG-uf-s5B">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="SGm-zt-lnT">
+                            <connections>
+                                <action selector="cancelOnClick:" destination="SVb-kw-M6K" id="CuE-RJ-nFW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" systemItem="add" id="9Eq-6y-OCr">
+                            <connections>
+                                <action selector="addOnClick:" destination="SVb-kw-M6K" id="jXD-t1-NpD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ots-4R-UfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

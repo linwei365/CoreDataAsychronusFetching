@@ -17,6 +17,9 @@
 		6506EC4D1C72523900208E47 /* ResteurantPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC4C1C72523900208E47 /* ResteurantPosUITests.swift */; };
 		6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */; };
 		6506EC651C725E1800208E47 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC641C725E1800208E47 /* EditViewController.swift */; };
+		6545D88B1C876ECD004B5D5B /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8891C876ECD004B5D5B /* Employee+CoreDataProperties.swift */; };
+		6545D88C1C876ECD004B5D5B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D88A1C876ECD004B5D5B /* Employee.swift */; };
+		6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */; };
 		655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */; };
 		655B59181C7E7C9600D3D72A /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59141C7E7C9600D3D72A /* Dish.swift */; };
 		655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */; };
@@ -92,6 +95,9 @@
 		6506EC641C725E1800208E47 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 2.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
+		6545D8891C876ECD004B5D5B /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6545D88A1C876ECD004B5D5B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
 		655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655B59141C7E7C9600D3D72A /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -222,10 +228,9 @@
 		6506EC6B1C7271C500208E47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */,
-				655B59141C7E7C9600D3D72A /* Dish.swift */,
-				655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */,
-				655B59161C7E7C9600D3D72A /* Ticket.swift */,
+				6545D8891C876ECD004B5D5B /* Employee+CoreDataProperties.swift */,
+				6545D88A1C876ECD004B5D5B /* Employee.swift */,
+				6545D88D1C876EE0004B5D5B /* stageOneComplete */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				6545D8831C8768B2004B5D5B /* stage one complete */,
+				6545D8881C876A3F004B5D5B /* currentlyWorking */,
 				6545D8871C876A0E004B5D5B /* in progress */,
 			);
 			name = Controller;
@@ -252,7 +258,7 @@
 		6545D8851C876937004B5D5B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6506EC351C72523900208E47 /* LaunchScreen.storyboard */,
+				6545D8901C8779FD004B5D5B /* no in use */,
 				6506EC2D1C72523900208E47 /* Main.storyboard */,
 			);
 			name = View;
@@ -275,7 +281,6 @@
 				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
 				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
 				655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */,
-				6545D8881C876A3F004B5D5B /* currentlyWorking */,
 			);
 			name = "in progress";
 			sourceTree = "<group>";
@@ -283,9 +288,29 @@
 		6545D8881C876A3F004B5D5B /* currentlyWorking */ = {
 			isa = PBXGroup;
 			children = (
+				6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */,
 				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
 			);
 			name = currentlyWorking;
+			sourceTree = "<group>";
+		};
+		6545D88D1C876EE0004B5D5B /* stageOneComplete */ = {
+			isa = PBXGroup;
+			children = (
+				655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */,
+				655B59141C7E7C9600D3D72A /* Dish.swift */,
+				655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */,
+				655B59161C7E7C9600D3D72A /* Ticket.swift */,
+			);
+			name = stageOneComplete;
+			sourceTree = "<group>";
+		};
+		6545D8901C8779FD004B5D5B /* no in use */ = {
+			isa = PBXGroup;
+			children = (
+				6506EC351C72523900208E47 /* LaunchScreen.storyboard */,
+			);
+			name = "no in use";
 			sourceTree = "<group>";
 		};
 		65B731811C7AE7D00071D42C /* CustomKeyboard */ = {
@@ -535,10 +560,13 @@
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
+				6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */,
 				655B59181C7E7C9600D3D72A /* Dish.swift in Sources */,
 				655B591A1C7E7C9600D3D72A /* Ticket.swift in Sources */,
 				65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */,
 				6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */,
+				6545D88C1C876ECD004B5D5B /* Employee.swift in Sources */,
+				6545D88B1C876ECD004B5D5B /* Employee+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
