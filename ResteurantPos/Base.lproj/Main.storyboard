@@ -521,13 +521,13 @@
         <!--Menu-->
         <scene sceneID="Mtl-K7-bBl">
             <objects>
-                <tableViewController id="8VP-D7-dIU" sceneMemberID="viewController">
+                <tableViewController id="8VP-D7-dIU" customClass="OrderMenuTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="h0k-yz-bUh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="c9H-zU-wib">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu" id="c9H-zU-wib">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c9H-zU-wib" id="ElE-wl-hyz">
@@ -820,7 +820,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="giW-8N-4QL"/>
-        <segue reference="mCc-zN-tM6"/>
         <segue reference="Yks-do-bBX"/>
+        <segue reference="bdp-lV-BuM"/>
     </inferredMetricsTieBreakers>
 </document>

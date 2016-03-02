@@ -17,6 +17,7 @@
 		6506EC4D1C72523900208E47 /* ResteurantPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC4C1C72523900208E47 /* ResteurantPosUITests.swift */; };
 		6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC5A1C7257FB00208E47 /* MenuTableViewController.swift */; };
 		6506EC651C725E1800208E47 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506EC641C725E1800208E47 /* EditViewController.swift */; };
+		6551C92F1C86CEA000B6F325 /* OrderMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6551C92E1C86CEA000B6F325 /* OrderMenuTableViewController.swift */; };
 		655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */; };
 		655B59181C7E7C9600D3D72A /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59141C7E7C9600D3D72A /* Dish.swift */; };
 		655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */; };
@@ -92,6 +93,7 @@
 		6506EC641C725E1800208E47 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6506EC661C72705200208E47 /* ResteurantPos 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 2.xcdatamodel"; sourceTree = "<group>"; };
 		6506EC6C1C7284C100208E47 /* ResteurantPos 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ResteurantPos 3.xcdatamodel"; sourceTree = "<group>"; };
+		6551C92E1C86CEA000B6F325 /* OrderMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewController.swift; sourceTree = "<group>"; };
 		655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655B59141C7E7C9600D3D72A /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				6506EC6B1C7271C500208E47 /* CoreDataModel */,
 				6506EC291C72523900208E47 /* AppDelegate.swift */,
 				6506EC2D1C72523900208E47 /* Main.storyboard */,
+				6551C92E1C86CEA000B6F325 /* OrderMenuTableViewController.swift */,
 				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
 				655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */,
 				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
@@ -491,6 +494,7 @@
 				655B591A1C7E7C9600D3D72A /* Ticket.swift in Sources */,
 				65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */,
 				6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */,
+				6551C92F1C86CEA000B6F325 /* OrderMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
