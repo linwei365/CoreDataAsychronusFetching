@@ -15,7 +15,7 @@ class UserSettingsViewController: UIViewController {
 
 let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
   
-var employee = Employee()
+//var employee = Employee()
     
     
     override func viewDidLoad() {

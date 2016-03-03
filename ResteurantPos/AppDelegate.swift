@@ -14,27 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func populateDummyData (){
-        // Helpers
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        if ((userDefault.objectForKey("didPopulateDatabase")) != nil){
-            return}
-        for var index = 0 ; index < 30000; index++ {
-            
-            print("index is \(index)")
-            let dish = NSEntityDescription.insertNewObjectForEntityForName("Dish", inManagedObjectContext: managedObjectContext) as!Dish
-            dish.name = "delicious \(index)"
-            dish.price = 9.95
-            dish.dishDescription = "delicious meal \(index)"
-            let image = UIImage(named: "images")
-            dish.dishPhoto = UIImagePNGRepresentation(image!)
-            
-        }
-        
-        try! managedObjectContext.save()
-        userDefault.setBool(true, forKey: "didPopulateDatabase")
-        
-    }
+
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
