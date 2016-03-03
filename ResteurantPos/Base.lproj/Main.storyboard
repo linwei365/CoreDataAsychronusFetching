@@ -284,6 +284,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="bOL-If-W88"/>
                                                 </constraints>
                                                 <state key="normal" title="Dine In"/>
+                                                <connections>
+                                                    <action selector="dineInOnClick:" destination="ib2-Lb-aLM" eventType="touchUpInside" id="oTh-3J-0UG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xy5-1u-IV0">
                                                 <rect key="frame" x="0.0" y="63" width="127" height="30"/>

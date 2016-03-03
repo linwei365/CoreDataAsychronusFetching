@@ -45,6 +45,36 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
         
     }
     
+    @IBAction func dineInOnClick(sender: UIButton) {
+        
+        let alertController = UIAlertController(title: "Pin Number", message: "Please enter your Pin Number", preferredStyle: .Alert)
+        
+        let alertActionA =  UIAlertAction(title: "Ok", style: .Default) { (action:UIAlertAction) -> Void in
+            
+            let pinNumber =  alertController.textFields![0]
+            
+            
+        }
+        
+        
+        alertController.addTextFieldWithConfigurationHandler { (pinNumber:UITextField) -> Void in
+            
+            pinNumber.placeholder = "Pin Number"
+            
+            
+        }
+        
+        
+        let cancelAction =  UIAlertAction(title: "cancel", style: UIAlertActionStyle.Cancel) { (action:UIAlertAction) -> Void in
+            
+        }
+        
+        alertController.addAction(alertActionA)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
        
 
     
