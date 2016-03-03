@@ -26,7 +26,7 @@ class EditEmployeeViewController: UIViewController {
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var pinNumberTextField: UITextField!
     
-    var employee:Employee!
+    var employee:Employee?
     let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
     var delegate:EditEmployeeViewControllerDelegate?
@@ -36,9 +36,9 @@ class EditEmployeeViewController: UIViewController {
         super.viewDidLoad()
 
         
-        firstnameTextField.text = employee.employeeFirstname
-        lastnameTextField.text = employee.empolyeeLastname
-        pinNumberTextField.text = employee.employeePinNumber
+        firstnameTextField.text = employee!.employeeFirstname
+        lastnameTextField.text = employee!.empolyeeLastname
+        pinNumberTextField.text = employee!.employeePinNumber
         
         
         // Do any additional setup after loading the view.
@@ -78,9 +78,9 @@ class EditEmployeeViewController: UIViewController {
             if results?.count == 0
                 
             {
-                employee.employeeFirstname = firstnameTextField.text
-                employee.empolyeeLastname = lastnameTextField.text
-                employee.employeePinNumber = pinNumberTextField.text
+                employee!.employeeFirstname = firstnameTextField.text
+                employee!.empolyeeLastname = lastnameTextField.text
+                employee!.employeePinNumber = pinNumberTextField.text
                 
                 var error:NSError?
                
