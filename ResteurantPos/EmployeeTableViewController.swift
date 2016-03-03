@@ -60,10 +60,7 @@ class EmployeeTableViewController: UITableViewController {
             
                     let fetchRequest = NSFetchRequest(entityName: "Employee")
            
-            
- 
- 
-            
+   
             
             let firstName = alert.textFields![0]
             let lastName = alert.textFields![1]
@@ -83,9 +80,7 @@ class EmployeeTableViewController: UITableViewController {
             }
             else {
                  fetchRequest.predicate = NSPredicate(format: "employeePinNumber contains[c] %@", pinNumber.text!)
-                
-         
-                
+    
                 let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequest)
                 
                 if results?.count == 0
@@ -132,9 +127,7 @@ class EmployeeTableViewController: UITableViewController {
             
         }
         alert.addTextFieldWithConfigurationHandler { (courseTitle:UITextField) -> Void in
-           
-           
-            
+         
             courseTitle.placeholder = "Pin Number"
             
             
@@ -206,7 +199,7 @@ class EmployeeTableViewController: UITableViewController {
     }
 
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
-        
+        navigationController!.popViewControllerAnimated(true)
     }
     
     
@@ -271,6 +264,9 @@ class EmployeeTableViewController: UITableViewController {
         let vc =  segue.destinationViewController as! EditEmployeeViewController
         
         
+            let index =  self.tableView.indexPathForSelectedRow
+        
+            vc.employee = employees[(index?.row)!]
         
     }
     

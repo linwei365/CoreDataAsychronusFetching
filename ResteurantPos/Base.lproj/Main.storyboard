@@ -497,8 +497,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Employee" id="4ev-pl-KYx">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1eM-jA-Nyi"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="MWl-Wl-w1Y"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1eM-jA-Nyi">
+                            <connections>
+                                <action selector="cancelOnClick:" destination="Ibm-dP-YlJ" id="6Gf-Kb-SVN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="MWl-Wl-w1Y">
+                            <connections>
+                                <action selector="saveOnClick:" destination="Ibm-dP-YlJ" id="uik-5V-gAs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="firstnameTextField" destination="c9c-6A-UBQ" id="NBf-ah-7bH"/>
