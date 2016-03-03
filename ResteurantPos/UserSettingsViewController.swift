@@ -87,7 +87,39 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                     
                 else
                 {
+                    let alertControllerTable =  UIAlertController(title: "Table Number", message: "Please Enter your Table Number", preferredStyle: UIAlertControllerStyle.Alert)
                     
+                    
+                    let alertAction =  UIAlertAction(title: "Ok", style: .Default, handler: { (action:UIAlertAction) -> Void in
+                       
+                        let tableNumber = alertControllerTable.textFields![0]
+                        
+                        //check if the tableNumberText has input
+                        
+                        
+                        //check if the tableNumberText already exsit
+                        
+                        
+                        
+                        
+                    })
+                   
+                    let alertCancelAction =  UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action:UIAlertAction) -> Void in
+                        
+                        
+                    })
+                    
+                    
+                    alertControllerTable.addTextFieldWithConfigurationHandler { (tableNumber:UITextField) -> Void in
+                        
+                        tableNumber.placeholder = "Table Number"
+                        
+                        
+                    }
+                    
+                    alertControllerTable.addAction(alertAction)
+                    alertControllerTable.addAction(alertCancelAction)
+                    self.presentViewController(alertControllerTable, animated: true, completion: nil)
              
                     
                              print("changing view")
@@ -107,6 +139,8 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
             
             
         }
+        
+        
         
         
         alertController.addTextFieldWithConfigurationHandler { (pinNumber:UITextField) -> Void in
