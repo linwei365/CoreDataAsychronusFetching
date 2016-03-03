@@ -19,6 +19,8 @@ class DiningTableTableViewController: UITableViewController {
     func loadData () {
         let fetchRequest = NSFetchRequest(entityName: "Table")
         
+  
+        
         var error: NSError?
         do {
             
@@ -72,9 +74,13 @@ class DiningTableTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableNumberCell", forIndexPath: indexPath)
         
+       
         cell.textLabel?.text = "Table # " + tables[indexPath.row].tableNumber!
-        // Configure the cell...
-
+       
+         let pin =  (tables[indexPath.row].employee?.employeeFirstname)!
+        
+        print(pin)
+        cell.detailTextLabel?.text = "Employee Name: " + (tables[indexPath.row].employee?.employeeFirstname)! + " " + (tables[indexPath.row].employee?.empolyeeLastname)!
         return cell
     }
 

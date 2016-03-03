@@ -72,9 +72,11 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
             else {
                 fetchRequest.predicate = NSPredicate(format: "employeePinNumber = %@", pinNumber.text!)
                 
-                let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequest)
+                let emplyoeeID =  try! self.moc.executeFetchRequest(fetchRequest) as! [Employee]
+//                let emplyoeeID =  try! self.moc.executeFetchRequest(fetchRequest) as! [Employee]
                 
-                if results?.count == 0
+                
+                if emplyoeeID.count == 0
                 {
                     let alertController =  UIAlertController(title: "Error", message: "The Pin Number Is Not Found", preferredStyle: UIAlertControllerStyle.Alert)
                     let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
@@ -120,8 +122,15 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                                 print ("go to table..................")
                                 
                                 let newTableNumber = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: self.moc) as! Table
+                             
+                                //create relatiionship
+                                
+                               
                                 
                                 newTableNumber.tableNumber = tableNumber.text
+                                
+                           
+                                newTableNumber.employee = emplyoeeID[0]
                                 
                                 var error:NSError?
                                 do {

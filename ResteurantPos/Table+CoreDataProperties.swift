@@ -15,5 +15,6 @@ import CoreData
 extension Table {
 
     @NSManaged var tableNumber: String?
+    @NSManaged var employee: Employee?
 
 }
