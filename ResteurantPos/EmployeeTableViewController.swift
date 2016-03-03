@@ -9,13 +9,23 @@
 import UIKit
 import CoreData
 
-class EmployeeTableViewController: UITableViewController {
+class EmployeeTableViewController: UITableViewController,EditEmployeeViewControllerDelegate {
 
   let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    var employees = [Employee]()
     
+ 
     var pinNumber = [String]()
    
+    func passVaule() {
+         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+       
+        
+    }
+    
     // save text function
     func saveText(firstName: String, lastName: String, pinNumber: String){
         
@@ -261,9 +271,10 @@ class EmployeeTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let vc =  segue.destinationViewController as! EditEmployeeViewController
+         let  vc =  segue.destinationViewController as! EditEmployeeViewController
+           vc.delegate = self
         
-        
+         
             let index =  self.tableView.indexPathForSelectedRow
         
             vc.employee = employees[(index?.row)!]

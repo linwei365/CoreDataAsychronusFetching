@@ -9,15 +9,29 @@
 import UIKit
 import CoreData
 
+//adding protocol
+
+protocol EditEmployeeViewControllerDelegate {
+    
+    func passVaule()
+    
+    
+}
 
 class EditEmployeeViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var pinNumberTextField: UITextField!
     
     var employee:Employee!
     let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+   
+    var delegate:EditEmployeeViewControllerDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -73,6 +87,8 @@ class EditEmployeeViewController: UIViewController {
                 do {
                      try moc.save()
                      navigationController!.popViewControllerAnimated(true)
+                    
+                    delegate?.passVaule()
                 }
                 catch  let error1 as NSError {
                     
