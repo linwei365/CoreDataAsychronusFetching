@@ -301,29 +301,29 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         
         
         
-        
-        if(onOff != true)
-        {
-            
-                    self.tableView.editing = true;
-            
-                    onOff = true
-            sender.title = "Send"
-            
-            
-            // switch is on
-        }
-        else if (onOff == true)
-        
-        {   sender.title = "Select"
-            self.tableView.editing = false;
-            onOff = false
-            
-            performSegueWithIdentifier("check", sender: self)
-            
-            // switch is off
-        }
-        
+//        
+//        if(onOff != true)
+//        {
+//            
+//                    self.tableView.editing = true
+//            
+//                    onOff = true
+//            sender.title = "Send"
+//            
+//            
+//            // switch is on
+//        }
+//        else if (onOff == true)
+//        
+//        {   sender.title = "Select"
+//            self.tableView.editing = false;
+//            onOff = false
+//            
+//            performSegueWithIdentifier("check", sender: self)
+//            
+//            // switch is off
+//        }
+//        
 
     
         
@@ -342,7 +342,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+   
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -481,13 +481,13 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     }
 
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
   
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -530,13 +530,16 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
     
   
-    
+   /*
     override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         
          return UITableViewCellEditingStyle(rawValue: 3)!
         
-//        return .None
-    }
+     }
+    
+*/
+    
+    
     
 //    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
 //        
@@ -590,7 +593,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
         
         if segue.identifier == "check" {
             
-            let vcb = segue.destinationViewController as! DiningTableTableViewController
+//            let vcb = segue.destinationViewController as! DiningTableTableViewController
             
             
         }
