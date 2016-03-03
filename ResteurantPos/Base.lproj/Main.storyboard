@@ -296,6 +296,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="Vgd-qO-UKg"/>
                                                 </constraints>
                                                 <state key="normal" title="Tablels"/>
+                                                <connections>
+                                                    <segue destination="q0g-qh-8ci" kind="show" id="ym2-6M-tEv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K16-qx-fF9">
                                                 <rect key="frame" x="0.0" y="126" width="127" height="30"/>
@@ -387,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5H-WB-nNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3335" y="-1456"/>
+            <point key="canvasLocation" x="3334" y="-1394"/>
         </scene>
         <!--Employees-->
         <scene sceneID="5VT-4k-Wgp">
@@ -447,6 +450,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ots-4R-UfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4105" y="-1394"/>
+        </scene>
+        <!--Dining Table Table View Controller-->
+        <scene sceneID="JIu-5L-cdp">
+            <objects>
+                <tableViewController id="q0g-qh-8ci" customClass="DiningTableTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3bB-Rn-uLw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableNumberCell" id="4M7-mi-awO">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4M7-mi-awO" id="VsV-cf-7qt">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q0g-qh-8ci" id="CUE-Bw-UNy"/>
+                            <outlet property="delegate" destination="q0g-qh-8ci" id="ilD-yn-bGH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HkL-OZ-cUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3992" y="-1432"/>
         </scene>
         <!--Edit Employee-->
         <scene sceneID="waq-cE-aWO">

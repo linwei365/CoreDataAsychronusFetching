@@ -23,11 +23,11 @@
 		6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8911C87BC39004B5D5B /* EditEmployeeViewController.swift */; };
 		6545D8951C88A1A1004B5D5B /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8931C88A1A1004B5D5B /* Table+CoreDataProperties.swift */; };
 		6545D8961C88A1A1004B5D5B /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8941C88A1A1004B5D5B /* Table.swift */; };
+		6545D89A1C88A8CD004B5D5B /* DiningTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8991C88A8CD004B5D5B /* DiningTableTableViewController.swift */; };
 		655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */; };
 		655B59181C7E7C9600D3D72A /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59141C7E7C9600D3D72A /* Dish.swift */; };
 		655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */; };
 		655B591A1C7E7C9600D3D72A /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59161C7E7C9600D3D72A /* Ticket.swift */; };
-		655B591E1C7FF95B00D3D72A /* DiningTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */; };
 		655B59201C7FF97100D3D72A /* CheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */; };
 		65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B0D6F81C8255C10057C077 /* SignUpViewController.swift */; };
 		65B7316D1C7930840071D42C /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B7316C1C7930840071D42C /* TesseractOCR.framework */; };
@@ -104,11 +104,11 @@
 		6545D8911C87BC39004B5D5B /* EditEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewController.swift; sourceTree = "<group>"; };
 		6545D8931C88A1A1004B5D5B /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Table+CoreDataProperties.swift"; path = "../Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6545D8941C88A1A1004B5D5B /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Table.swift; path = ../Table.swift; sourceTree = "<group>"; };
+		6545D8991C88A8CD004B5D5B /* DiningTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiningTableTableViewController.swift; sourceTree = "<group>"; };
 		655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655B59141C7E7C9600D3D72A /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655B59161C7E7C9600D3D72A /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
-		655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiningTableTableViewController.swift; sourceTree = "<group>"; };
 		655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewController.swift; sourceTree = "<group>"; };
 		65B0D6F81C8255C10057C077 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		65B7316C1C7930840071D42C /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
@@ -288,7 +288,6 @@
 			children = (
 				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
 				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
-				655B591D1C7FF95B00D3D72A /* DiningTableTableViewController.swift */,
 			);
 			name = "in progress";
 			sourceTree = "<group>";
@@ -297,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				6545D8911C87BC39004B5D5B /* EditEmployeeViewController.swift */,
+				6545D8991C88A8CD004B5D5B /* DiningTableTableViewController.swift */,
 				6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */,
 				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
 			);
@@ -563,12 +563,12 @@
 				655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */,
 				6545D8961C88A1A1004B5D5B /* Table.swift in Sources */,
 				6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */,
+				6545D89A1C88A8CD004B5D5B /* DiningTableTableViewController.swift in Sources */,
 				65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */,
 				655B59201C7FF97100D3D72A /* CheckTableViewController.swift in Sources */,
 				65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */,
 				6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */,
 				6545D8951C88A1A1004B5D5B /* Table+CoreDataProperties.swift in Sources */,
-				655B591E1C7FF95B00D3D72A /* DiningTableTableViewController.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,

@@ -2,16 +2,47 @@
 //  DiningTableTableViewController.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 2/25/16.
+//  Created by Lin Wei on 3/3/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 
 import UIKit
-
+import CoreData
 class DiningTableTableViewController: UITableViewController {
 
+    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var tables = [Table]()
+    
+    
+    //load data
+    func loadData () {
+        let fetchRequest = NSFetchRequest(entityName: "Table")
+        
+        var error: NSError?
+        do {
+            
+            tables = try moc.executeFetchRequest(fetchRequest) as! [Table]
+            
+        }
+        catch let error1 as NSError {
+            
+            error = error1
+        }
+        
+        if (error != nil){
+            
+            print("failed to load")
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
+        
+        tableView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,23 +60,24 @@ class DiningTableTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tables.count
     }
 
-    
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("diningCell", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableNumberCell", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = "Table # " + tables[indexPath.row].tableNumber!
         // Configure the cell...
 
         return cell
     }
-    
+
 
     /*
     // Override to support conditional editing of the table view.
