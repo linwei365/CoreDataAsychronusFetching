@@ -47,11 +47,63 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
     
     @IBAction func dineInOnClick(sender: UIButton) {
         
+        let fetchRequest = NSFetchRequest(entityName: "Employee")
+        
         let alertController = UIAlertController(title: "Pin Number", message: "Please enter your Pin Number", preferredStyle: .Alert)
         
         let alertActionA =  UIAlertAction(title: "Ok", style: .Default) { (action:UIAlertAction) -> Void in
             
             let pinNumber =  alertController.textFields![0]
+            
+           
+  
+            //check if textfile is empty if true alert to fill up the message
+            
+            if ((pinNumber.text?.isEmpty) == true ){
+                
+                let alertController =  UIAlertController(title: "Error", message: "please fill in all the blanks", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                alertController.addAction(alertAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                
+                
+            }
+            else {
+                fetchRequest.predicate = NSPredicate(format: "employeePinNumber = %@", pinNumber.text!)
+                
+                let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequest)
+                
+                if results?.count == 0
+                {
+                    let alertController =  UIAlertController(title: "Error", message: "The Pin Number Is Not Found", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    
+           
+                }
+                    
+                else
+                {
+                    
+             
+                    
+                             print("changing view")
+                    
+                    
+                    
+                    print("Error:")
+                    
+                }
+                
+                
+                
+                
+            }
+            
+            
             
             
         }
