@@ -418,6 +418,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ibm-dP-YlJ" kind="show" id="Grs-Gm-NVz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -441,6 +444,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ots-4R-UfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4105" y="-1394"/>
+        </scene>
+        <!--Edit Employee-->
+        <scene sceneID="waq-cE-aWO">
+            <objects>
+                <viewController id="Ibm-dP-YlJ" customClass="EditEmployeeViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IyT-7p-T6T"/>
+                        <viewControllerLayoutGuide type="bottom" id="nUX-4D-euO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OFa-bh-JpY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BcJ-RX-Zrb">
+                                <rect key="frame" x="216.5" y="230" width="167" height="140"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9c-6A-UBQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1U6-WV-ug7"/>
+                                            <constraint firstAttribute="width" constant="167" id="i55-6W-Dma"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibu-Mh-Ccs">
+                                        <rect key="frame" x="0.0" y="55" width="167" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ACi-X6-ScK"/>
+                                            <constraint firstAttribute="width" constant="167" id="EZn-HN-ZDy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urn-v1-j6Z">
+                                        <rect key="frame" x="0.0" y="110" width="167" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AkT-GB-RGU"/>
+                                            <constraint firstAttribute="width" constant="167" id="COZ-sO-Lih"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BcJ-RX-Zrb" firstAttribute="centerX" secondItem="OFa-bh-JpY" secondAttribute="centerX" id="ZpX-s6-m13"/>
+                            <constraint firstItem="BcJ-RX-Zrb" firstAttribute="centerY" secondItem="OFa-bh-JpY" secondAttribute="centerY" id="t5S-Ha-Ho7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Employee" id="4ev-pl-KYx">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1eM-jA-Nyi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="MWl-Wl-w1Y"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="firstnameTextField" destination="c9c-6A-UBQ" id="NBf-ah-7bH"/>
+                        <outlet property="lastnameTextField" destination="ibu-Mh-Ccs" id="Rur-Dr-Js9"/>
+                        <outlet property="pinNumberTextField" destination="Urn-v1-j6Z" id="2FI-HC-f3z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIu-lw-lCS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4757" y="-1394"/>
         </scene>
         <!--Add/Edit-->
         <scene sceneID="vev-Ed-HgC">

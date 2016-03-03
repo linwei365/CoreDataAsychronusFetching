@@ -20,6 +20,7 @@
 		6545D88B1C876ECD004B5D5B /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8891C876ECD004B5D5B /* Employee+CoreDataProperties.swift */; };
 		6545D88C1C876ECD004B5D5B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D88A1C876ECD004B5D5B /* Employee.swift */; };
 		6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */; };
+		6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8911C87BC39004B5D5B /* EditEmployeeViewController.swift */; };
 		655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */; };
 		655B59181C7E7C9600D3D72A /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59141C7E7C9600D3D72A /* Dish.swift */; };
 		655B59191C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */; };
@@ -98,6 +99,7 @@
 		6545D8891C876ECD004B5D5B /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6545D88A1C876ECD004B5D5B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
+		6545D8911C87BC39004B5D5B /* EditEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewController.swift; sourceTree = "<group>"; };
 		655B59131C7E7C9600D3D72A /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655B59141C7E7C9600D3D72A /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		655B59151C7E7C9600D3D72A /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		6545D8881C876A3F004B5D5B /* currentlyWorking */ = {
 			isa = PBXGroup;
 			children = (
+				6545D8911C87BC39004B5D5B /* EditEmployeeViewController.swift */,
 				6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */,
 				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
 			);
@@ -556,6 +559,7 @@
 				65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */,
 				655B59201C7FF97100D3D72A /* CheckTableViewController.swift in Sources */,
 				65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */,
+				6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */,
 				655B591E1C7FF95B00D3D72A /* DiningTableTableViewController.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				655B59171C7E7C9600D3D72A /* Dish+CoreDataProperties.swift in Sources */,
