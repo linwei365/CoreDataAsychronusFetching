@@ -87,6 +87,7 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                     
                 else
                 {
+                    //add table number input alert
                     let alertControllerTable =  UIAlertController(title: "Table Number", message: "Please Enter your Table Number", preferredStyle: UIAlertControllerStyle.Alert)
                     
                     
@@ -96,9 +97,63 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                         
                         //check if the tableNumberText has input
                         
+                        if ((tableNumber.text?.isEmpty) == true ){
+                            
+                            let alertController =  UIAlertController(title: "Error", message: "please fill in a table number", preferredStyle: UIAlertControllerStyle.Alert)
+                            let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                            alertController.addAction(alertAction)
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                            
+                            
+                            
+                        } else {
                         
-                        //check if the tableNumberText already exsit
-                        
+                           //check if the tableNumberText already exsit
+                            let fetchRequestB = NSFetchRequest(entityName: "Table")
+                            
+                            fetchRequestB.predicate = NSPredicate(format: "tableNumber = %@", tableNumber.text!)
+                            
+                            let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequestB)
+                            
+                            if results?.count == 0
+                            {
+                                print ("go to table..................")
+                                
+                                let newTableNumber = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: self.moc) as! Table
+                                
+                                newTableNumber.tableNumber = tableNumber.text
+                                
+                                var error:NSError?
+                                do {
+                                    try self.moc.save()
+                                    
+                                    //segue to the menu
+
+                                    
+                                }
+                                catch  let error1 as NSError {
+                                    
+                                    error = error1
+                                }
+                                if (error != nil){
+                                    
+                                    print("failed to load")
+                                }
+                              
+                                
+                                
+                            } else {
+                                //if count  = 1 then table is full pop alert
+                                let alertController =  UIAlertController(title: "Error", message: "the table is full", preferredStyle: UIAlertControllerStyle.Alert)
+                                let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                                alertController.addAction(alertAction)
+                                self.presentViewController(alertController, animated: true, completion: nil)
+                            }
+                            
+                            
+                        }
+
+                     
                         
                         
                         
@@ -122,11 +177,9 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                     self.presentViewController(alertControllerTable, animated: true, completion: nil)
              
                     
-                             print("changing view")
                     
                     
-                    
-                    print("Error:")
+               
                     
                 }
                 
