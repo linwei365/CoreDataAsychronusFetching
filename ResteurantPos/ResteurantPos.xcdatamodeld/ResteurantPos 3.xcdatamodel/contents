@@ -5,7 +5,6 @@
         <attribute name="dishPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="ticket" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ticket" inverseName="dish" inverseEntity="Ticket" syncable="YES"/>
     </entity>
     <entity name="Employee" representedClassName=".Employee" syncable="YES">
         <attribute name="employeeFirstname" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,12 +17,16 @@
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="table" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="Ticket" representedClassName=".Ticket" syncable="YES">
-        <attribute name="grutuity" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="subTotal" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="employeeFirstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeLastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grutuity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="item" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subTotal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tableNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tax" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ticketNumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="totalPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="dish" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dish" inverseName="ticket" inverseEntity="Dish" syncable="YES"/>
+        <attribute name="totalPrice" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="User" syncable="YES">
         <attribute name="authentication" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,10 +34,10 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Dish" positionX="-63" positionY="-12" width="128" height="120"/>
+        <element name="Dish" positionX="-63" positionY="-12" width="128" height="105"/>
         <element name="Employee" positionX="-315" positionY="-166" width="128" height="103"/>
         <element name="Table" positionX="-65" positionY="-135" width="128" height="73"/>
-        <element name="Ticket" positionX="-306" positionY="-27" width="128" height="133"/>
+        <element name="Ticket" positionX="-306" positionY="-27" width="128" height="195"/>
         <element name="User" positionX="-137" positionY="-324" width="128" height="90"/>
     </elements>
 </model>
