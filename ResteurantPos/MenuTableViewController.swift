@@ -69,19 +69,6 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
     
  
  
-    func loadDataWithKVO (){
-        
-//        if (searchActive){
-//            loadDataFilter()
-//        }
-//      
-        
-             loadData()
-       
-        
-       
-
-    }
    // searchbar delegate
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {

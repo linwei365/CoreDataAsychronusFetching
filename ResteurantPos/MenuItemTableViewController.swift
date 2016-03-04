@@ -8,11 +8,230 @@
 
 import UIKit
 import CoreData
+import SVProgressHUD
 
-class MenuItemTableViewController: UITableViewController {
 
-    var moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
+class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
+
+    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var dishes = [Dish]()
+    var filteredDish = [Dish]()
+    
+    private var myProgressObserverContext = 0
+    
+    var searchText: String?
+    var lastSelectedIndexPath: NSIndexPath?
+    
+    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
+    var searchActive : Bool = false
+    
+    //search ---
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    
+    // searchbar delegate
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        self.searchText = searchText
+        
+        
+        loadDataFilter()
+        
+    }
+    
+    //Progress Reporting
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        let text = "fetching data count \(change!["new"]!)"
+        SVProgressHUD.setStatus(text)
+    }
+    
+    
+    
+    //load from filter
+    func loadDataFilter(){
+        
+        
+        // cocaopods SVProgressHUD class method show indidicator with string
+        /*
+        dispatch_async(dispatch_get_main_queue(), {
+        SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+        })
+        */
+        
+        // fetchRequest
+        let fetchRequest =  NSFetchRequest(entityName: "Dish")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        if (self.searchText != nil) {
+            
+            fetchRequest.predicate = NSPredicate(format: "name LIKE[c]'\(self.searchText!)*'")
+        }
+        
+        
+        
+        
+        //NSAsynchronousFetchRequest
+        let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
+            
+            self.filteredDish = result.finalResult as! [Dish]
+            //Remove Observer
+            result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
+            
+            //dismiss indicator
+            //        SVProgressHUD.dismiss()
+            self.tableView.reloadData()
+            
+        }
+        
+        //perform block
+        self.managedObjectContext.performBlock { () -> Void in
+            
+            //create NSProgress
+            let progress: NSProgress = NSProgress(totalUnitCount: 1)
+            
+            //become current
+            progress.becomeCurrentWithPendingUnitCount(1)
+            
+            // create NSError
+            var asynchronousFetchRequestError: NSError?
+            
+            do {
+                
+                //NSAsynchronousFetchResult
+                let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+                
+                //add observer
+                result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
+            }
+                
+            catch let error1 as NSError {
+                //catch error
+                asynchronousFetchRequestError = error1
+            }
+            
+            if asynchronousFetchRequestError != nil {
+                print("failed")
+            }
+            //resigin NSProgress
+            progress.resignCurrent()
+        }
+        
+        
+        if(filteredDish.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+   //load data
+    func loadData(){
+        
+        
+        
+        // cocaopods SVProgressHUD class method show indidicator with string
+        dispatch_async(dispatch_get_main_queue(), {
+            // code here
+            
+            
+            SVProgressHUD.showWithStatus("fetching Data", maskType: SVProgressHUDMaskType.Gradient)
+        })
+        
+        
+        
+        // fetchRequest
+        let fetchRequest =  NSFetchRequest(entityName: "Dish")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        //        if (self.searchText != nil)
+        //
+        //        {
+        //            //        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@",self.searchText!)
+        //
+        //            fetchRequest.predicate = NSPredicate(format: "name LIKE[c]'\(self.searchText!)*'")
+        //        }
+        
+        //NSAsynchronousFetchRequest
+        let async = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { (result:NSAsynchronousFetchResult) -> Void in
+            
+            self.dishes = result.finalResult as! [Dish]
+            //Remove Observer
+            result.progress?.removeObserver(self, forKeyPath: "completedUnitCount", context: &self.myProgressObserverContext)
+            
+            //dismiss indicator
+            SVProgressHUD.dismiss()
+            self.tableView.reloadData()
+            
+        }
+        
+        //perform block
+        self.managedObjectContext.performBlock { () -> Void in
+            
+            //create NSProgress
+            let progress: NSProgress = NSProgress(totalUnitCount: 1)
+            
+            //become current
+            progress.becomeCurrentWithPendingUnitCount(1)
+            
+            // create NSError
+            var asynchronousFetchRequestError: NSError?
+            
+            do {
+                
+                //NSAsynchronousFetchResult
+                let result =  try self.managedObjectContext.executeRequest(async)  as! NSAsynchronousFetchResult
+                
+                //add observer
+                result.progress?.addObserver(self, forKeyPath: "completedUnitCount", options: .New, context: &self.myProgressObserverContext)
+            }
+                
+            catch let error1 as NSError {
+                //catch error
+                asynchronousFetchRequestError = error1
+            }
+            
+            if asynchronousFetchRequestError != nil {
+                print("failed")
+            }
+            //resigin NSProgress
+            progress.resignCurrent()
+        }
+        
+        
+    }
+    
+    //put searchBar in navigationBar
+    func loadSearchBar(){
+        
+        searchBar.delegate = self
+        searchBar.placeholder = "Search Menu"
+        //        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.titleView = searchBar
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +241,27 @@ class MenuItemTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        loadSearchBar()
+        loadDataFilter()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            //           self.populateDummyData()
+            
+            self.loadData()
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+        }
+        
+        
+        
+        self.tableView.rowHeight = 60
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,23 +273,66 @@ class MenuItemTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if (searchActive && searchBar.text != ""){
+            
+            return filteredDish.count
+        }
+        
+        return dishes.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("menuItemCell", forIndexPath: indexPath)
 
-        // Configure the cell...
-
+        let dish :Dish
+        
+        
+        //use NSFetchedResultsController
+        //dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
+        
+        if (searchActive && searchBar.text != nil){
+            
+            dish = filteredDish[indexPath.row]
+        }
+        else { dish = dishes[indexPath.row]
+        }
+        
+        
+        
+        cell.textLabel?.text = dish.name! + "     $" + "\(round(Double(dish.price!) * 100) / 100)"
+        cell.detailTextLabel?.text = dish.dishDescription!
+        
+        cell.imageView?.image = UIImage (data: (dish.dishPhoto)!)
+        
+        cell.accessoryType = (lastSelectedIndexPath?.row == indexPath.row) ? .Checkmark : .None
+        
         return cell
     }
-
+ 
+ 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if indexPath.row != lastSelectedIndexPath?.row {
+            if let lastSelectedIndexPath = lastSelectedIndexPath {
+                let oldCell = tableView.cellForRowAtIndexPath(lastSelectedIndexPath)
+                oldCell?.accessoryType = .None
+            }
+            
+            let newCell = tableView.cellForRowAtIndexPath(indexPath)
+            newCell?.accessoryType = .Checkmark
+            
+            lastSelectedIndexPath = indexPath
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

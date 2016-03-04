@@ -21,6 +21,11 @@ class CheckTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    @IBAction func cancelOnClick(sender: UIBarButtonItem) {
+        
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

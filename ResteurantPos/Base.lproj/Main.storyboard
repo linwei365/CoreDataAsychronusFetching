@@ -521,7 +521,9 @@
                             <outlet property="delegate" destination="IIt-nU-6EN" id="UJD-QV-tmn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Menu" id="Zir-pW-gIm"/>
+                    <navigationItem key="navigationItem" title="Menu" id="Zir-pW-gIm">
+                        <barButtonItem key="rightBarButtonItem" title="send" id="gYI-sI-VTA"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mk-Qk-RkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -554,7 +556,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Check" id="J8T-Ye-Dlh">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Nvf-xc-owa"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Nvf-xc-owa">
+                            <connections>
+                                <action selector="cancelOnClick:" destination="2di-4R-hmd" id="h4P-0z-qKi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="koU-Py-BY5">
                             <connections>
                                 <segue destination="IIt-nU-6EN" kind="show" id="HGG-il-91Y"/>
