@@ -1,16 +1,19 @@
 //
-//  CheckTableViewController.swift
+//  MenuItemTableViewController.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 2/25/16.
+//  Created by Lin Wei on 3/3/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class CheckTableViewController: UITableViewController {
+class MenuItemTableViewController: UITableViewController {
 
+    var moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,13 +43,13 @@ class CheckTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("checkCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("menuItemCell", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    
+
 
     /*
     // Override to support conditional editing of the table view.
