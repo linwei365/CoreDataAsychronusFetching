@@ -77,7 +77,7 @@ class DiningTableTableViewController: UITableViewController {
        
         cell.textLabel?.text = "Table # " + tables[indexPath.row].tableNumber!
        
-         let pin =  (tables[indexPath.row].employee?.employeeFirstname)!
+         let pin =  (tables[indexPath.row].employee?.employeePinNumber)!
         
         print(pin)
         cell.detailTextLabel?.text = "Employee Name: " + (tables[indexPath.row].employee?.employeeFirstname)! + " " + (tables[indexPath.row].employee?.empolyeeLastname)!

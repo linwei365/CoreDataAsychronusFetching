@@ -299,6 +299,7 @@ lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 0, 0))
  
     @IBAction func selectOnClick(sender: UIBarButtonItem) {
         
+        navigationController?.popViewControllerAnimated(true)
         
         
 //        

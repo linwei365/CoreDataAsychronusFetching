@@ -70,23 +70,20 @@ class EditEmployeeViewController: UIViewController {
             
             
         }
-        else {
-            fetchRequest.predicate = NSPredicate(format: "employeePinNumber contains[c] %@", pinNumberTextField.text!)
+        else
+        {   //if textfield pin is same as moc pinNumber then perform
+            if ( pinNumberTextField.text == employee!.employeePinNumber ){
             
-            let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequest)
-            
-            if results?.count == 0
                 
-            {
                 employee!.employeeFirstname = firstnameTextField.text
                 employee!.empolyeeLastname = lastnameTextField.text
                 employee!.employeePinNumber = pinNumberTextField.text
                 
                 var error:NSError?
-               
+                
                 do {
-                     try moc.save()
-                     navigationController!.popViewControllerAnimated(true)
+                    try moc.save()
+                    navigationController!.popViewControllerAnimated(true)
                     
                     delegate?.passVaule()
                 }
@@ -97,23 +94,59 @@ class EditEmployeeViewController: UIViewController {
                 if error != nil {
                     print("failed to save")
                 }
-               
-                
-                
-             }
-                
-            else
-            {
-                
-                let alertController =  UIAlertController(title: "Error", message: "that pin is already taken please use a different Pin", preferredStyle: UIAlertControllerStyle.Alert)
-                let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
-                alertController.addAction(alertAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-                
-                print("Error:")
                 
             }
+            
+            else {
+                //else check if the database has the same pin if same pin pop alert is already taken
+                
+                fetchRequest.predicate = NSPredicate(format: "employeePinNumber contains[c] %@", pinNumberTextField.text!)
+                
+                let results:NSArray? =  try! self.moc.executeFetchRequest(fetchRequest)
+                
+                if results?.count == 0
+                    
+                {
+                    employee!.employeeFirstname = firstnameTextField.text
+                    employee!.empolyeeLastname = lastnameTextField.text
+                    employee!.employeePinNumber = pinNumberTextField.text
+                    
+                    var error:NSError?
+                    
+                    do {
+                        try moc.save()
+                        navigationController!.popViewControllerAnimated(true)
+                        
+                        delegate?.passVaule()
+                    }
+                    catch  let error1 as NSError {
+                        
+                        error = error1
+                    }
+                    if error != nil {
+                        print("failed to save")
+                    }
+                    
+                    
+                    
+                }
+                    
+                    
+                else
+                {
+                    
+                    let alertController =  UIAlertController(title: "Error", message: "that pin is already taken please use a different Pin", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    
+                    print("Error:")
+                    
+                }
+                
+            }
+         
             
    
     
