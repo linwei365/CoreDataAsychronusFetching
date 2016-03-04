@@ -169,6 +169,22 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
        
         
         
+        let manageObject =  tickets[indexPath.row]
+        
+        tickets.removeAtIndex(indexPath.row)
+        managedObjectContext.deleteObject(manageObject)
+        
+        do {
+            try managedObjectContext.save()
+            
+        }
+        catch {
+            print("failed to save ")
+            
+            return
+        }
+        self.tableView.reloadData()
+        
 //        if editingStyle == .Delete {
 //            // Delete the row from the data source
 //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
