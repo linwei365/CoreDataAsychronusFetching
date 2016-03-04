@@ -14,6 +14,9 @@ class DiningTableTableViewController: UITableViewController {
     
     var tables = [Table]()
     
+    var firstname = String()
+    var lastname = String()
+    var tableNumber = String()
     
     //load data
     func loadData () {
@@ -75,12 +78,20 @@ class DiningTableTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableNumberCell", forIndexPath: indexPath)
         
        
-        cell.textLabel?.text = "Table # " + tables[indexPath.row].tableNumber!
+        tableNumber = tables[indexPath.row].tableNumber!
+        
+        firstname = (tables[indexPath.row].employee?.employeeFirstname)!
+        lastname = (tables[indexPath.row].employee?.empolyeeLastname)!
+
+        
+        cell.textLabel?.text = "Table # " + tableNumber
        
          let pin =  (tables[indexPath.row].employee?.employeePinNumber)!
         
+        
+        
         print(pin)
-        cell.detailTextLabel?.text = "Employee Name: " + (tables[indexPath.row].employee?.employeeFirstname)! + " " + (tables[indexPath.row].employee?.empolyeeLastname)!
+        cell.detailTextLabel?.text = "Employee Name: " + firstname + " " + lastname
         return cell
     }
 
@@ -120,14 +131,20 @@ class DiningTableTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    
+        let vc = segue.destinationViewController as! CheckTableViewController
+        
+            vc.lastname = lastname
+            vc.firstname = firstname
+            vc.tableNumber = tableNumber
     }
-    */
+    
 
 }

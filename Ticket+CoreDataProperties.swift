@@ -21,5 +21,8 @@ extension Ticket {
     @NSManaged var totalPrice: String?
     @NSManaged var item: String?
     @NSManaged var price: String?
+    @NSManaged var tableNumber: String?
+    @NSManaged var employeeFirstname: String?
+    @NSManaged var employeeLastname: String?
 
 }

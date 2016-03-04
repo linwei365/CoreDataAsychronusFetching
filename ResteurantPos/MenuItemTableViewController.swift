@@ -10,13 +10,21 @@ import UIKit
 import CoreData
 import SVProgressHUD
 
-
+protocol MenuItemTableViewControllerDelegate {
+    
+    func update()
+}
 
 class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
 
+    var delegate:MenuItemTableViewControllerDelegate?
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var dishes = [Dish]()
     var filteredDish = [Dish]()
+    
+    var firstname = String()
+    var lastname = String()
+    var tableNumber = String()
     
     private var myProgressObserverContext = 0
     
@@ -63,6 +71,38 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     }
     
     
+    @IBAction func sendOnClick(sender: UIBarButtonItem) {
+        
+       
+        
+        let ticket = NSEntityDescription.insertNewObjectForEntityForName("Ticket", inManagedObjectContext: managedObjectContext) as! Ticket
+        
+        let dishPrice = dishes[(lastSelectedIndexPath?.row)!].price
+        ticket.item = dishes[(lastSelectedIndexPath?.row)!].name
+        ticket.price = "\(round(Double(dishPrice!) * 100) / 100)"
+        ticket.tableNumber = tableNumber
+        ticket.employeeFirstname = firstname
+        ticket.employeeLastname = lastname
+        
+        
+       
+        do {
+            try  managedObjectContext.save()
+            
+            navigationController?.popViewControllerAnimated(true)
+             delegate?.update()
+        }
+        
+        catch{
+            
+            print("failed to save item")
+            return
+        }
+       
+        
+        
+        
+    }
     
     //load from filter
     func loadDataFilter(){
@@ -290,9 +330,8 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("menuItemCell", forIndexPath: indexPath)
 
-        let dish :Dish
-        
-        
+       
+         var dish :Dish!
         //use NSFetchedResultsController
         //dish = fetchResultController.objectAtIndexPath(indexPath) as! Dish
         
