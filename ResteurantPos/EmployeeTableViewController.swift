@@ -237,6 +237,7 @@ class EmployeeTableViewController: UITableViewController,EditEmployeeViewControl
         
         let manageObject =  employees[indexPath.row]
         
+        //also delete its relationship object
         let tables =  manageObject.table?.allObjects as![Table]
         
         
