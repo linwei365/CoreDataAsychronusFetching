@@ -16,25 +16,30 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
     var tableNumber = String()
     var tableNumberB = String()
     var priceB = String()
-    var tickets = [Ticket]()
+    var tables = [Table]()
     var totalPrice = String()
-    
-    
+    var index:Int?
+    var ticketArray = []
+    var table:Table?
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
     func update() {
         loadData()
+        
+      
         tableView.reloadData()
     }
     
     func loadData(){
         
-        let fetchRequest = NSFetchRequest(entityName: "Ticket")
+        let fetchRequest = NSFetchRequest(entityName: "Table")
         
         do {
-           tickets = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Ticket]
+           tables = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
+            
+              table = tables[index!]
             
         } catch{
             print("failed to get data from  Ticket")
@@ -52,7 +57,7 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        
+ 
         
         
     }
@@ -85,6 +90,13 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
             rowCount = 1
         }
         if section == 1 {
+            // Configure the cell...
+            
+          
+            
+            //convert  set to array
+            let tickets =  table!.ticket?.allObjects as! [Ticket]
+            
             rowCount =  tickets.count
         }
         else {
@@ -132,24 +144,29 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
 
         // Configure the cell...
         
-        if (tickets[indexPath.row].tableNumber != nil) {
-        tableNumberB = tickets[indexPath.row].tableNumber!
-            var value = Double()
-            
-           
+          table = tables[index!]
         
-            for ticket in tickets {
-      
-                 value += (round(Double(ticket.price!)! * 100) / 100)
-            }
-             priceB = "\(value)"
-            totalPrice = "\(value * 0.1 + value)"
+        print("index \(index!)")
+        
+        //convert  set to array
+        let tickets =  table!.ticket?.allObjects as! [Ticket]
+        
+        tableNumberB = tickets[indexPath.row].tableNumber!
+        
+          cell.textLabel?.text = tickets[indexPath.row].item!
+        
+         var value = Double()
+        
+        for ticket in tickets {
             
-        cell.textLabel?.text = tickets[indexPath.row].item!
-        cell.detailTextLabel?.text = tickets[indexPath.row].price!
-            
-            
-        }
+                             value += (round(Double(ticket.price!)! * 100) / 100)
+                        }
+                         priceB = "\(value)"
+                        totalPrice = "\(value * 0.1 + value)"
+
+         cell.detailTextLabel?.text = tickets[indexPath.row].price!
+        
+ 
 
         return cell
     }
@@ -169,10 +186,15 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
        
         
         
-        let manageObject =  tickets[indexPath.row]
+       
+        table = tables[index!]
+        
+        //convert  set to array
+        var tickets =  table!.ticket?.allObjects as! [Ticket]
         
         tickets.removeAtIndex(indexPath.row)
-        managedObjectContext.deleteObject(manageObject)
+     
+        managedObjectContext.deleteObject(tickets[indexPath.row])
         
         do {
             try managedObjectContext.save()
@@ -223,6 +245,7 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         vc.firstname = firstname
         vc.tableNumber = tableNumber
         vc.delegate = self
+        vc.index = index
         
         
     }

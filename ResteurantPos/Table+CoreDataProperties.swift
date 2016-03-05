@@ -2,7 +2,7 @@
 //  Table+CoreDataProperties.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 3/3/16.
+//  Created by Lin Wei on 3/4/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,5 +16,6 @@ extension Table {
 
     @NSManaged var tableNumber: String?
     @NSManaged var employee: Employee?
+    @NSManaged var ticket: NSSet?
 
 }

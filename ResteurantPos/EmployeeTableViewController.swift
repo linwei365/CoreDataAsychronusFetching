@@ -64,7 +64,7 @@ class EmployeeTableViewController: UITableViewController,EditEmployeeViewControl
     //add new user
     
     @IBAction func addOnClick(sender: AnyObject) {
-        let alert  =  UIAlertController(title: "Add Instructor", message: "New Instructor Name", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert  =  UIAlertController(title: "Add Employee", message: "New Empployee Name", preferredStyle: UIAlertControllerStyle.Alert)
         
         let addAction =  UIAlertAction(title: "add", style: UIAlertActionStyle.Default) { (action:UIAlertAction) -> Void in
             
@@ -84,10 +84,10 @@ class EmployeeTableViewController: UITableViewController,EditEmployeeViewControl
                 let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
                 alertController.addAction(alertAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
-                
-              
-                
+           
             }
+                
+                
             else {
                  fetchRequest.predicate = NSPredicate(format: "employeePinNumber contains[c] %@", pinNumber.text!)
     
@@ -100,19 +100,14 @@ class EmployeeTableViewController: UITableViewController,EditEmployeeViewControl
                
                 else
                 {
-                    
                     let alertController =  UIAlertController(title: "Error", message: "that pin is already taken please use a different Pin", preferredStyle: UIAlertControllerStyle.Alert)
                     let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
                     alertController.addAction(alertAction)
                     self.presentViewController(alertController, animated: true, completion: nil)
-                    
-                    
                     print("Error:")
                     
                 }
-
-                
-                
+ 
       
             }
             

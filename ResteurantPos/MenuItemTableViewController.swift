@@ -21,11 +21,11 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var dishes = [Dish]()
     var filteredDish = [Dish]()
-    
+    var tables = [Table]()
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
-    
+    var index:Int?
     private var myProgressObserverContext = 0
     
     var searchText: String?
@@ -73,7 +73,10 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     
     @IBAction func sendOnClick(sender: UIBarButtonItem) {
         
-       
+       let fetchRequest = NSFetchRequest(entityName: "Table")
+        
+        tables = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
+        
         
         let ticket = NSEntityDescription.insertNewObjectForEntityForName("Ticket", inManagedObjectContext: managedObjectContext) as! Ticket
         
@@ -84,6 +87,7 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
         ticket.employeeFirstname = firstname
         ticket.employeeLastname = lastname
         
+        ticket.table = tables[index!]
         
        
         do {

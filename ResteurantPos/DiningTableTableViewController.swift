@@ -131,6 +131,7 @@ class DiningTableTableViewController: UITableViewController {
     }
     */
 
+  
     
     // MARK: - Navigation
 
@@ -144,6 +145,11 @@ class DiningTableTableViewController: UITableViewController {
             vc.lastname = lastname
             vc.firstname = firstname
             vc.tableNumber = tableNumber
+        
+            vc.index = tableView.indexPathForSelectedRow?.row
+   
+         
+     
     }
     
 
