@@ -14,7 +14,7 @@ class EmployeeTableViewController: UITableViewController,EditEmployeeViewControl
   let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    var employees = [Employee]()
     
- 
+    
     var pinNumber = [String]()
    
     func passVaule() {
@@ -237,7 +237,14 @@ class EmployeeTableViewController: UITableViewController,EditEmployeeViewControl
         
         let manageObject =  employees[indexPath.row]
         
-        employees.removeAtIndex(indexPath.row)
+        let tables =  manageObject.table?.allObjects as![Table]
+        
+        
+        for table in tables{
+            moc.deleteObject(table)
+        }
+        
+         employees.removeAtIndex(indexPath.row)
         moc.deleteObject(manageObject)
         
         do {
