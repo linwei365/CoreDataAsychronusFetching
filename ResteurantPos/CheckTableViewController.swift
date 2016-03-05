@@ -62,9 +62,16 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         
     }
 
+    func dissmissVC(){
+        
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
         
-        navigationController?.popViewControllerAnimated(true)
+        dissmissVC()
+        //optional jump to different controller
+//        navigationController?.popViewControllerAnimated(true)
         
     }
     override func didReceiveMemoryWarning() {
