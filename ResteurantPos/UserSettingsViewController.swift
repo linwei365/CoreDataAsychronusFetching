@@ -162,9 +162,7 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                             
                         }
 
-                     
-                        
-                        
+                   
                         
                     })
                    

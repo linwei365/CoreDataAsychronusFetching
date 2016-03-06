@@ -66,9 +66,7 @@ class EditEmployeeViewController: UIViewController {
             let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
             alertController.addAction(alertAction)
             self.presentViewController(alertController, animated: true, completion: nil)
-            
-            
-            
+             
         }
         else
         {   //if textfield pin is same as moc pinNumber then perform
