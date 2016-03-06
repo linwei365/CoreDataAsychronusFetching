@@ -192,9 +192,15 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         //convert  set to array
         var tickets =  table!.ticket?.allObjects as! [Ticket]
         
-        tickets.removeAtIndex(indexPath.row)
-     
+        
+        //after swaped line 197 198 worked :D
+        
         managedObjectContext.deleteObject(tickets[indexPath.row])
+        tickets.removeAtIndex(indexPath.row )
+        
+        
+   
+
         
         do {
             try managedObjectContext.save()
