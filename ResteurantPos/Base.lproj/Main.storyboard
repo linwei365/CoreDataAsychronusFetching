@@ -297,7 +297,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Tablels"/>
                                                 <connections>
-                                                    <segue destination="q0g-qh-8ci" kind="show" id="ym2-6M-tEv"/>
+                                                    <segue destination="q0g-qh-8ci" kind="show" identifier="tableSegue" id="ym2-6M-tEv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K16-qx-fF9">
@@ -387,6 +387,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Help" id="cOh-tT-fL9"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="q0g-qh-8ci" kind="show" identifier="dine" id="Nlk-4N-zH8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5H-WB-nNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -451,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="4044" y="-606"/>
         </scene>
-        <!--Dining Table Table View Controller-->
+        <!--Tables-->
         <scene sceneID="JIu-5L-cdp">
             <objects>
                 <tableViewController id="q0g-qh-8ci" customClass="DiningTableTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
@@ -493,10 +496,11 @@
                             <outlet property="delegate" destination="q0g-qh-8ci" id="ilD-yn-bGH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Tables" id="er7-Mw-Elo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkL-OZ-cUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4044" y="-2088"/>
+            <point key="canvasLocation" x="4132" y="-1394"/>
         </scene>
         <!--Menu-->
         <scene sceneID="abX-eP-dUL">
@@ -590,7 +594,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RdO-wc-qvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4757" y="-2088"/>
+            <point key="canvasLocation" x="4757" y="-1798"/>
         </scene>
         <!--Edit Employee-->
         <scene sceneID="waq-cE-aWO">
@@ -899,8 +903,9 @@
         <image name="images" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="equ-PY-8bj"/>
+        <segue reference="Nlk-4N-zH8"/>
         <segue reference="giW-8N-4QL"/>
         <segue reference="Yks-do-bBX"/>
-        <segue reference="equ-PY-8bj"/>
     </inferredMetricsTieBreakers>
 </document>
