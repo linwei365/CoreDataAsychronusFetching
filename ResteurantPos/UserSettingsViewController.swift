@@ -136,8 +136,10 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                                 do {
                                     try self.moc.save()
                                     
-                                    //segue to the menu
-
+                                    //segue to the menu ..... 
+                                   self.performSegueWithIdentifier("dine", sender: self)
+                                    
+                                    
                                     
                                 }
                                 catch  let error1 as NSError {
