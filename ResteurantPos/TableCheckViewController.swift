@@ -127,6 +127,8 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
     let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.outputType = UIPrintInfoOutputType.General
         printInfo.jobName = "print job"
+        printInfo.orientation = UIPrintInfoOrientation.Portrait
+        
         printController.printInfo = printInfo
         
 //    let printFormatter = UIMarkupTextPrintFormatter(markupText: "some text")
@@ -141,6 +143,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
 //        self.imageWithTableView(tableView)
          let imageData: NSData = UIImagePNGRepresentation(self.imageFromTableView(tableView))!
        
+        
         printController.printingItem =  imageData
         
         
