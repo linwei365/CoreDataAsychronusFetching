@@ -392,7 +392,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="q0g-qh-8ci" kind="show" identifier="dine" id="Nlk-4N-zH8"/>
-                        <segue destination="0gU-vr-iQk" kind="show" identifier="takeOutToCheck" id="R8A-t3-bSm"/>
+                        <segue destination="0gU-vr-iQk" kind="show" identifier="takeOutTotakeOutCheck" id="R8A-t3-bSm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5H-WB-nNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -501,10 +501,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Checks" id="er7-Mw-Elo"/>
+                    <connections>
+                        <segue destination="0gU-vr-iQk" kind="show" identifier="checksToTakeOutCheck" id="9tW-i4-cJp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkL-OZ-cUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4130" y="-1460"/>
+            <point key="canvasLocation" x="4098" y="-1342"/>
         </scene>
         <!--Menu-->
         <scene sceneID="abX-eP-dUL">
@@ -613,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-zE-BVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4770" y="-2518"/>
+            <point key="canvasLocation" x="4801" y="-2213"/>
         </scene>
         <!--Edit Employee-->
         <scene sceneID="waq-cE-aWO">
@@ -939,6 +942,9 @@
                                             <constraint firstAttribute="width" constant="45" id="cZm-2O-Paq"/>
                                         </constraints>
                                         <state key="normal" title="Print"/>
+                                        <connections>
+                                            <action selector="printOnClick:" destination="fTr-um-Yn4" eventType="touchUpInside" id="sTX-9N-AJh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-zW-gxW">
                                         <rect key="frame" x="57" y="0.0" width="45" height="30"/>
@@ -947,29 +953,32 @@
                                             <constraint firstAttribute="width" constant="45" id="PXL-0n-CfV"/>
                                         </constraints>
                                         <state key="normal" title="Pay"/>
+                                        <connections>
+                                            <action selector="payOnClick:" destination="fTr-um-Yn4" eventType="touchUpInside" id="cVD-h4-NRj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="29" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KG3-C5-XMO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KG3-C5-XMO">
                                 <rect key="frame" x="0.0" y="64" width="600" height="441.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dineInTableCell" textLabel="wdP-fF-i6S" detailTextLabel="1dZ-eA-tIf" rowHeight="29" style="IBUITableViewCellStyleSubtitle" id="Q0r-SQ-v0I">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="29"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dineInTableCell" textLabel="wdP-fF-i6S" detailTextLabel="1dZ-eA-tIf" rowHeight="63" style="IBUITableViewCellStyleSubtitle" id="Q0r-SQ-v0I">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q0r-SQ-v0I" id="GLL-9P-gWE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="28.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="62.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wdP-fF-i6S">
-                                                    <rect key="frame" x="15" y="-2" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="15" y="15" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1dZ-eA-tIf">
-                                                    <rect key="frame" x="15" y="17.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="15" y="34.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1008,16 +1017,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejN-vc-0rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4811" y="-1123"/>
+            <point key="canvasLocation" x="4793" y="-1303"/>
         </scene>
     </scenes>
     <resources>
         <image name="images" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="giW-8N-4QL"/>
         <segue reference="Nlk-4N-zH8"/>
+        <segue reference="giW-8N-4QL"/>
         <segue reference="Yks-do-bBX"/>
+        <segue reference="9tW-i4-cJp"/>
         <segue reference="sBM-PO-hUv"/>
     </inferredMetricsTieBreakers>
 </document>
