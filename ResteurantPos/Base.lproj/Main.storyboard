@@ -1024,10 +1024,10 @@
         <image name="images" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nlk-4N-zH8"/>
         <segue reference="giW-8N-4QL"/>
-        <segue reference="Yks-do-bBX"/>
-        <segue reference="9tW-i4-cJp"/>
+        <segue reference="R8A-t3-bSm"/>
+        <segue reference="Nlk-4N-zH8"/>
         <segue reference="sBM-PO-hUv"/>
+        <segue reference="Yks-do-bBX"/>
     </inferredMetricsTieBreakers>
 </document>
