@@ -84,10 +84,35 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
         return image;
     }
     
+    // new covert to image with all content
     
+    func imageFromTableView (view:UITableView) ->UIImage {
+        
+        // tempframe to reset view size after image was created
+        let tempFrame:CGRect  = view.frame
+        var aFrame:CGRect = view.frame
+        
+        // set new Frame
+        aFrame.size.height = view.sizeThatFits(UIScreen.mainScreen().bounds.size).height
+        view.frame = aFrame
+        //do image convert
+        
+        UIGraphicsBeginImageContext(view.sizeThatFits(UIScreen.mainScreen().bounds.size))
+        let resizedContext:CGContextRef = UIGraphicsGetCurrentContext()!
+        view.layer.renderInContext(resizedContext)
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        
+        // reset Frame of view to origin
+        view.frame = tempFrame
+
+        return image
+
+    }
     
  
-    
     
     
     
@@ -114,7 +139,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
         //printController.printingItem = imageData
         
 //        self.imageWithTableView(tableView)
-         let imageData: NSData = UIImagePNGRepresentation(self.imageWithTableView(tableView))!
+         let imageData: NSData = UIImagePNGRepresentation(self.imageFromTableView(tableView))!
        
         printController.printingItem =  imageData
         
