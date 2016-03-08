@@ -1,16 +1,17 @@
 //
-//  CheckTableViewController.swift
+//  TableCheckViewController.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 2/25/16.
+//  Created by Lin Wei on 3/7/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class CheckTableViewController: UITableViewController,MenuItemTableViewControllerDelegate {
+class TableCheckViewController: UIViewController , UITableViewDataSource, UITableViewDelegate,MenuItemTableViewControllerDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
@@ -28,7 +29,7 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
     func update() {
         loadData()
         
-      
+        
         tableView.reloadData()
     }
     
@@ -37,9 +38,9 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         let fetchRequest = NSFetchRequest(entityName: "Table")
         
         do {
-           tables = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
+            tables = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
             
-              table = tables[index!]
+            table = tables[index!]
             
         } catch{
             print("failed to get data from  Ticket")
@@ -49,19 +50,19 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
- 
+        
         
         
     }
-
+    
     func dissmissVC(){
         
         navigationController?.popToRootViewControllerAnimated(true)
@@ -71,25 +72,25 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         
         dissmissVC()
         //optional jump to different controller
-//        navigationController?.popViewControllerAnimated(true)
+        //        navigationController?.popViewControllerAnimated(true)
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-       
+        
         return 5
-    
-    
+        
+        
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
         var rowCount = 1
@@ -99,7 +100,7 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         if section == 1 {
             // Configure the cell...
             
-          
+            
             
             //convert  set to array
             let tickets =  table!.ticket?.allObjects as! [Ticket]
@@ -111,16 +112,16 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         }
         
         return rowCount
-   
+        
         
         
     }
-
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> (String!) {
-       
-         var rowText = ""
+    
+      func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> (String!) {
+        
+        var rowText = ""
         if (section == 0) {
-           
+            
             
             rowText = "                              Table # \(tableNumberB)"
             
@@ -131,7 +132,7 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         
         if (section == 2)
         {
-           rowText = "                                                Subtotal: \(priceB)"
+            rowText = "                                                Subtotal: \(priceB)"
         }
         if (section == 3) {
             rowText = "                                               Tax: 10%"
@@ -144,14 +145,14 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         return rowText
         
     }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("checkCell", forIndexPath: indexPath)
-
+    
+      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("dineInTableCell", forIndexPath: indexPath)
+        
         // Configure the cell...
         
-          table = tables[index!]
+        table = tables[index!]
         
         print("index \(index!)")
         
@@ -160,40 +161,40 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         
         tableNumberB = tickets[indexPath.row].tableNumber!
         
-          cell.textLabel?.text = tickets[indexPath.row].item!
+        cell.textLabel?.text = tickets[indexPath.row].item!
         
-         var value = Double()
+        var value = Double()
         
         for ticket in tickets {
             
-                             value += (round(Double(ticket.price!)! * 100) / 100)
-                        }
-                         priceB = "\(value)"
-                        totalPrice = "\(value * 0.1 + value)"
-
-         cell.detailTextLabel?.text = tickets[indexPath.row].price!
+            value += (round(Double(ticket.price!)! * 100) / 100)
+        }
+        priceB = "\(value)"
+        totalPrice = "\(value * 0.1 + value)"
         
- 
-
+        cell.detailTextLabel?.text = tickets[indexPath.row].price!
+        
+        
+        
         return cell
     }
     
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // Return false if you do not want the specified item to be editable.
+    return true
     }
     */
-
- 
+    
+    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-       
+      func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         
-       
+        
+        
         table = tables[index!]
         
         //convert  set to array
@@ -206,8 +207,8 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         tickets.removeAtIndex(indexPath.row )
         
         
-   
-
+        
+        
         
         do {
             try managedObjectContext.save()
@@ -220,33 +221,33 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         }
         self.tableView.reloadData()
         
-//        if editingStyle == .Delete {
-//            // Delete the row from the data source
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        } else if editingStyle == .Insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
+        //        if editingStyle == .Delete {
+        //            // Delete the row from the data source
+        //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        //        } else if editingStyle == .Insert {
+        //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        //        }
     }
-  
-
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
     }
     */
-
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    // Return false if you do not want the item to be re-orderable.
+    return true
     }
     */
-
- 
+    
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -262,6 +263,13 @@ class CheckTableViewController: UITableViewController,MenuItemTableViewControlle
         
         
     }
+    
 
 
+ 
+    
+    
+    
+    
+    
 }

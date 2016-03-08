@@ -158,7 +158,7 @@ class DiningTableTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     
-        let vc = segue.destinationViewController as! CheckTableViewController
+        let vc = segue.destinationViewController as! TableCheckViewController
         
             vc.lastname = lastname
             vc.firstname = firstname

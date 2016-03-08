@@ -29,7 +29,6 @@
 		6545D8C21C8A3D63004B5D5B /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8BE1C8A3D63004B5D5B /* Ticket.swift */; };
 		6545D8C31C8A3D63004B5D5B /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8BF1C8A3D63004B5D5B /* Table+CoreDataProperties.swift */; };
 		6545D8C41C8A3D63004B5D5B /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545D8C01C8A3D63004B5D5B /* Table.swift */; };
-		655B59201C7FF97100D3D72A /* CheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */; };
 		65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B0D6F81C8255C10057C077 /* SignUpViewController.swift */; };
 		65B7316D1C7930840071D42C /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B7316C1C7930840071D42C /* TesseractOCR.framework */; };
 		65B7316F1C79308F0071D42C /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 65B7316E1C79308F0071D42C /* tessdata */; };
@@ -39,6 +38,8 @@
 		65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7317A1C7A0BD10071D42C /* ScanViewController.swift */; };
 		65B731831C7AE7D00071D42C /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B731821C7AE7D00071D42C /* KeyboardViewController.swift */; };
 		65B731871C7AE7D00071D42C /* CustomKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65B731801C7AE7D00071D42C /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65C5C19B1C8E921300B6CCF3 /* TakeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */; };
+		65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */; };
 		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +112,6 @@
 		6545D8BE1C8A3D63004B5D5B /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		6545D8BF1C8A3D63004B5D5B /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6545D8C01C8A3D63004B5D5B /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewController.swift; sourceTree = "<group>"; };
 		65B0D6F81C8255C10057C077 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		65B7316C1C7930840071D42C /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		65B7316E1C79308F0071D42C /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -124,6 +124,8 @@
 		65B731821C7AE7D00071D42C /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		65B731841C7AE7D00071D42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B7318C1C7B5B2E0071D42C /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
+		65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeoutViewController.swift; sourceTree = "<group>"; };
+		65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCheckViewController.swift; sourceTree = "<group>"; };
 		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
@@ -302,8 +304,9 @@
 				6545D88E1C87771C004B5D5B /* EmployeeTableViewController.swift */,
 				65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */,
 				6545D8991C88A8CD004B5D5B /* DiningTableTableViewController.swift */,
-				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
 				6545D8A71C8932DC004B5D5B /* MenuItemTableViewController.swift */,
+				65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */,
+				65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */,
 			);
 			name = currentlyWorking;
 			sourceTree = "<group>";
@@ -570,14 +573,15 @@
 				6545D89A1C88A8CD004B5D5B /* DiningTableTableViewController.swift in Sources */,
 				65B7317B1C7A0BD10071D42C /* ScanViewController.swift in Sources */,
 				6545D8C41C8A3D63004B5D5B /* Table.swift in Sources */,
-				655B59201C7FF97100D3D72A /* CheckTableViewController.swift in Sources */,
 				6545D8B51C8944F8004B5D5B /* Dish+CoreDataProperties.swift in Sources */,
 				65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */,
 				6545D8A21C88F752004B5D5B /* Employee.swift in Sources */,
 				6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */,
+				65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
 				6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */,
+				65C5C19B1C8E921300B6CCF3 /* TakeoutViewController.swift in Sources */,
 				6545D8C21C8A3D63004B5D5B /* Ticket.swift in Sources */,
 				6545D8A81C8932DC004B5D5B /* MenuItemTableViewController.swift in Sources */,
 				6545D8B61C8944F8004B5D5B /* Dish.swift in Sources */,

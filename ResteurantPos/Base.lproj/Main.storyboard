@@ -295,7 +295,7 @@
                                                     <constraint firstAttribute="width" constant="127" id="5rC-8C-lqK"/>
                                                     <constraint firstAttribute="height" constant="30" id="Vgd-qO-UKg"/>
                                                 </constraints>
-                                                <state key="normal" title="Tablels"/>
+                                                <state key="normal" title="Checks"/>
                                                 <connections>
                                                     <segue destination="q0g-qh-8ci" kind="show" identifier="tableSegue" id="ym2-6M-tEv"/>
                                                 </connections>
@@ -337,6 +337,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="rtT-w5-irc"/>
                                                 </constraints>
                                                 <state key="normal" title="Take Out"/>
+                                                <connections>
+                                                    <action selector="takeOutOnClick:" destination="ib2-Lb-aLM" eventType="touchUpInside" id="6Ce-77-uVU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTw-QC-BNi">
                                                 <rect key="frame" x="0.0" y="63" width="127" height="30"/>
@@ -455,7 +458,7 @@
             </objects>
             <point key="canvasLocation" x="4044" y="-606"/>
         </scene>
-        <!--Tables-->
+        <!--Checks-->
         <scene sceneID="JIu-5L-cdp">
             <objects>
                 <tableViewController id="q0g-qh-8ci" customClass="DiningTableTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
@@ -488,7 +491,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="2di-4R-hmd" kind="show" id="sDq-bN-JZ5"/>
+                                    <segue destination="fTr-um-Yn4" kind="show" id="fVZ-lJ-Ae5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -497,11 +500,11 @@
                             <outlet property="delegate" destination="q0g-qh-8ci" id="ilD-yn-bGH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tables" id="er7-Mw-Elo"/>
+                    <navigationItem key="navigationItem" title="Checks" id="er7-Mw-Elo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkL-OZ-cUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4186" y="-1394"/>
+            <point key="canvasLocation" x="4130" y="-1460"/>
         </scene>
         <!--Menu-->
         <scene sceneID="abX-eP-dUL">
@@ -541,7 +544,7 @@
         <!--Takeout Check-->
         <scene sceneID="MlY-Ff-roC">
             <objects>
-                <viewController id="0gU-vr-iQk" sceneMemberID="viewController">
+                <viewController id="0gU-vr-iQk" customClass="TakeoutViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gw6-g7-xOW"/>
                         <viewControllerLayoutGuide type="bottom" id="psA-ta-uXw"/>
@@ -563,6 +566,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0gU-vr-iQk" id="dOP-Xp-bih"/>
+                                    <outlet property="delegate" destination="0gU-vr-iQk" id="Z1w-f3-q33"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="NPM-vg-4In">
                                 <rect key="frame" x="249" y="534" width="102" height="30"/>
@@ -606,66 +613,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-zE-BVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4186" y="-2506"/>
-        </scene>
-        <!--Table Checks-->
-        <scene sceneID="n3O-tK-NOg">
-            <objects>
-                <tableViewController id="2di-4R-hmd" customClass="CheckTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UDE-vT-65N">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkCell" textLabel="Mhl-tj-MZT" detailTextLabel="siW-bm-o7D" style="IBUITableViewCellStyleSubtitle" id="DDb-WT-Pch">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DDb-WT-Pch" id="4Kb-aI-e6D">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mhl-tj-MZT">
-                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="siW-bm-o7D">
-                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="IIt-nU-6EN" kind="show" id="equ-PY-8bj"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2di-4R-hmd" id="Ucm-A9-EFH"/>
-                            <outlet property="delegate" destination="2di-4R-hmd" id="gD5-PQ-TNw"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Table Checks" id="J8T-Ye-Dlh">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Nvf-xc-owa">
-                            <connections>
-                                <action selector="cancelOnClick:" destination="2di-4R-hmd" id="h4P-0z-qKi"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="koU-Py-BY5">
-                            <connections>
-                                <segue destination="IIt-nU-6EN" kind="show" id="HGG-il-91Y"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RdO-wc-qvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4839" y="-1800"/>
+            <point key="canvasLocation" x="4770" y="-2518"/>
         </scene>
         <!--Edit Employee-->
         <scene sceneID="waq-cE-aWO">
@@ -969,14 +917,107 @@
             </objects>
             <point key="canvasLocation" x="1917" y="-640"/>
         </scene>
+        <!--Table Check-->
+        <scene sceneID="pt8-dT-S16">
+            <objects>
+                <viewController id="fTr-um-Yn4" customClass="TableCheckViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ef8-OD-RLO"/>
+                        <viewControllerLayoutGuide type="bottom" id="SWz-1t-7B8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fE1-WS-558">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="54c-Cg-AjO">
+                                <rect key="frame" x="249" y="534" width="102" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpE-gw-CQ7">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Syn-xV-bTA"/>
+                                            <constraint firstAttribute="width" constant="45" id="cZm-2O-Paq"/>
+                                        </constraints>
+                                        <state key="normal" title="Print"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-zW-gxW">
+                                        <rect key="frame" x="57" y="0.0" width="45" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="BAe-C3-za0"/>
+                                            <constraint firstAttribute="width" constant="45" id="PXL-0n-CfV"/>
+                                        </constraints>
+                                        <state key="normal" title="Pay"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="29" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KG3-C5-XMO">
+                                <rect key="frame" x="0.0" y="64" width="600" height="441.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dineInTableCell" textLabel="wdP-fF-i6S" detailTextLabel="1dZ-eA-tIf" rowHeight="29" style="IBUITableViewCellStyleSubtitle" id="Q0r-SQ-v0I">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q0r-SQ-v0I" id="GLL-9P-gWE">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="28.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wdP-fF-i6S">
+                                                    <rect key="frame" x="15" y="-2" width="31.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1dZ-eA-tIf">
+                                                    <rect key="frame" x="15" y="17.5" width="40.5" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fTr-um-Yn4" id="mnZ-Gi-qYp"/>
+                                    <outlet property="delegate" destination="fTr-um-Yn4" id="Hvm-oE-Gee"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="54c-Cg-AjO" firstAttribute="centerX" secondItem="fE1-WS-558" secondAttribute="centerX" id="1F2-4p-9tp"/>
+                            <constraint firstItem="54c-Cg-AjO" firstAttribute="top" secondItem="KG3-C5-XMO" secondAttribute="bottom" constant="28.5" id="1X7-FB-Pqd"/>
+                            <constraint firstAttribute="trailing" secondItem="KG3-C5-XMO" secondAttribute="trailing" id="H3N-63-eRj"/>
+                            <constraint firstItem="KG3-C5-XMO" firstAttribute="leading" secondItem="fE1-WS-558" secondAttribute="leading" id="bsv-ss-9Vf"/>
+                            <constraint firstItem="KG3-C5-XMO" firstAttribute="top" secondItem="Ef8-OD-RLO" secondAttribute="bottom" id="e2n-Hv-TzG"/>
+                            <constraint firstItem="SWz-1t-7B8" firstAttribute="top" secondItem="KG3-C5-XMO" secondAttribute="bottom" constant="94.5" id="rPZ-nk-sqd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Table Check" id="g64-pN-6m0">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="RVQ-K3-2UK">
+                            <connections>
+                                <segue destination="IIt-nU-6EN" kind="show" id="sBM-PO-hUv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="KG3-C5-XMO" id="ICI-Sy-dOO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejN-vc-0rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4811" y="-1123"/>
+        </scene>
     </scenes>
     <resources>
         <image name="images" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lc2-7d-K4A"/>
         <segue reference="giW-8N-4QL"/>
         <segue reference="Nlk-4N-zH8"/>
         <segue reference="Yks-do-bBX"/>
+        <segue reference="sBM-PO-hUv"/>
     </inferredMetricsTieBreakers>
 </document>
