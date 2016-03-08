@@ -615,65 +615,6 @@
             </objects>
             <point key="canvasLocation" x="4770" y="-2518"/>
         </scene>
-        <!--Table Check-->
-        <scene sceneID="n3O-tK-NOg">
-            <objects>
-                <tableViewController id="2di-4R-hmd" customClass="CheckTableViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UDE-vT-65N">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkCell" textLabel="Mhl-tj-MZT" detailTextLabel="siW-bm-o7D" style="IBUITableViewCellStyleSubtitle" id="DDb-WT-Pch">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DDb-WT-Pch" id="4Kb-aI-e6D">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mhl-tj-MZT">
-                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="siW-bm-o7D">
-                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="IIt-nU-6EN" kind="show" id="equ-PY-8bj"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2di-4R-hmd" id="Ucm-A9-EFH"/>
-                            <outlet property="delegate" destination="2di-4R-hmd" id="gD5-PQ-TNw"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Table Check" id="J8T-Ye-Dlh">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Nvf-xc-owa">
-                            <connections>
-                                <action selector="cancelOnClick:" destination="2di-4R-hmd" id="h4P-0z-qKi"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="koU-Py-BY5">
-                            <connections>
-                                <segue destination="IIt-nU-6EN" kind="show" id="HGG-il-91Y"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RdO-wc-qvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4839" y="-1800"/>
-        </scene>
         <!--Edit Employee-->
         <scene sceneID="waq-cE-aWO">
             <objects>
