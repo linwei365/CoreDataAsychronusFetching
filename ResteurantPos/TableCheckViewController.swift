@@ -23,6 +23,117 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
     var ticketArray = []
     var table:Table?
     
+    
+    //printer
+    func showPrinterPicker () {
+        //UIPrinterPickerController
+        let printerPicker = UIPrinterPickerController (initiallySelectedPrinter: nil)
+        //UIPrinterPickerController the modal is indicated
+          
+        printerPicker.presentAnimated(true, completionHandler: nil)
+        
+        
+        
+    }
+    
+    //tableview to pdf
+    func pdfDataWithTableView (tableView:UITableView) ->NSData {
+        let priorBounds:CGRect = tableView.bounds
+        let fittedSize:CGSize = tableView.sizeThatFits(CGSize(width: priorBounds.size.width, height: priorBounds.size.height))
+        tableView.bounds = CGRectMake(0, 0, fittedSize.width, fittedSize.height)
+        
+        // Standard US Letter dimensions 8.5" x 11"
+        let pdfPageBounds:CGRect = CGRectMake(0, 0, 612, 792);
+        let pdfData:NSMutableData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, pdfPageBounds, nil)
+        
+        
+        for(var pageOriginY:CGFloat = 0; pageOriginY < fittedSize.height; pageOriginY += pdfPageBounds.size.height){
+            
+            CGContextSaveGState(UIGraphicsGetCurrentContext())
+            
+            CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -pageOriginY)
+            
+            tableView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            
+            CGContextRestoreGState(UIGraphicsGetCurrentContext())
+            
+        }
+        
+        UIGraphicsEndImageContext()
+        tableView.bounds = priorBounds
+        return pdfData
+        
+    }
+    
+    
+    //works but not really well
+    func imageWithTableView (tableView:UITableView) ->UIImage{
+        
+        let renderedView:UIView = tableView
+        let tableContentOffset:CGPoint = tableView.contentOffset
+        
+        UIGraphicsBeginImageContextWithOptions(renderedView.bounds.size, renderedView.opaque, 0.0)
+        let contextRef:CGContextRef = UIGraphicsGetCurrentContext()!
+         CGContextTranslateCTM(contextRef, 0, -tableContentOffset.y)
+        tableView.layer.renderInContext(contextRef)
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        
+        UIGraphicsEndImageContext();
+        return image;
+    }
+    
+    
+    
+ 
+    
+    
+    
+    
+    @IBAction func printOnClick(sender: UIButton) {
+        
+     
+            
+//             showPrinterPicker()
+        
+ 
+    let printController =  UIPrintInteractionController.sharedPrintController()
+    let printInfo = UIPrintInfo(dictionary: nil)
+        printInfo.outputType = UIPrintInfoOutputType.General
+        printInfo.jobName = "print job"
+        printController.printInfo = printInfo
+        
+//    let printFormatter = UIMarkupTextPrintFormatter(markupText: "some text")
+//        printFormatter.contentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+//        printController.printFormatter = printFormatter
+        
+        //printController.printingItem = imageData
+        
+        //tableview to pdf
+        //printController.printingItem = imageData
+        
+//        self.imageWithTableView(tableView)
+         let imageData: NSData = UIImagePNGRepresentation(self.imageWithTableView(tableView))!
+       
+        printController.printingItem =  imageData
+        
+        
+        
+        printController.presentAnimated(true, completionHandler: nil)
+        
+        
+        
+       
+        
+        
+        
+    }
+    
+    @IBAction func payOnClick(sender: UIButton) {
+        
+    }
+    
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     

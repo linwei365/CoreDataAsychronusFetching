@@ -40,6 +40,7 @@
 		65B731871C7AE7D00071D42C /* CustomKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65B731801C7AE7D00071D42C /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		65C5C19B1C8E921300B6CCF3 /* TakeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */; };
 		65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */; };
+		65C5C1A11C8EA6F800B6CCF3 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C5C1A01C8EA6F800B6CCF3 /* ExternalAccessory.framework */; };
 		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		65B7318C1C7B5B2E0071D42C /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
 		65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeoutViewController.swift; sourceTree = "<group>"; };
 		65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCheckViewController.swift; sourceTree = "<group>"; };
+		65C5C1A01C8EA6F800B6CCF3 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		65C5C1A21C8EA6F800B6CCF3 /* ResteurantPos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ResteurantPos.entitlements; sourceTree = "<group>"; };
 		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C5C1A11C8EA6F800B6CCF3 /* ExternalAccessory.framework in Frameworks */,
 				65B731751C7931140071D42C /* CoreImage.framework in Frameworks */,
 				65B731731C79310A0071D42C /* libstdc++.6.0.9.tbd in Frameworks */,
 				65B731711C7930AF0071D42C /* libstdc++.tbd in Frameworks */,
@@ -171,6 +175,7 @@
 		3CFA0DE9C894C0967D88F6A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65C5C1A01C8EA6F800B6CCF3 /* ExternalAccessory.framework */,
 				65B731741C7931140071D42C /* CoreImage.framework */,
 				65B731721C79310A0071D42C /* libstdc++.6.0.9.tbd */,
 				65B731701C7930AF0071D42C /* libstdc++.tbd */,
@@ -209,6 +214,7 @@
 		6506EC281C72523900208E47 /* ResteurantPos */ = {
 			isa = PBXGroup;
 			children = (
+				65C5C1A21C8EA6F800B6CCF3 /* ResteurantPos.entitlements */,
 				6506EC6B1C7271C500208E47 /* Model */,
 				6545D8851C876937004B5D5B /* View */,
 				6545D8841C8768FA004B5D5B /* Controller */,
@@ -437,6 +443,12 @@
 				TargetAttributes = {
 					6506EC251C72523900208E47 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 775J78N5FZ;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 					6506EC3C1C72523900208E47 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -746,6 +758,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ResteurantPos/ResteurantPos.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -761,6 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = company.ResteurantPos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResteurantPos-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -773,6 +789,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ResteurantPos/ResteurantPos.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -788,6 +807,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = company.ResteurantPos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResteurantPos-Bridging-Header.h";
 			};
 			name = Release;
