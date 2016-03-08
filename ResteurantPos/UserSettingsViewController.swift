@@ -78,7 +78,7 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                     else
                     {
                     
-                     self.performSegueWithIdentifier("takeOutToCheck", sender: self)
+                     self.performSegueWithIdentifier("takeOutTotakeOutCheck", sender: self)
                     
                     }
                     
