@@ -541,7 +541,7 @@
         <!--Takeout Check-->
         <scene sceneID="MlY-Ff-roC">
             <objects>
-                <viewController id="0gU-vr-iQk" sceneMemberID="viewController">
+                <viewController id="0gU-vr-iQk" customClass="TakeoutViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gw6-g7-xOW"/>
                         <viewControllerLayoutGuide type="bottom" id="psA-ta-uXw"/>
@@ -563,6 +563,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0gU-vr-iQk" id="dOP-Xp-bih"/>
+                                    <outlet property="delegate" destination="0gU-vr-iQk" id="Z1w-f3-q33"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="NPM-vg-4In">
                                 <rect key="frame" x="249" y="534" width="102" height="30"/>
@@ -606,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-zE-BVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4186" y="-2506"/>
+            <point key="canvasLocation" x="4256" y="-2574"/>
         </scene>
         <!--Table Checks-->
         <scene sceneID="n3O-tK-NOg">
