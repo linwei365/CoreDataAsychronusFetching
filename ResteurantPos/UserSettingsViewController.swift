@@ -41,6 +41,74 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    @IBAction func takeOutOnClick(sender: UIButton) {
+            
+            let fetchRequest = NSFetchRequest(entityName: "Employee")
+            
+            let alertController = UIAlertController(title: "Pin Number", message: "Please enter your Pin Number", preferredStyle: .Alert)
+            
+            let alertActionA =  UIAlertAction(title: "Ok", style: .Default) { (action:UIAlertAction) -> Void in
+                
+                let pinNumber =  alertController.textFields![0]
+                //check if textfile is empty if true alert to fill up the message
+                
+                if ((pinNumber.text?.isEmpty) == true ){
+                    
+                    let alertController =  UIAlertController(title: "Error", message: "please fill in all the blanks", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                }
+                else {
+                    fetchRequest.predicate = NSPredicate(format: "employeePinNumber = %@", pinNumber.text!)
+                    
+                    let emplyoeeID =  try! self.moc.executeFetchRequest(fetchRequest) as! [Employee]
+                    //let emplyoeeID =  try! self.moc.executeFetchRequest(fetchRequest) as! [Employee]
+                    
+                    if emplyoeeID.count == 0
+                    {
+                        let alertController =  UIAlertController(title: "Error", message: "The Pin Number Is Not Found", preferredStyle: UIAlertControllerStyle.Alert)
+                        let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
+                        alertController.addAction(alertAction)
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                        
+                    }
+                        
+                    else
+                    {
+                    
+                     self.performSegueWithIdentifier("takeOutToCheck", sender: self)
+                    
+                    }
+                    
+                    
+                }
+                
+            }
+            
+            alertController.addTextFieldWithConfigurationHandler { (pinNumber:UITextField) -> Void in
+                pinNumber.placeholder = "Pin Number"
+                
+            }
+            
+            let cancelAction =  UIAlertAction(title: "cancel", style: UIAlertActionStyle.Cancel) { (action:UIAlertAction) -> Void in
+                
+            }
+            
+            alertController.addAction(alertActionA)
+            alertController.addAction(cancelAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+    
+        
+    }
+    
+    
+    
+    
+    
+    
     
     @IBAction func dineInOnClick(sender: UIButton) {
         
@@ -158,10 +226,7 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
             }
      
         }
-        
-        
-        
-        
+     
         alertController.addTextFieldWithConfigurationHandler { (pinNumber:UITextField) -> Void in
         pinNumber.placeholder = "Pin Number"
             

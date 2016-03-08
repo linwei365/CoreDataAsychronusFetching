@@ -40,6 +40,7 @@
 		65B731831C7AE7D00071D42C /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B731821C7AE7D00071D42C /* KeyboardViewController.swift */; };
 		65B731871C7AE7D00071D42C /* CustomKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65B731801C7AE7D00071D42C /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		65C5C19B1C8E921300B6CCF3 /* TakeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */; };
+		65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */; };
 		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		65B731841C7AE7D00071D42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B7318C1C7B5B2E0071D42C /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
 		65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeoutViewController.swift; sourceTree = "<group>"; };
+		65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCheckViewController.swift; sourceTree = "<group>"; };
 		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				655B591F1C7FF97100D3D72A /* CheckTableViewController.swift */,
 				6545D8A71C8932DC004B5D5B /* MenuItemTableViewController.swift */,
 				65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */,
+				65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */,
 			);
 			name = currentlyWorking;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */,
 				6545D8A21C88F752004B5D5B /* Employee.swift in Sources */,
 				6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */,
+				65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
 				6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */,
