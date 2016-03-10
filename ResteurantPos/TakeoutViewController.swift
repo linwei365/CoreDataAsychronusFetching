@@ -101,6 +101,10 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    
+    
+    
+    
     func loadData(){
         
         let fetchRequest = NSFetchRequest(entityName: "TakeOutCheck")
@@ -222,7 +226,40 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
 
+    // Override to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        
+        takeoutCheck = takeoutChecks[index!]
+        
+        //convert  set to array
+        var tickets =  takeoutCheck!.ticket?.allObjects as! [Ticket]
+        
+        
+        //after swaped line 197 198 worked :D
+        
+        managedObjectContext.deleteObject(tickets[indexPath.row])
+        tickets.removeAtIndex(indexPath.row )
+        
+
+        
+        do {
+            try managedObjectContext.save()
+            
+        }
+        catch {
+            print("failed to save ")
+            
+            return
+        }
+        self.tableView.reloadData()
+        
+   
+    }
     
+
     
     
     // MARK: - Navigation
