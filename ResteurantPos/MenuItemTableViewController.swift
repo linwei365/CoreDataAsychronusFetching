@@ -22,6 +22,7 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     var dishes = [Dish]()
     var filteredDish = [Dish]()
     var tables = [Table]()
+    var takeoutCheckes = [TakeOutCheck]()
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
@@ -116,8 +117,8 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
             
         } else if (viewControllerIndex == 2) {
             
-            let fetchRequest = NSFetchRequest(entityName: "Table")
-            tables = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
+            let fetchRequest = NSFetchRequest(entityName: "TakeOutCheck")
+            takeoutCheckes = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [TakeOutCheck]
             
             
             let ticket = NSEntityDescription.insertNewObjectForEntityForName("Ticket", inManagedObjectContext: managedObjectContext) as! Ticket
@@ -131,7 +132,7 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
             
             
             //creates relationship with table
-            ticket.table = tables[index!]
+            ticket.takeOutCheck = takeoutCheckes[index!]
             
             
             do {
@@ -462,7 +463,7 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
 
  
     // MARK: - Navigation
-
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -472,6 +473,6 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
         
         
     }
-    
+    */
 
 }

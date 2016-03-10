@@ -613,6 +613,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="yf3-ce-8K5" id="Hq3-aw-isf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-zE-BVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1027,7 +1030,7 @@
         <segue reference="giW-8N-4QL"/>
         <segue reference="Nlk-4N-zH8"/>
         <segue reference="R8A-t3-bSm"/>
-        <segue reference="sBM-PO-hUv"/>
+        <segue reference="lc2-7d-K4A"/>
         <segue reference="Yks-do-bBX"/>
     </inferredMetricsTieBreakers>
 </document>

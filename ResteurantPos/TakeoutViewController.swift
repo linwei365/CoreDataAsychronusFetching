@@ -8,8 +8,19 @@
 
 import UIKit
 
-class TakeoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TakeoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,MenuItemTableViewControllerDelegate {
 
+   var index:Int?
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    func update() {
+//        loadData()
+        
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,6 +86,9 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
         // Pass the selected object to the new view controller.
         
         let vc =  segue.destinationViewController as! MenuItemTableViewController
+        
+        vc.delegate = self
+        vc.index = index
         vc.viewControllerIndex = 2
     }
    
