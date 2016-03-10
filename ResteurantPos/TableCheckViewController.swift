@@ -266,18 +266,18 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
             
         }
         if (section == 1){
-            rowText = ""
+            rowText = "Order Number# "
         }
         
         if (section == 2)
         {
-            rowText = "                                                Subtotal: \(priceB)"
+            rowText = "Subtotal: \(priceB)"
         }
         if (section == 3) {
-            rowText = "                                               Tax: 10%"
+            rowText = "Tax: 10%"
         }
         if (section == 4) {
-            rowText = "                                               Total: \(totalPrice)"
+            rowText = "Total: \(totalPrice)"
         }
         
         

@@ -176,22 +176,22 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
         if (section == 0) {
             
             
-            rowText = "                               takeout"
+            rowText = "                               Takeout"
             
         }
         if (section == 1){
-            rowText = "order Number"
+            rowText = "Order Number#"
         }
         
         if (section == 2)
         {
-            rowText = "                                                Subtotal: \(priceB)"
+            rowText = "Subtotal: \(priceB)"
         }
         if (section == 3) {
-            rowText = "                                               Tax: 10%"
+            rowText = "Tax: 10%"
         }
         if (section == 4) {
-            rowText = "                                               Total: \(totalPrice)"
+            rowText = "Total: \(totalPrice)"
         }
         
         
