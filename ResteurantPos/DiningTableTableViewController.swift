@@ -113,7 +113,7 @@ class DiningTableTableViewController: UITableViewController {
         } else if(indexPath.section == 1) {
             
             
-            cell.textLabel?.text = (takeOutChecks[indexPath.row].employee?.employeeFirstname)! + " " + (takeOutChecks[indexPath.row].employee?.empolyeeLastname)!
+            cell.textLabel?.text = "Employee Name: " + (takeOutChecks[indexPath.row].employee?.employeeFirstname)! + " " + (takeOutChecks[indexPath.row].employee?.empolyeeLastname)!
             
  
             

@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 class TakeoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,MenuItemTableViewControllerDelegate {
-    var priceB:String?
-    var totalPrice:String?
+    var priceB = String()
+    var totalPrice = String()
    var index:Int?
     var takeoutChecks = [TakeOutCheck]()
     var takeoutCheck:TakeOutCheck? 
@@ -176,7 +176,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
         if (section == 1){
-            rowText = ""
+            rowText = "order Number"
         }
         
         if (section == 2)
