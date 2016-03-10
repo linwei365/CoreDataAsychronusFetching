@@ -17,7 +17,7 @@ class DiningTableTableViewController: UITableViewController {
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
-    
+    var indexpath:NSIndexPath?
     //load data
     func loadData () {
         let fetchRequest = NSFetchRequest(entityName: "Table")
@@ -79,7 +79,7 @@ class DiningTableTableViewController: UITableViewController {
         }
         else if (section == 1){
            count =  takeOutChecks.count
-            count = 2
+          
         }
         
         return count
@@ -110,9 +110,11 @@ class DiningTableTableViewController: UITableViewController {
             print(pin)
             cell.detailTextLabel?.text = "Employee Name: " + firstname + " " + lastname
             
-        } else {
+        } else if(indexPath.section == 1) {
             
-            cell.textLabel?.text = " on on "
+            
+            cell.textLabel?.text = (takeOutChecks[indexPath.row].employee?.employeeFirstname)! + " " + (takeOutChecks[indexPath.row].employee?.empolyeeLastname)!
+            
  
             
 //            cell.textLabel?.text = "Table # " + takeOutChecks[indexPath.row].takeoutOrderNumber!
@@ -230,6 +232,8 @@ class DiningTableTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        
+            indexpath = indexPath
+        
         if indexPath.section == 0 {
                     performSegueWithIdentifier("checksToTableCheckSegue", sender: self)
             
@@ -252,7 +256,7 @@ class DiningTableTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
        
- 
+      
         
  
             
@@ -264,7 +268,8 @@ class DiningTableTableViewController: UITableViewController {
                 vc.firstname = firstname
                 vc.tableNumber = tableNumber
                 
-                vc.index = tableView.indexPathForSelectedRow?.row
+                vc.index = indexpath?.row
+                print(vc.index)
          
             }
             else if (segue.identifier == "checksToTakeoutcheck"){
@@ -272,8 +277,9 @@ class DiningTableTableViewController: UITableViewController {
                 
                   let vc = segue.destinationViewController as! TakeoutViewController
                 
-                vc.index = tableView.indexPathForSelectedRow?.row
+                vc.index = indexpath?.row
                 
+                print(vc.index)
                 
         }
        

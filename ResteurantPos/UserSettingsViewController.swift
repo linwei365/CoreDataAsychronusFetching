@@ -77,8 +77,32 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                         
                     else
                     {
+                        
+                        
+                        let takeOutcheck = NSEntityDescription.insertNewObjectForEntityForName("TakeOutCheck", inManagedObjectContext: self.moc) as! TakeOutCheck
+                        
+                        //create relatiionship
+                         takeOutcheck.employee = emplyoeeID[0]
+                        
+                        var error:NSError?
+                        do {
+                            try self.moc.save()
+                            
+                            //segue to the menu .....
+                            self.performSegueWithIdentifier("dine", sender: self)
+                        }
+                        catch  let error1 as NSError {
+                            error = error1
+                        }
+                        if (error != nil){
+                            print("failed to load")
+                        }
+
+                        
+                        
+                        
                     
-                     self.performSegueWithIdentifier("takeOutTotakeOutCheck", sender: self)
+                   
                     
                     }
                     
