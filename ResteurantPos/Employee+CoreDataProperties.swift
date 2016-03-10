@@ -2,7 +2,7 @@
 //  Employee+CoreDataProperties.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 3/3/16.
+//  Created by Lin Wei on 3/10/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,5 +18,6 @@ extension Employee {
     @NSManaged var employeePinNumber: String?
     @NSManaged var empolyeeLastname: String?
     @NSManaged var table: NSSet?
+    @NSManaged var takeoutCheck: NSSet?
 
 }
