@@ -22,11 +22,17 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     var dishes = [Dish]()
     var filteredDish = [Dish]()
     var tables = [Table]()
+    var takeoutCheckes = [TakeOutCheck]()
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
     var index:Int?
     private var myProgressObserverContext = 0
+    
+    var viewControllerIndex:Int?
+    
+    
+    
     
     var searchText: String?
     var lastSelectedIndexPath: NSIndexPath?
@@ -73,35 +79,78 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     
     @IBAction func sendOnClick(sender: UIBarButtonItem) {
         
-       let fetchRequest = NSFetchRequest(entityName: "Table")
-        
-        tables = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
         
         
-        let ticket = NSEntityDescription.insertNewObjectForEntityForName("Ticket", inManagedObjectContext: managedObjectContext) as! Ticket
-        
-        let dishPrice = dishes[(lastSelectedIndexPath?.row)!].price
-        ticket.item = dishes[(lastSelectedIndexPath?.row)!].name
-        ticket.price = "\(round(Double(dishPrice!) * 100) / 100)"
-        ticket.tableNumber = tableNumber
-        ticket.employeeFirstname = firstname
-        ticket.employeeLastname = lastname
-        
-        ticket.table = tables[index!]
-        
-       
-        do {
-            try  managedObjectContext.save()
+        if (viewControllerIndex == 1){
             
-            navigationController?.popViewControllerAnimated(true)
-             delegate?.update()
-        }
-        
-        catch{
+            let fetchRequest = NSFetchRequest(entityName: "Table")
             
-            print("failed to save item")
-            return
+            tables = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
+            
+            
+            let ticket = NSEntityDescription.insertNewObjectForEntityForName("Ticket", inManagedObjectContext: managedObjectContext) as! Ticket
+            
+            let dishPrice = dishes[(lastSelectedIndexPath?.row)!].price
+            ticket.item = dishes[(lastSelectedIndexPath?.row)!].name
+            ticket.price = "\(round(Double(dishPrice!) * 100) / 100)"
+            ticket.tableNumber = tableNumber
+            ticket.employeeFirstname = firstname
+            ticket.employeeLastname = lastname
+            
+            
+            //creates relationship with table
+            ticket.table = tables[index!]
+            
+            
+            do {
+                try  managedObjectContext.save()
+                
+                navigationController?.popViewControllerAnimated(true)
+                delegate?.update()
+            }
+                
+            catch{
+                
+                print("failed to save item")
+                return
+            }
+            
+        } else if (viewControllerIndex == 2) {
+            
+            let fetchRequest = NSFetchRequest(entityName: "TakeOutCheck")
+            takeoutCheckes = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [TakeOutCheck]
+            
+            
+            let ticket = NSEntityDescription.insertNewObjectForEntityForName("Ticket", inManagedObjectContext: managedObjectContext) as! Ticket
+            
+            let dishPrice = dishes[(lastSelectedIndexPath?.row)!].price
+            ticket.item = dishes[(lastSelectedIndexPath?.row)!].name
+            ticket.price = "\(round(Double(dishPrice!) * 100) / 100)"
+//            ticket.tableNumber = tableNumber
+            ticket.employeeFirstname = firstname
+            ticket.employeeLastname = lastname
+            
+            
+            //creates relationship with table
+            ticket.takeOutCheck = takeoutCheckes[index!]
+            
+            
+            do {
+                try  managedObjectContext.save()
+                
+                navigationController?.popViewControllerAnimated(true)
+                delegate?.update()
+            }
+                
+            catch{
+                
+                print("failed to save item")
+                return
+            }
+            
         }
+  
+ 
        
         
         
@@ -412,13 +461,17 @@ class MenuItemTableViewController: UITableViewController,UISearchBarDelegate {
     }
     */
 
-    /*
+ 
     // MARK: - Navigation
-
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
+        
+        
     }
     */
 

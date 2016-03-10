@@ -400,6 +400,8 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
         vc.delegate = self
         vc.index = index
         
+        vc.viewControllerIndex = 1;
+       
         
     }
     

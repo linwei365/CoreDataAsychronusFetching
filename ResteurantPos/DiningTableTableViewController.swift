@@ -13,7 +13,7 @@ class DiningTableTableViewController: UITableViewController {
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var tables = [Table]()
-    
+    var takeOutChecks = [TakeOutCheck]()
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
@@ -22,12 +22,13 @@ class DiningTableTableViewController: UITableViewController {
     func loadData () {
         let fetchRequest = NSFetchRequest(entityName: "Table")
         
-  
+        let fetchRequestB = NSFetchRequest(entityName: "TakeOutCheck")
         
         var error: NSError?
         do {
             
             tables = try moc.executeFetchRequest(fetchRequest) as! [Table]
+            takeOutChecks = try moc.executeFetchRequest(fetchRequestB) as! [TakeOutCheck]
             
         }
         catch let error1 as NSError {
@@ -65,36 +66,92 @@ class DiningTableTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tables.count
+        
+        var count = 0
+        if section == 0 {
+            count = tables.count
+            
+        }
+        else if (section == 1){
+           count =  takeOutChecks.count
+            count = 2
+        }
+        
+        return count
+       
+        
+        
+        
     }
 
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableNumberCell", forIndexPath: indexPath)
         
-       
-        tableNumber = tables[indexPath.row].tableNumber!
         
-        firstname = (tables[indexPath.row].employee?.employeeFirstname)!
-        lastname = (tables[indexPath.row].employee?.empolyeeLastname)!
+        if(indexPath.section == 0){
+            tableNumber = tables[indexPath.row].tableNumber!
+            
+            firstname = (tables[indexPath.row].employee?.employeeFirstname)!
+            lastname = (tables[indexPath.row].employee?.empolyeeLastname)!
+            
+            
+            cell.textLabel?.text = "Table # " + tableNumber
+            
+            let pin =  (tables[indexPath.row].employee?.employeePinNumber)!
+            
+            
+            
+            print(pin)
+            cell.detailTextLabel?.text = "Employee Name: " + firstname + " " + lastname
+            
+        } else {
+            
+            cell.textLabel?.text = " on on "
+ 
+            
+//            cell.textLabel?.text = "Table # " + takeOutChecks[indexPath.row].takeoutOrderNumber!
+//            
+//            let pin =  (tables[indexPath.row].employee?.employeePinNumber)!
+//            
+//            
+//            
+//            print(pin)
+            
+        }
+            
+            
+        
+        
 
-        
-        cell.textLabel?.text = "Table # " + tableNumber
-       
-         let pin =  (tables[indexPath.row].employee?.employeePinNumber)!
-        
-        
-        
-        print(pin)
-        cell.detailTextLabel?.text = "Employee Name: " + firstname + " " + lastname
         return cell
     }
 
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> (String!) {
+        
+        var rowText = ""
+        if (section == 0) {
+            
+            
+            rowText = "                              Table Checks"
+            
+        }
+        if (section == 1){
+            rowText = "                              Take Out Checks"
+        }
+        
+     
+        
+        return rowText
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -108,22 +165,44 @@ class DiningTableTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 
-        let manageObject =  tables[indexPath.row]
-        
-        tables.removeAtIndex(indexPath.row)
-        moc.deleteObject(manageObject)
-        
-        do {
-            try moc.save()
+        if(indexPath.section == 0){
+            let manageObject =  tables[indexPath.row]
+            
+            tables.removeAtIndex(indexPath.row)
+            moc.deleteObject(manageObject)
+            
+            do {
+                try moc.save()
+                
+            }
+            catch {
+                print("failed to save ")
+                
+                return
+            }
+           
+        }
+        else {
+            let manageObject =  takeOutChecks[indexPath.row]
+            
+            takeOutChecks.removeAtIndex(indexPath.row)
+            moc.deleteObject(manageObject)
+            
+            do {
+                try moc.save()
+                
+            }
+            catch {
+                print("failed to save ")
+                
+                return
+            }
+
+            
             
         }
-        catch {
-            print("failed to save ")
-            
-            return
-        }
-        self.tableView.reloadData()
-        
+  
+         self.tableView.reloadData()
         
         //        if editingStyle == .Delete {
 //            // Delete the row from the data source
@@ -149,7 +228,22 @@ class DiningTableTableViewController: UITableViewController {
     }
     */
 
-  
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       
+        if indexPath.section == 0 {
+                    performSegueWithIdentifier("checksToTableCheckSegue", sender: self)
+            
+        }
+        
+        else
+        {
+             performSegueWithIdentifier("checksToTakeoutcheck", sender: self)
+            
+        }
+
+
+    }
+    
     
     // MARK: - Navigation
 
@@ -157,16 +251,43 @@ class DiningTableTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    
-        let vc = segue.destinationViewController as! TableCheckViewController
+       
+ 
         
-            vc.lastname = lastname
-            vc.firstname = firstname
-            vc.tableNumber = tableNumber
-        
-            vc.index = tableView.indexPathForSelectedRow?.row
-   
+ 
+            
+            if(segue.identifier == "checksToTableCheckSegue"){
+                
+                let vc = segue.destinationViewController as! TableCheckViewController
+                
+                vc.lastname = lastname
+                vc.firstname = firstname
+                vc.tableNumber = tableNumber
+                
+                vc.index = tableView.indexPathForSelectedRow?.row
          
+            }
+            else if (segue.identifier == "checksToTakeoutcheck"){
+                
+                
+                  let vc = segue.destinationViewController as! TakeoutViewController
+                
+                vc.index = tableView.indexPathForSelectedRow?.row
+                
+                
+        }
+       
+   
+
+
+    
+            
+ 
+
+        
+        
+            
+        
      
     }
     

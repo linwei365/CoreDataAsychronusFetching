@@ -1,5 +1,5 @@
 //
-//  Table+CoreDataProperties.swift
+//  TakeOutCheck+CoreDataProperties.swift
 //  ResteurantPos
 //
 //  Created by Lin Wei on 3/9/16.
@@ -12,10 +12,9 @@
 import Foundation
 import CoreData
 
-extension Table {
+extension TakeOutCheck {
 
-    @NSManaged var tableNumber: String?
-    @NSManaged var employee: Employee?
+    @NSManaged var takeoutOrderNumber: String?
     @NSManaged var ticket: NSSet?
 
 }
