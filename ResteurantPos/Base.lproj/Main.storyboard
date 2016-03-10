@@ -392,7 +392,6 @@
                     </navigationItem>
                     <connections>
                         <segue destination="q0g-qh-8ci" kind="show" identifier="dine" id="Nlk-4N-zH8"/>
-                        <segue destination="0gU-vr-iQk" kind="show" identifier="takeOutTotakeOutCheck" id="R8A-t3-bSm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5H-WB-nNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -490,9 +489,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="fTr-um-Yn4" kind="show" id="fVZ-lJ-Ae5"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -502,7 +498,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Checks" id="er7-Mw-Elo"/>
                     <connections>
-                        <segue destination="0gU-vr-iQk" kind="show" identifier="checksToTakeOutCheck" id="9tW-i4-cJp"/>
+                        <segue destination="fTr-um-Yn4" kind="show" identifier="checksToTableCheckSegue" id="gsV-OG-WXp"/>
+                        <segue destination="0gU-vr-iQk" kind="show" identifier="checksToTakeoutcheck" id="zBl-ds-lKe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkL-OZ-cUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1020,7 +1017,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejN-vc-0rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4793" y="-1303"/>
+            <point key="canvasLocation" x="4845" y="-1304"/>
         </scene>
     </scenes>
     <resources>
@@ -1028,9 +1025,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="giW-8N-4QL"/>
-        <segue reference="Nlk-4N-zH8"/>
-        <segue reference="R8A-t3-bSm"/>
-        <segue reference="lc2-7d-K4A"/>
+        <segue reference="ym2-6M-tEv"/>
         <segue reference="Yks-do-bBX"/>
+        <segue reference="sBM-PO-hUv"/>
     </inferredMetricsTieBreakers>
 </document>
