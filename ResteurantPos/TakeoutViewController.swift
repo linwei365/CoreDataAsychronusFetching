@@ -13,7 +13,9 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     var totalPrice = String()
    var index:Int?
     var takeoutChecks = [TakeOutCheck]()
-    var takeoutCheck:TakeOutCheck? 
+    var takeoutCheck:TakeOutCheck?
+    var ticketInfos = [TicketInfo]()
+    var serverName = ""
     @IBOutlet weak var tableView: UITableView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -108,9 +110,11 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     func loadData(){
         
         let fetchRequest = NSFetchRequest(entityName: "TakeOutCheck")
+        let fetchRequestB =  NSFetchRequest(entityName: "TicketInfo")
         
         do {
             takeoutChecks = try managedObjectContext.executeFetchRequest(fetchRequest) as! [TakeOutCheck]
+            ticketInfos = try managedObjectContext.executeFetchRequest(fetchRequestB) as! [TicketInfo]
             
             takeoutCheck = takeoutChecks[index!]
             
@@ -144,7 +148,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     
       func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 10
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,7 +156,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
         if section == 0 {
             rowCount = 1
         }
-        if section == 1 {
+        if section == 6 {
             // Configure the cell...
             
             
@@ -173,26 +177,83 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> (String!) {
         
         var rowText = ""
-        if (section == 0) {
+        
+        if (ticketInfos.count == 0){
             
+            if (section == 0) {
+                rowText = "                               Company Name"
+                
+            }
+            if (section == 1){
+                rowText = "Company  Street Address"
+            }
             
-            rowText = "                               takeout"
+            if (section == 2)
+            {
+                rowText = "Company State City Zip code"
+            }
+            if (section == 3) {
+                rowText = "Company Phone number"
+            }
+            if (section == 4) {
+                rowText = "Time: "
+            }
+            if (section == 5) {
+                rowText = "Server:\(serverName) "
+            }
+            if (section == 6) {
+                rowText = "Order Number#:  "
+            }
+            if (section == 7) {
+                
+                rowText = "Tax: 10% "
+            }
+            if (section == 8) {
+                rowText = "Gratuity:  "
+            }
+            if (section == 9) {
+                rowText = "Total: \(totalPrice)"
+            }
+
+        } else if (ticketInfos.count == 1 ){
             
-        }
-        if (section == 1){
-            rowText = "order Number"
+            if (section == 0) {
+                rowText = "                               \(ticketInfos[0].companyName!)"
+                
+            }
+            if (section == 1){
+                rowText = "\(ticketInfos[0].companyStreetAddress!)"
+            }
+            
+            if (section == 2)
+            {
+                rowText = "\(ticketInfos[0].companyCity!) \(ticketInfos[0].companyState!) \(ticketInfos[0].compnayZip!)"
+            }
+            if (section == 3) {
+                rowText = "\(ticketInfos[0].compnayPhoneNumber!)"
+            }
+            if (section == 4) {
+                rowText = "Time: "
+            }
+            if (section == 5) {
+                rowText = "Server: \(serverName) "
+            }
+            if (section == 6) {
+                rowText = "Order Number#:  "
+            }
+            if (section == 7) {
+                
+                rowText = "Tax: \(ticketInfos[0].tax!) "
+            }
+            if (section == 8) {
+                rowText = "Gratuity: \(ticketInfos[0].gratuity!) "
+            }
+            if (section == 9) {
+                rowText = "Total: \(totalPrice)"
+            }
+
         }
         
-        if (section == 2)
-        {
-            rowText = "                                                Subtotal: \(priceB)"
-        }
-        if (section == 3) {
-            rowText = "                                               Tax: 10%"
-        }
-        if (section == 4) {
-            rowText = "                                               Total: \(totalPrice)"
-        }
         
         
         return rowText

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class SignUpViewController: UIViewController {
+    let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -39,9 +41,78 @@ class SignUpViewController: UIViewController {
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    
+    
     @IBAction func doneOnClick(sender: UIBarButtonItem) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)    }
+      save()
+    }
+    
+    
+    func save () {
+        
+        
+        let user =  NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+      
+        if (usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty || emailTextField.text!.isEmpty || firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty ){
+        
+            let alertController =  UIAlertController(title: "Error", message: "please complete all the blanks", preferredStyle: .Alert)
+            
+            let action =  UIAlertAction (title: "Ok", style: .Default, handler: nil)
+            
+            alertController.addAction(action)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+            
+        
+        }
+        else if (passwordTextField.text !=  repeatpasswordTextField.text) {
+                
+                let alertController =  UIAlertController(title: "Password not matched", message: "make sure passward are matching", preferredStyle: .Alert)
+                
+                let action =  UIAlertAction (title: "Ok", style: .Default, handler: nil)
+                
+                alertController.addAction(action)
+                
+                presentViewController(alertController, animated: true, completion: nil)
+                
+            }
+            else {
+            
+            user.username = usernameTextField.text
+            user.password = passwordTextField.text
+            user.email = emailTextField.text
+            user.firstName = firstNameTextField.text
+            user.lastName = lastNameTextField.text
+            
+            do {
+                try moc.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            }
+            catch {
+                
+                print("error to save ")
+                return
+            }
+            
+            
+        }
+            
+     
+            
+            
+
+   
+        
+    }
+    
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation

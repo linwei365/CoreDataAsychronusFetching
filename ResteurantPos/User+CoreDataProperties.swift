@@ -1,5 +1,5 @@
 //
-//  TakeOutCheck+CoreDataProperties.swift
+//  User+CoreDataProperties.swift
 //  ResteurantPos
 //
 //  Created by Lin Wei on 3/11/16.
@@ -12,11 +12,13 @@
 import Foundation
 import CoreData
 
-extension TakeOutCheck {
+extension User {
 
-    @NSManaged var takeoutOrderNumber: String?
-    @NSManaged var time: String?
-    @NSManaged var employee: Employee?
-    @NSManaged var ticket: NSSet?
+    @NSManaged var authentication: String?
+    @NSManaged var password: String?
+    @NSManaged var username: String?
+    @NSManaged var firstName: String?
+    @NSManaged var lastName: String?
+    @NSManaged var email: String?
 
 }

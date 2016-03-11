@@ -7,19 +7,24 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="Employee" representedClassName=".Employee" syncable="YES">
+        <attribute name="clockInTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeeFirstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeePinNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="empolyeeLastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderTime" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="table" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Table" inverseName="employee" inverseEntity="Table" syncable="YES"/>
         <relationship name="takeoutCheck" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TakeOutCheck" inverseName="employee" inverseEntity="TakeOutCheck" syncable="YES"/>
     </entity>
     <entity name="Table" representedClassName=".Table" syncable="YES">
         <attribute name="tableNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="table" inverseEntity="Employee" syncable="YES"/>
         <relationship name="ticket" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ticket" inverseName="table" inverseEntity="Ticket" syncable="YES"/>
     </entity>
     <entity name="TakeOutCheck" representedClassName=".TakeOutCheck" syncable="YES">
         <attribute name="takeoutOrderNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="takeoutCheck" inverseEntity="Employee" syncable="YES"/>
         <relationship name="ticket" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ticket" inverseName="takeOutCheck" inverseEntity="Ticket" syncable="YES"/>
     </entity>
@@ -37,17 +42,31 @@
         <relationship name="table" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Table" inverseName="ticket" inverseEntity="Table" syncable="YES"/>
         <relationship name="takeOutCheck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TakeOutCheck" inverseName="ticket" inverseEntity="TakeOutCheck" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="TicketInfo" representedClassName=".TicketInfo" syncable="YES">
+        <attribute name="companyCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyStreetAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="compnayPhoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="compnayZip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gratuity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tax" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="authentication" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Dish" positionX="-63" positionY="-12" width="128" height="105"/>
-        <element name="Employee" positionX="-315" positionY="-166" width="128" height="120"/>
-        <element name="Table" positionX="-65" positionY="-135" width="128" height="90"/>
-        <element name="TakeOutCheck" positionX="-189" positionY="-171" width="128" height="90"/>
+        <element name="Employee" positionX="-315" positionY="-166" width="128" height="165"/>
+        <element name="Table" positionX="-65" positionY="-135" width="128" height="105"/>
+        <element name="TakeOutCheck" positionX="-189" positionY="-171" width="128" height="105"/>
         <element name="Ticket" positionX="-306" positionY="-27" width="128" height="225"/>
-        <element name="User" positionX="-137" positionY="-324" width="128" height="90"/>
+        <element name="User" positionX="-137" positionY="-324" width="128" height="135"/>
+        <element name="TicketInfo" positionX="-189" positionY="-171" width="128" height="165"/>
     </elements>
 </model>

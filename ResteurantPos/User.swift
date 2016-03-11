@@ -1,5 +1,5 @@
 //
-//  Ticket.swift
+//  User.swift
 //  ResteurantPos
 //
 //  Created by Lin Wei on 3/11/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Ticket: NSManagedObject {
+class User: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

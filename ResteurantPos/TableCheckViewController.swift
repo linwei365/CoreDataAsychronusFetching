@@ -22,8 +22,8 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
     var index:Int?
     var ticketArray = []
     var table:Table?
-    
-    
+    var ticketInfos = [TicketInfo]()
+    var serverName = ""
     //printer
     func showPrinterPicker () {
         //UIPrinterPickerController
@@ -175,11 +175,14 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
     func loadData(){
         
         let fetchRequest = NSFetchRequest(entityName: "Table")
-        
+        let fetchRequestB = NSFetchRequest(entityName: "TicketInfo")
         do {
             tables = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Table]
             
             table = tables[index!]
+            ticketInfos = try managedObjectContext.executeFetchRequest(fetchRequestB) as! [TicketInfo]
+            
+            
             
         } catch{
             print("failed to get data from  Ticket")
@@ -224,7 +227,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
       func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         
-        return 5
+        return 10
         
         
     }
@@ -236,7 +239,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
         if section == 0 {
             rowCount = 1
         }
-        if section == 1 {
+        if section == 6 {
             // Configure the cell...
             
             
@@ -259,29 +262,87 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
       func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> (String!) {
         
         var rowText = ""
-        if (section == 0) {
+        
+        if (ticketInfos.count == 0){
             
+            if (section == 0) {
+                rowText = "                               Company Name"
+                
+            }
+            if (section == 1){
+                rowText = "Company  Street Address"
+            }
             
-            rowText = "                              Table # \(tableNumberB)"
+            if (section == 2)
+            {
+                rowText = "Company State City Zip code"
+            }
+            if (section == 3) {
+                rowText = "Company Phone number"
+            }
+            if (section == 4) {
+                rowText = "Table Number: \(tableNumberB)  Time: "
+            }
+            if (section == 5) {
+                rowText = "Server: \(serverName) "
+            }
+            if (section == 6) {
+                rowText = "Order Number#:  "
+            }
+            if (section == 7) {
+                
+                rowText = "Tax: 10% "
+            }
+            if (section == 8) {
+                rowText = "Gratuity:  "
+            }
+            if (section == 9) {
+                rowText = "Total: \(totalPrice)"
+            }
             
-        }
-        if (section == 1){
-            rowText = ""
+        } else if (ticketInfos.count == 1 ){
+            
+            if (section == 0) {
+                rowText = "                               \(ticketInfos[0].companyName!)"
+                
+            }
+            if (section == 1){
+                rowText = "\(ticketInfos[0].companyStreetAddress!) \(ticketInfos[0].companyCity!) "
+            }
+            
+            if (section == 2)
+            {
+                rowText = "\(ticketInfos[0].companyState!) \(ticketInfos[0].compnayZip!)        \(ticketInfos[0].compnayPhoneNumber!)"
+            }
+            if (section == 3) {
+                rowText = "                                Table Number: \(tableNumberB)"
+            }
+            if (section == 4) {
+                rowText = "Time: "
+            }
+            if (section == 5) {
+                rowText = "Server: \(serverName) "
+            }
+            if (section == 6) {
+                rowText = "Order Number#:  "
+            }
+            if (section == 7) {
+                
+                rowText = "Tax: \(ticketInfos[0].tax!) "
+            }
+            if (section == 8) {
+                rowText = "Gratuity: \(ticketInfos[0].gratuity!) "
+            }
+            if (section == 9) {
+                rowText = "Total: \(totalPrice)"
+            }
+            
         }
         
-        if (section == 2)
-        {
-            rowText = "                                                Subtotal: \(priceB)"
-        }
-        if (section == 3) {
-            rowText = "                                               Tax: 10%"
-        }
-        if (section == 4) {
-            rowText = "                                               Total: \(totalPrice)"
-        }
         
         
         return rowText
+        
         
     }
     
@@ -298,7 +359,9 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
         //convert  set to array
         let tickets =  table!.ticket?.allObjects as! [Ticket]
         
-        tableNumberB = tickets[indexPath.row].tableNumber!
+        
+        
+//        tableNumberB = tickets[indexPath.row].tableNumber!
         
         cell.textLabel?.text = tickets[indexPath.row].item!
         
