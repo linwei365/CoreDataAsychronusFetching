@@ -258,6 +258,124 @@
             </objects>
             <point key="canvasLocation" x="2633" y="-640"/>
         </scene>
+        <!--Ticket Info-->
+        <scene sceneID="hHT-lW-egy">
+            <objects>
+                <viewController id="fOn-xO-S5b" customClass="TicketInfoViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bv0-Qc-g5c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zgo-i0-1K5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7QT-Xd-QXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sgs-Kh-lxJ">
+                                <rect key="frame" x="199.5" y="180" width="201" height="240"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVY-7z-ogJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="VIo-tO-taC"/>
+                                            <constraint firstAttribute="width" constant="201" id="oqR-6a-4db"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company  Street Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fA3-W0-o7J">
+                                        <rect key="frame" x="0.0" y="30" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="IfU-p2-3Rg"/>
+                                            <constraint firstAttribute="width" constant="201" id="dCb-SS-eQV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8m-KY-Fa2">
+                                        <rect key="frame" x="0.0" y="60" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2VW-2q-kQ0"/>
+                                            <constraint firstAttribute="width" constant="201" id="oSE-XH-RDg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rfN-y2-hHh">
+                                        <rect key="frame" x="0.0" y="90" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="201" id="6fg-fy-DBC"/>
+                                            <constraint firstAttribute="height" constant="30" id="tgH-bq-Lvu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company zipe code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I3P-SA-Sa3">
+                                        <rect key="frame" x="0.0" y="120" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ZMR-Rw-0Tq"/>
+                                            <constraint firstAttribute="width" constant="201" id="aDX-S8-CGN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4AA-cl-bSt">
+                                        <rect key="frame" x="0.0" y="150" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HS4-l0-8U0"/>
+                                            <constraint firstAttribute="width" constant="201" id="fWs-LD-eQh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Tax" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAo-dm-nBT">
+                                        <rect key="frame" x="0.0" y="180" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="201" id="G7q-PX-mQJ"/>
+                                            <constraint firstAttribute="height" constant="30" id="Yhe-ix-LC2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Gratuity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKg-fV-Nta">
+                                        <rect key="frame" x="0.0" y="210" width="201" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="201" id="Ulb-n0-46i"/>
+                                            <constraint firstAttribute="height" constant="30" id="vAV-sj-QDN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgs-Kh-lxJ" firstAttribute="centerX" secondItem="7QT-Xd-QXJ" secondAttribute="centerX" id="V8t-za-cSH"/>
+                            <constraint firstItem="sgs-Kh-lxJ" firstAttribute="centerY" secondItem="7QT-Xd-QXJ" secondAttribute="centerY" id="jww-4X-K0A"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ticket Info" id="1mf-Sz-cAw">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ouu-G8-gq9">
+                            <connections>
+                                <action selector="saveOnClick:" destination="fOn-xO-S5b" id="kNO-ka-k70"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CompanyPhoneNumber" destination="4AA-cl-bSt" id="CLv-Uc-W3d"/>
+                        <outlet property="companyCity" destination="m8m-KY-Fa2" id="rSW-ZC-EKF"/>
+                        <outlet property="companyNameTextField" destination="WVY-7z-ogJ" id="0LT-Ku-N0t"/>
+                        <outlet property="companyState" destination="rfN-y2-hHh" id="xc5-oU-Duu"/>
+                        <outlet property="companyStreetAddressTextField" destination="fA3-W0-o7J" id="jep-ud-ni5"/>
+                        <outlet property="companyZipCode" destination="I3P-SA-Sa3" id="mCl-sv-CP8"/>
+                        <outlet property="ticketGratuityTextField" destination="IKg-fV-Nta" id="iA4-lC-n9Z"/>
+                        <outlet property="ticketTaxTextField" destination="CAo-dm-nBT" id="g2b-OE-XDx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1eH-9s-bku" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3300" y="-1831"/>
+        </scene>
         <!--User Setting-->
         <scene sceneID="3cV-Ou-iDb">
             <objects>
@@ -319,9 +437,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="X2D-fj-DV7"/>
                                                     <constraint firstAttribute="width" constant="127" id="aFs-2D-eQX"/>
                                                 </constraints>
-                                                <state key="normal" title="Printers"/>
+                                                <state key="normal" title="Ticket Info"/>
                                                 <connections>
-                                                    <action selector="printersOnClick:" destination="ib2-Lb-aLM" eventType="touchUpInside" id="4n7-AY-rHh"/>
+                                                    <segue destination="fOn-xO-S5b" kind="show" id="7v7-wv-FIi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
