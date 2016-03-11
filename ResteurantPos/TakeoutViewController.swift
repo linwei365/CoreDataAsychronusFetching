@@ -15,6 +15,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     var takeoutChecks = [TakeOutCheck]()
     var takeoutCheck:TakeOutCheck?
     var ticketInfos = [TicketInfo]()
+    var serverName = ""
     @IBOutlet weak var tableView: UITableView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -198,7 +199,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 rowText = "Time: "
             }
             if (section == 5) {
-                rowText = "Server: "
+                rowText = "Server:\(serverName) "
             }
             if (section == 6) {
                 rowText = "Order Number#:  "
@@ -235,7 +236,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 rowText = "Time: "
             }
             if (section == 5) {
-                rowText = "Server: "
+                rowText = "Server: \(serverName) "
             }
             if (section == 6) {
                 rowText = "Order Number#:  "

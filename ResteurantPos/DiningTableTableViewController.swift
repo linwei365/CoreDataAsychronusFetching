@@ -270,6 +270,8 @@ class DiningTableTableViewController: UITableViewController {
                 
                 vc.index = indexpath?.row
                 print(vc.index)
+                vc.tableNumberB = tableNumber
+                vc.serverName = "\(firstname) \(lastname)"
          
             }
             else if (segue.identifier == "checksToTakeoutcheck"){
@@ -278,9 +280,10 @@ class DiningTableTableViewController: UITableViewController {
                   let vc = segue.destinationViewController as! TakeoutViewController
                 
                 vc.index = indexpath?.row
-                
+                 vc.serverName = "\(firstname) \(lastname)"
                 print(vc.index)
                 
+             
         }
        
    

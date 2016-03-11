@@ -39,7 +39,7 @@ class TicketInfoViewController: UIViewController {
             
             companyStreetAddressTextField.text = ticketInfos[0].companyStreetAddress
             
-            companyCity.text = ticketInfos[0].compnayZip
+            companyCity.text = ticketInfos[0].companyCity
             companyNameTextField.text = ticketInfos[0].companyName
             companyState.text =   ticketInfos[0].companyState
 
@@ -132,8 +132,10 @@ class TicketInfoViewController: UIViewController {
     
     func edit(){
         
-        ticketInfos[0].compnayZip = companyCity.text
+        ticketInfos[0].companyCity = companyCity.text
+        
         ticketInfos[0].companyStreetAddress = companyStreetAddressTextField.text
+        
         ticketInfos[0].companyName = companyNameTextField.text
         ticketInfos[0].companyState = companyState.text
         ticketInfos[0].compnayPhoneNumber = CompanyPhoneNumber.text
