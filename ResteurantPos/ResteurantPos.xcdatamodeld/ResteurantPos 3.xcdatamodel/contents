@@ -52,8 +52,11 @@
         <attribute name="gratuity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tax" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="authentication" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -63,7 +66,7 @@
         <element name="Table" positionX="-65" positionY="-135" width="128" height="105"/>
         <element name="TakeOutCheck" positionX="-189" positionY="-171" width="128" height="105"/>
         <element name="Ticket" positionX="-306" positionY="-27" width="128" height="225"/>
-        <element name="User" positionX="-137" positionY="-324" width="128" height="90"/>
+        <element name="User" positionX="-137" positionY="-324" width="128" height="135"/>
         <element name="TicketInfo" positionX="-189" positionY="-171" width="128" height="165"/>
     </elements>
 </model>
