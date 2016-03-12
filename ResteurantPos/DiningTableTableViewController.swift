@@ -17,6 +17,9 @@ class DiningTableTableViewController: UITableViewController {
     var firstname = String()
     var lastname = String()
     var tableNumber = String()
+    var orderNumber = String()
+    var orderTimer = String()
+    
     var indexpath:NSIndexPath?
     //load data
     func loadData () {
@@ -99,7 +102,7 @@ class DiningTableTableViewController: UITableViewController {
             
             firstname = (tables[indexPath.row].employee?.employeeFirstname)!
             lastname = (tables[indexPath.row].employee?.empolyeeLastname)!
-            
+            orderTimer = (tables[indexPath.row].employee?.orderTime)!
             
             cell.textLabel?.text = "Table # " + tableNumber
             
@@ -272,6 +275,8 @@ class DiningTableTableViewController: UITableViewController {
                 print(vc.index)
                 vc.tableNumberB = tableNumber
                 vc.serverName = "\(firstname) \(lastname)"
+                vc.orderTimer = orderTimer
+             
          
             }
             else if (segue.identifier == "checksToTakeoutcheck"){
@@ -281,7 +286,8 @@ class DiningTableTableViewController: UITableViewController {
                 
                 vc.index = indexpath?.row
                  vc.serverName = "\(firstname) \(lastname)"
-                print(vc.index)
+                vc.orderTimer = orderTimer
+             
                 
              
         }

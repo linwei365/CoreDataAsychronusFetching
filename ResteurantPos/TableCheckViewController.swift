@@ -24,6 +24,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
     var table:Table?
     var ticketInfos = [TicketInfo]()
     var serverName = ""
+    var orderTimer = String()
     //printer
     func showPrinterPicker () {
         //UIPrinterPickerController
@@ -281,7 +282,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
                 rowText = "Company Phone number"
             }
             if (section == 4) {
-                rowText = "Table Number: \(tableNumberB)  Time: "
+                rowText = "Table Number: \(tableNumberB)  Time: \(orderTimer)"
             }
             if (section == 5) {
                 rowText = "Server: \(serverName) "
@@ -318,7 +319,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
                 rowText = "                                Table Number: \(tableNumberB)"
             }
             if (section == 4) {
-                rowText = "Time: "
+                rowText = "Time: \(orderTimer)"
             }
             if (section == 5) {
                 rowText = "Server: \(serverName) "

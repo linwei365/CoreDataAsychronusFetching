@@ -16,14 +16,28 @@ class UserSettingsViewController: UIViewController {
 let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
   
 //var employee = Employee()
-    
-    
+
+var formatter =  NSDateFormatter()
+var timeString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+ 
+        
+        
+        print(timeString)
         // Do any additional setup after loading the view.
     }
 
+    
+    func orderTimer () -> String{
+     
+        let date = NSDate()
+        let formattr = NSDateFormatter()
+        formattr.dateFormat = "HH:mm:ss        MM/dd/yyyy "
+        let timeString = formattr.stringFromDate(date);
+        return timeString
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,7 +96,8 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                         let takeOutcheck = NSEntityDescription.insertNewObjectForEntityForName("TakeOutCheck", inManagedObjectContext: self.moc) as! TakeOutCheck
                         
                         //create relatiionship
-                         takeOutcheck.employee = emplyoeeID[0]
+                
+                        takeOutcheck.employee?.orderTime = self.orderTimer()
                         
                         var error:NSError?
                         do {
@@ -100,9 +115,6 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
 
                         
                         
-                        
-                    
-                   
                     
                     }
                     
@@ -205,6 +217,9 @@ let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedOb
                                 //create relatiionship
                                 newTableNumber.tableNumber = tableNumber.text
                                 newTableNumber.employee = emplyoeeID[0]
+                                
+                                newTableNumber.employee?.orderTime = self.orderTimer()
+//                                newTableNumber.employee?.orderNumber =
                                 
                                 var error:NSError?
                                 do {
