@@ -30,14 +30,20 @@ var timeString = ""
     }
 
     
-    func orderTimer () -> String{
-     
-        let date = NSDate()
-        let formattr = NSDateFormatter()
-        formattr.dateFormat = "HH:mm:ss        MM/dd/yyyy "
-        let timeString = formattr.stringFromDate(date);
-        return timeString
+    func time() -> String {
+        
+        let date =  NSDate()
+        let formatter = NSDateFormatter()
+        
+        formatter.dateFormat = "HH:mm:ss     MM/dd/yyyy"
+        let defaultTimeZoneStr = formatter.stringFromDate(date)
+        
+        return defaultTimeZoneStr
     }
+    
+    
+    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,9 +101,11 @@ var timeString = ""
                         
                         let takeOutcheck = NSEntityDescription.insertNewObjectForEntityForName("TakeOutCheck", inManagedObjectContext: self.moc) as! TakeOutCheck
                         
+                        takeOutcheck.time = self.time()
                         //create relatiionship
-                
-                        takeOutcheck.employee?.orderTime = self.orderTimer()
+             
+                        takeOutcheck.employee = emplyoeeID[0]
+                        
                         
                         var error:NSError?
                         do {
@@ -213,13 +221,15 @@ var timeString = ""
                                 print ("go to table..................")
                                 
                                 let newTableNumber = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: self.moc) as! Table
-                             
+                               
+                                newTableNumber.time = self.time()
+                                
                                 //create relatiionship
                                 newTableNumber.tableNumber = tableNumber.text
                                 newTableNumber.employee = emplyoeeID[0]
                                 
-                                newTableNumber.employee?.orderTime = self.orderTimer()
-//                                newTableNumber.employee?.orderNumber =
+                                
+ 
                                 
                                 var error:NSError?
                                 do {

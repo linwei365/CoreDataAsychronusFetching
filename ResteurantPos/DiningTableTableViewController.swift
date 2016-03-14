@@ -102,7 +102,7 @@ class DiningTableTableViewController: UITableViewController {
             
             firstname = (tables[indexPath.row].employee?.employeeFirstname)!
             lastname = (tables[indexPath.row].employee?.empolyeeLastname)!
-            orderTimer = (tables[indexPath.row].employee?.orderTime)!
+//            orderTimer = (tables[indexPath.row].employee?.orderTime)!
             
             cell.textLabel?.text = "Table # " + tableNumber
             
