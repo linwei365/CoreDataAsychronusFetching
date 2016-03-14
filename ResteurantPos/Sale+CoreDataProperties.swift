@@ -1,5 +1,5 @@
 //
-//  Table+CoreDataProperties.swift
+//  Sale+CoreDataProperties.swift
 //  ResteurantPos
 //
 //  Created by Lin Wei on 3/14/16.
@@ -12,12 +12,11 @@
 import Foundation
 import CoreData
 
-extension Table {
+extension Sale {
 
-    @NSManaged var tableNumber: String?
-    @NSManaged var time: String?
     @NSManaged var orderNumber: String?
-    @NSManaged var employee: Employee?
-    @NSManaged var ticket: NSSet?
+    @NSManaged var total: String?
+    @NSManaged var orderTime: String?
+    @NSManaged var tax: String?
 
 }

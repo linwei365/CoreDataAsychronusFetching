@@ -202,7 +202,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 rowText = "Server: \(takeoutCheck.employee!.employeeFirstname!)  \(takeoutCheck.employee!.empolyeeLastname!)"
             }
             if (section == 6) {
-                rowText = "Order Number#:  "
+                rowText = "Order Number#: \(takeoutCheck.takeoutOrderNumber!)"
             }
             if (section == 7) {
                 
@@ -239,7 +239,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 rowText = "Server: \(takeoutCheck.employee!.employeeFirstname!)  \(takeoutCheck.employee!.empolyeeLastname!)"
             }
             if (section == 6) {
-                rowText = "Order Number#:  "
+                rowText = "Order Number#: \(takeoutCheck.takeoutOrderNumber!)"
             }
             if (section == 7) {
                 

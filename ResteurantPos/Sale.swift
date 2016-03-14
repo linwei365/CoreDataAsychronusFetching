@@ -1,5 +1,5 @@
 //
-//  Table.swift
+//  Sale.swift
 //  ResteurantPos
 //
 //  Created by Lin Wei on 3/14/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Table: NSManagedObject {
+class Sale: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

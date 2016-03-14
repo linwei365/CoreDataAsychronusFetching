@@ -16,7 +16,14 @@
         <relationship name="table" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Table" inverseName="employee" inverseEntity="Table" syncable="YES"/>
         <relationship name="takeoutCheck" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TakeOutCheck" inverseName="employee" inverseEntity="TakeOutCheck" syncable="YES"/>
     </entity>
+    <entity name="Sale" representedClassName=".Sale" syncable="YES">
+        <attribute name="orderNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tax" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Table" representedClassName=".Table" syncable="YES">
+        <attribute name="orderNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tableNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="table" inverseEntity="Employee" syncable="YES"/>
@@ -63,10 +70,11 @@
     <elements>
         <element name="Dish" positionX="-63" positionY="-12" width="128" height="105"/>
         <element name="Employee" positionX="-315" positionY="-166" width="128" height="165"/>
-        <element name="Table" positionX="-65" positionY="-135" width="128" height="105"/>
+        <element name="Table" positionX="-65" positionY="-135" width="128" height="120"/>
         <element name="TakeOutCheck" positionX="-189" positionY="-171" width="128" height="105"/>
         <element name="Ticket" positionX="-306" positionY="-27" width="128" height="225"/>
-        <element name="User" positionX="-137" positionY="-324" width="128" height="135"/>
         <element name="TicketInfo" positionX="-189" positionY="-171" width="128" height="165"/>
+        <element name="User" positionX="-137" positionY="-324" width="128" height="135"/>
+        <element name="Sale" positionX="-180" positionY="-162" width="128" height="105"/>
     </elements>
 </model>

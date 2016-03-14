@@ -287,7 +287,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
                 rowText =  "Server: \(table.employee!.employeeFirstname!)  \(table.employee!.empolyeeLastname!)"
             }
             if (section == 6) {
-                rowText = "Order Number#:  "
+                rowText = "Order Number#: \(table.orderNumber!) "
             }
             if (section == 7) {
                 
@@ -324,7 +324,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
                 rowText = "Server: \(table.employee!.employeeFirstname!)  \(table.employee!.empolyeeLastname!)"
             }
             if (section == 6) {
-                rowText = "Order Number#:  "
+                rowText = "Order Number#: \(table.orderNumber!) "
             }
             if (section == 7) {
                 

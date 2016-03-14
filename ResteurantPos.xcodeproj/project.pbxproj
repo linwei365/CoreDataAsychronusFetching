@@ -35,8 +35,6 @@
 		65C5C19B1C8E921300B6CCF3 /* TakeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19A1C8E921300B6CCF3 /* TakeoutViewController.swift */; };
 		65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */; };
 		65C5C1A11C8EA6F800B6CCF3 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C5C1A01C8EA6F800B6CCF3 /* ExternalAccessory.framework */; };
-		65CAEE1A1C93159700CF1A9D /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE101C93159700CF1A9D /* Table+CoreDataProperties.swift */; };
-		65CAEE1B1C93159700CF1A9D /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE111C93159700CF1A9D /* Table.swift */; };
 		65CAEE1C1C93159700CF1A9D /* TakeOutCheck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE121C93159700CF1A9D /* TakeOutCheck+CoreDataProperties.swift */; };
 		65CAEE1D1C93159700CF1A9D /* TakeOutCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE131C93159700CF1A9D /* TakeOutCheck.swift */; };
 		65CAEE1E1C93159700CF1A9D /* Ticket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE141C93159700CF1A9D /* Ticket+CoreDataProperties.swift */; };
@@ -48,6 +46,10 @@
 		65CAEE2B1C931A7700CF1A9D /* TicketInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE2A1C931A7700CF1A9D /* TicketInfoViewController.swift */; };
 		65CAEE2E1C93256600CF1A9D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE2C1C93256600CF1A9D /* User+CoreDataProperties.swift */; };
 		65CAEE2F1C93256600CF1A9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE2D1C93256600CF1A9D /* User.swift */; };
+		65CAEE731C969DA300CF1A9D /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE711C969DA300CF1A9D /* Table+CoreDataProperties.swift */; };
+		65CAEE741C969DA300CF1A9D /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE721C969DA300CF1A9D /* Table.swift */; };
+		65CAEE771C969F4500CF1A9D /* Sale+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE751C969F4500CF1A9D /* Sale+CoreDataProperties.swift */; };
+		65CAEE781C969F4500CF1A9D /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE761C969F4500CF1A9D /* Sale.swift */; };
 		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,8 +132,6 @@
 		65C5C19E1C8E9E4700B6CCF3 /* TableCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCheckViewController.swift; sourceTree = "<group>"; };
 		65C5C1A01C8EA6F800B6CCF3 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		65C5C1A21C8EA6F800B6CCF3 /* ResteurantPos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ResteurantPos.entitlements; sourceTree = "<group>"; };
-		65CAEE101C93159700CF1A9D /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		65CAEE111C93159700CF1A9D /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		65CAEE121C93159700CF1A9D /* TakeOutCheck+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TakeOutCheck+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65CAEE131C93159700CF1A9D /* TakeOutCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeOutCheck.swift; sourceTree = "<group>"; };
 		65CAEE141C93159700CF1A9D /* Ticket+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ticket+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -143,6 +143,10 @@
 		65CAEE2A1C931A7700CF1A9D /* TicketInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketInfoViewController.swift; sourceTree = "<group>"; };
 		65CAEE2C1C93256600CF1A9D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65CAEE2D1C93256600CF1A9D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		65CAEE711C969DA300CF1A9D /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65CAEE721C969DA300CF1A9D /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		65CAEE751C969F4500CF1A9D /* Sale+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sale+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65CAEE761C969F4500CF1A9D /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
@@ -258,14 +262,16 @@
 		6506EC6B1C7271C500208E47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65CAEE751C969F4500CF1A9D /* Sale+CoreDataProperties.swift */,
+				65CAEE761C969F4500CF1A9D /* Sale.swift */,
+				65CAEE711C969DA300CF1A9D /* Table+CoreDataProperties.swift */,
+				65CAEE721C969DA300CF1A9D /* Table.swift */,
 				65CAEE2C1C93256600CF1A9D /* User+CoreDataProperties.swift */,
 				65CAEE2D1C93256600CF1A9D /* User.swift */,
 				65CAEE261C9319FB00CF1A9D /* TicketInfo+CoreDataProperties.swift */,
 				65CAEE271C9319FB00CF1A9D /* TicketInfo.swift */,
 				65CAEE221C93169500CF1A9D /* Employee+CoreDataProperties.swift */,
 				65CAEE231C93169500CF1A9D /* Employee.swift */,
-				65CAEE101C93159700CF1A9D /* Table+CoreDataProperties.swift */,
-				65CAEE111C93159700CF1A9D /* Table.swift */,
 				65CAEE121C93159700CF1A9D /* TakeOutCheck+CoreDataProperties.swift */,
 				65CAEE131C93159700CF1A9D /* TakeOutCheck.swift */,
 				65CAEE141C93159700CF1A9D /* Ticket+CoreDataProperties.swift */,
@@ -601,7 +607,6 @@
 			files = (
 				6506EC2A1C72523900208E47 /* AppDelegate.swift in Sources */,
 				65CAEE1D1C93159700CF1A9D /* TakeOutCheck.swift in Sources */,
-				65CAEE1B1C93159700CF1A9D /* Table.swift in Sources */,
 				65CAEE291C9319FB00CF1A9D /* TicketInfo.swift in Sources */,
 				65CAEE1E1C93159700CF1A9D /* Ticket+CoreDataProperties.swift in Sources */,
 				6545D89A1C88A8CD004B5D5B /* DiningTableTableViewController.swift in Sources */,
@@ -609,23 +614,26 @@
 				6545D8B51C8944F8004B5D5B /* Dish+CoreDataProperties.swift in Sources */,
 				65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */,
 				65CAEE1C1C93159700CF1A9D /* TakeOutCheck+CoreDataProperties.swift in Sources */,
-				65CAEE1A1C93159700CF1A9D /* Table+CoreDataProperties.swift in Sources */,
 				6545D8921C87BC39004B5D5B /* EditEmployeeViewController.swift in Sources */,
 				65C5C19F1C8E9E4700B6CCF3 /* TableCheckViewController.swift in Sources */,
+				65CAEE771C969F4500CF1A9D /* Sale+CoreDataProperties.swift in Sources */,
 				65CAEE241C93169500CF1A9D /* Employee+CoreDataProperties.swift in Sources */,
 				6506EC651C725E1800208E47 /* EditViewController.swift in Sources */,
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
 				6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */,
+				65CAEE731C969DA300CF1A9D /* Table+CoreDataProperties.swift in Sources */,
 				65CAEE2E1C93256600CF1A9D /* User+CoreDataProperties.swift in Sources */,
 				65CAEE251C93169500CF1A9D /* Employee.swift in Sources */,
 				65CAEE281C9319FB00CF1A9D /* TicketInfo+CoreDataProperties.swift in Sources */,
 				65CAEE2F1C93256600CF1A9D /* User.swift in Sources */,
 				65C5C19B1C8E921300B6CCF3 /* TakeoutViewController.swift in Sources */,
 				6545D8A81C8932DC004B5D5B /* MenuItemTableViewController.swift in Sources */,
+				65CAEE741C969DA300CF1A9D /* Table.swift in Sources */,
 				6545D8B61C8944F8004B5D5B /* Dish.swift in Sources */,
 				65CAEE1F1C93159700CF1A9D /* Ticket.swift in Sources */,
 				65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */,
 				65CAEE2B1C931A7700CF1A9D /* TicketInfoViewController.swift in Sources */,
+				65CAEE781C969F4500CF1A9D /* Sale.swift in Sources */,
 				6506EC5B1C7257FB00208E47 /* MenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

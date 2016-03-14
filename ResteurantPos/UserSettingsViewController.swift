@@ -14,22 +14,26 @@ import CoreData
 class UserSettingsViewController: UIViewController {
 
 let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-  
+  var sales =  [Sale]()
 //var employee = Employee()
 
 var formatter =  NSDateFormatter()
-var timeString = ""
+    
+    
+    
+    var orderCount = Int()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
- 
-        
-        
-        print(timeString)
-        // Do any additional setup after loading the view.
+        if (sales.count == 0){
+            
+            insertOrder()
+        }
+         // Do any additional setup after loading the view.
     }
 
-    
+    //timer
     func time() -> String {
         
         let date =  NSDate()
@@ -37,10 +41,85 @@ var timeString = ""
         
         formatter.dateFormat = "HH:mm:ss     MM/dd/yyyy"
         let defaultTimeZoneStr = formatter.stringFromDate(date)
+      //change order number when making a new order
         
+        changeOrderNumber()
+        
+        print("order count \(orderCount)")
         return defaultTimeZoneStr
     }
     
+    // change orderNumber
+    func changeOrderNumber (){
+        
+        
+      loadData()
+        if (sales.count > 0){
+            
+            orderCount = (Int)(sales[0].orderNumber!)!
+            sales[0].orderNumber = "\(orderCount+1)"
+            
+            do {
+                
+                try moc.save()
+            }
+            catch{
+                
+                print("error to save sale")
+                return
+            }
+            
+            orderCount = (Int)(sales[0].orderNumber!)!
+            print("\(orderCount)")
+         
+        }
+        else {
+            
+            insertOrder()
+            changeOrderNumber()
+            
+        }
+      
+        
+        
+    }
+    
+    //fectch data from sale
+    
+    func loadData(){
+        
+
+        
+        let fetchRerquest = NSFetchRequest(entityName: "Sale")
+        
+        do {
+            sales  = try moc.executeFetchRequest(fetchRerquest) as! [Sale]
+
+        }
+        catch{
+            
+            print("error to fetch sale")
+            return
+        }
+        
+     
+        
+        
+    }
+    
+    func insertOrder(){
+        let sale = NSEntityDescription.insertNewObjectForEntityForName("Sale", inManagedObjectContext: moc) as! Sale
+        sale.orderNumber = "0"
+        do {
+            
+            try moc.save()
+        }
+        catch{
+            
+            print("error to save sale")
+            return
+        }
+    }
     
     
  
@@ -102,6 +181,7 @@ var timeString = ""
                         let takeOutcheck = NSEntityDescription.insertNewObjectForEntityForName("TakeOutCheck", inManagedObjectContext: self.moc) as! TakeOutCheck
                         
                         takeOutcheck.time = self.time()
+                        takeOutcheck.takeoutOrderNumber = "\(self.orderCount)"
                         //create relatiionship
              
                         takeOutcheck.employee = emplyoeeID[0]
@@ -222,6 +302,7 @@ var timeString = ""
                                 
                                 let newTableNumber = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: self.moc) as! Table
                                
+                                newTableNumber.orderNumber = "\(self.orderCount)"
                                 newTableNumber.time = self.time()
                                 
                                 //create relatiionship
