@@ -229,9 +229,26 @@ var formatter =  NSDateFormatter()
     }
     
     
-    
-    
-    
+    @IBAction func reportOnClick(sender: AnyObject) {
+        
+        if (sales.count > 0){
+            
+ 
+            sales[0].orderNumber = "0"
+            
+            do {
+                
+                try moc.save()
+            }
+            catch{
+                
+                print("error to save sale")
+                return
+            }
+            
+
+        }
+    }
     
     
     @IBAction func dineInOnClick(sender: UIButton) {

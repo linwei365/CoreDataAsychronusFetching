@@ -106,14 +106,13 @@ class DiningTableTableViewController: UITableViewController {
             
             
             print(pin)
-            cell.detailTextLabel?.text = "Employee Name: " + firstname + " " + lastname
+            cell.detailTextLabel?.text = "Server: " + firstname + " " + lastname
             
         } else if(indexPath.section == 1) {
             
             
-            cell.textLabel?.text = "Employee Name: " + (takeOutChecks[indexPath.row].employee?.employeeFirstname)! + " " + (takeOutChecks[indexPath.row].employee?.empolyeeLastname)!
-            
-              orderTimer = takeOutChecks[indexPath.row].time!
+            cell.textLabel?.text = "Server: " + (takeOutChecks[indexPath.row].employee?.employeeFirstname)! + " " + (takeOutChecks[indexPath.row].employee?.empolyeeLastname)!
+            cell.detailTextLabel?.text =  "Order Number: \(takeOutChecks[indexPath.row].takeoutOrderNumber!)"
             
  
             
