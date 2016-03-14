@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController,UITextFieldDelegate {
     let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
@@ -48,6 +48,22 @@ class SignUpViewController: UIViewController {
         
         
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatpasswordTextField.resignFirstResponder()
+        
+        firstNameTextField.endEditing(true)
+        
+        
+        
+        return true
+    }
+    
     
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
