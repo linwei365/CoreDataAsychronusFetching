@@ -15,8 +15,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     var takeoutChecks = [TakeOutCheck]()
     var takeoutCheck:TakeOutCheck!
     var ticketInfos = [TicketInfo]()
-    var serverName = ""
-     var orderTimer = ""
+ 
     @IBOutlet weak var tableView: UITableView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext

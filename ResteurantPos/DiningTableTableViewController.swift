@@ -53,11 +53,7 @@ class DiningTableTableViewController: UITableViewController {
         
         tableView.reloadData()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+     
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,13 +147,7 @@ class DiningTableTableViewController: UITableViewController {
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+ 
 
    
     // Override to support editing the table view.
@@ -202,12 +192,7 @@ class DiningTableTableViewController: UITableViewController {
   
          self.tableView.reloadData()
         
-        //        if editingStyle == .Delete {
-//            // Delete the row from the data source
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        } else if editingStyle == .Insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
+     
     }
    
 
@@ -257,15 +242,13 @@ class DiningTableTableViewController: UITableViewController {
                 
                 let vc = segue.destinationViewController as! TableCheckViewController
                 
-                vc.lastname = lastname
-                vc.firstname = firstname
-                vc.tableNumber = tableNumber
+//                vc.lastname = lastname
+//                vc.firstname = firstname
+//                vc.tableNumber = tableNumber
                 
                 vc.index = indexpath?.row
                 print(vc.index)
-                vc.tableNumberB = tableNumber
-                vc.serverName = "\(firstname) \(lastname)"
-                vc.orderTimer = orderTimer
+          
              
          
             }
@@ -275,8 +258,8 @@ class DiningTableTableViewController: UITableViewController {
                   let vc = segue.destinationViewController as! TakeoutViewController
                 
                 vc.index = indexpath?.row
-                 vc.serverName = "\(firstname) \(lastname)"
-                vc.orderTimer = orderTimer
+//                 vc.serverName = "\(firstname) \(lastname)"
+             
              
                 
              
