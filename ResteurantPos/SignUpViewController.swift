@@ -37,6 +37,17 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //dismiss keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatpasswordTextField.resignFirstResponder()
+        
+        
+    }
     
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)

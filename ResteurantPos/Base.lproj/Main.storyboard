@@ -69,7 +69,7 @@
         <!--Login-->
         <scene sceneID="BMc-Vv-jU8">
             <objects>
-                <viewController title="Login" id="9Bp-L2-Mt8" sceneMemberID="viewController">
+                <viewController title="Login" id="9Bp-L2-Mt8" customClass="LogInViewController" customModule="ResteurantPos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PYT-QT-1Jj"/>
                         <viewControllerLayoutGuide type="bottom" id="3gp-Fe-cZq"/>
@@ -98,6 +98,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="9Bp-L2-Mt8" id="POa-pr-Owg"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sT3-pK-utx">
                                                 <rect key="frame" x="0.0" y="41" width="176" height="30"/>
@@ -107,6 +110,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="9Bp-L2-Mt8" id="Bdp-aI-H7u"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -135,6 +141,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZBN-pk-O8c"/>
                     <connections>
+                        <outlet property="passwordTextfield" destination="sT3-pK-utx" id="p3p-vq-DQj"/>
+                        <outlet property="userNameTextField" destination="TZT-le-ghk" id="OWo-1F-p0g"/>
                         <segue destination="Nxd-Vj-QIH" kind="show" id="giW-8N-4QL"/>
                     </connections>
                 </viewController>

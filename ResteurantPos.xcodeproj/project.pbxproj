@@ -50,6 +50,7 @@
 		65CAEE741C969DA300CF1A9D /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE721C969DA300CF1A9D /* Table.swift */; };
 		65CAEE771C969F4500CF1A9D /* Sale+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE751C969F4500CF1A9D /* Sale+CoreDataProperties.swift */; };
 		65CAEE781C969F4500CF1A9D /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE761C969F4500CF1A9D /* Sale.swift */; };
+		65CAEE7A1C972BC400CF1A9D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE791C972BC400CF1A9D /* LogInViewController.swift */; };
 		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +148,7 @@
 		65CAEE721C969DA300CF1A9D /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		65CAEE751C969F4500CF1A9D /* Sale+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sale+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65CAEE761C969F4500CF1A9D /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		65CAEE791C972BC400CF1A9D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		6545D8871C876A0E004B5D5B /* in progress */ = {
 			isa = PBXGroup;
 			children = (
+				65CAEE791C972BC400CF1A9D /* LogInViewController.swift */,
 				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
 			);
 			name = "in progress";
@@ -622,6 +625,7 @@
 				6506EC321C72523900208E47 /* ResteurantPos.xcdatamodeld in Sources */,
 				6545D88F1C87771C004B5D5B /* EmployeeTableViewController.swift in Sources */,
 				65CAEE731C969DA300CF1A9D /* Table+CoreDataProperties.swift in Sources */,
+				65CAEE7A1C972BC400CF1A9D /* LogInViewController.swift in Sources */,
 				65CAEE2E1C93256600CF1A9D /* User+CoreDataProperties.swift in Sources */,
 				65CAEE251C93169500CF1A9D /* Employee.swift in Sources */,
 				65CAEE281C9319FB00CF1A9D /* TicketInfo+CoreDataProperties.swift in Sources */,
