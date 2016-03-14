@@ -13,7 +13,7 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
     var totalPrice = String()
    var index:Int?
     var takeoutChecks = [TakeOutCheck]()
-    var takeoutCheck:TakeOutCheck?
+    var takeoutCheck:TakeOutCheck!
     var ticketInfos = [TicketInfo]()
     var serverName = ""
      var orderTimer = ""
@@ -197,10 +197,10 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 rowText = "Company Phone number"
             }
             if (section == 4) {
-                rowText = "Time: \(orderTimer)"
+                rowText = "Time: \(takeoutCheck.time!)"
             }
             if (section == 5) {
-                rowText = "Server:\(serverName) "
+                rowText = "Server: \(takeoutCheck.employee!.employeeFirstname!)  \(takeoutCheck.employee!.empolyeeLastname!)"
             }
             if (section == 6) {
                 rowText = "Order Number#:  "
@@ -234,10 +234,10 @@ class TakeoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 rowText = "\(ticketInfos[0].compnayPhoneNumber!)"
             }
             if (section == 4) {
-                rowText = "Time: \(orderTimer) "
+                rowText = "Time: \(takeoutCheck.time!) "
             }
             if (section == 5) {
-                rowText = "Server: \(serverName) "
+                rowText = "Server: \(takeoutCheck.employee!.employeeFirstname!)  \(takeoutCheck.employee!.empolyeeLastname!)"
             }
             if (section == 6) {
                 rowText = "Order Number#:  "
