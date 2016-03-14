@@ -86,9 +86,7 @@ class DiningTableTableViewController: UITableViewController {
         }
         
         return count
-       
-        
-        
+   
         
     }
 
@@ -99,10 +97,11 @@ class DiningTableTableViewController: UITableViewController {
         
         if(indexPath.section == 0){
             tableNumber = tables[indexPath.row].tableNumber!
+             orderTimer = tables[indexPath.row].time!
             
             firstname = (tables[indexPath.row].employee?.employeeFirstname)!
             lastname = (tables[indexPath.row].employee?.empolyeeLastname)!
-//            orderTimer = (tables[indexPath.row].employee?.orderTime)!
+          
             
             cell.textLabel?.text = "Table # " + tableNumber
             
@@ -118,15 +117,9 @@ class DiningTableTableViewController: UITableViewController {
             
             cell.textLabel?.text = "Employee Name: " + (takeOutChecks[indexPath.row].employee?.employeeFirstname)! + " " + (takeOutChecks[indexPath.row].employee?.empolyeeLastname)!
             
- 
+              orderTimer = takeOutChecks[indexPath.row].time!
             
-//            cell.textLabel?.text = "Table # " + takeOutChecks[indexPath.row].takeoutOrderNumber!
-//            
-//            let pin =  (tables[indexPath.row].employee?.employeePinNumber)!
-//            
-//            
-//            
-//            print(pin)
+ 
             
         }
             
@@ -258,9 +251,6 @@ class DiningTableTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-       
-      
-        
  
             
             if(segue.identifier == "checksToTableCheckSegue"){
@@ -292,16 +282,7 @@ class DiningTableTableViewController: UITableViewController {
              
         }
        
-   
-
-
-    
-            
- 
-
-        
-        
-            
+       
         
      
     }

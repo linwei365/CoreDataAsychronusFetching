@@ -21,7 +21,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
     var totalPrice = String()
     var index:Int?
     var ticketArray = []
-    var table:Table?
+    var table:Table!
     var ticketInfos = [TicketInfo]()
     var serverName = ""
     var orderTimer = String()
@@ -282,7 +282,7 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
                 rowText = "Company Phone number"
             }
             if (section == 4) {
-                rowText = "Table Number: \(tableNumberB)  Time: \(orderTimer)"
+                rowText = "Table Number: \(table.tableNumber!)  Time: \(table.time!)"
             }
             if (section == 5) {
                 rowText = "Server: \(serverName) "
@@ -316,10 +316,10 @@ class TableCheckViewController: UIViewController , UITableViewDataSource, UITabl
                 rowText = "\(ticketInfos[0].companyState!) \(ticketInfos[0].compnayZip!)        \(ticketInfos[0].compnayPhoneNumber!)"
             }
             if (section == 3) {
-                rowText = "                                Table Number: \(tableNumberB)"
+                rowText = "                                Table Number: \(table.tableNumber!)"
             }
             if (section == 4) {
-                rowText = "Time: \(orderTimer)"
+                rowText = "Time: \(table.time!)"
             }
             if (section == 5) {
                 rowText = "Server: \(serverName) "
