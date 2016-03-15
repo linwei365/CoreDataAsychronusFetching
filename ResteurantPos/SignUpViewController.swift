@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController,UITextFieldDelegate,SignUpUiViewDelegate,UIScrollViewDelegate {
     let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
@@ -26,10 +26,44 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var repeatpasswordTextField: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var signUpUIView: SignUpUIView!
+    
+    
+    func dismisskeyboard() {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatpasswordTextField.resignFirstResponder()
+        
+    
+        
+        
+    }
+    
+//    
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        
+//        firstNameTextField.resignFirstResponder()
+//        lastNameTextField.resignFirstResponder()
+//        emailTextField.resignFirstResponder()
+//        usernameTextField.resignFirstResponder()
+//        passwordTextField.resignFirstResponder()
+//        repeatpasswordTextField.resignFirstResponder()
+//        
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      signUpUIView.delegate = self
+        
+        
+        scrollView.contentSize.height = 500
         // Do any additional setup after loading the view.
     }
 
@@ -37,6 +71,33 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //dismiss keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+ 
+        
+     
+        
+        
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatpasswordTextField.resignFirstResponder()
+        
+        
+        
+        firstNameTextField.endEditing(true)
+        
+        
+        
+        return true
+    }
+    
     
     @IBAction func cancelOnClick(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
