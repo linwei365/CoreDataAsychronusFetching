@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController,UITextFieldDelegate {
+class SignUpViewController: UIViewController,UITextFieldDelegate,SignUpUiViewDelegate,UIScrollViewDelegate {
     let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
@@ -26,10 +26,44 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var repeatpasswordTextField: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var signUpUIView: SignUpUIView!
+    
+    
+    func dismisskeyboard() {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatpasswordTextField.resignFirstResponder()
+        
+     print("touched subUIView")
+        
+        
+    }
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatpasswordTextField.resignFirstResponder()
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      signUpUIView.delegate = self
+        
+        
+        scrollView.contentSize.height = 500
         // Do any additional setup after loading the view.
     }
 
@@ -39,12 +73,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     }
     //dismiss keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        firstNameTextField.resignFirstResponder()
-        lastNameTextField.resignFirstResponder()
-        emailTextField.resignFirstResponder()
-        usernameTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        repeatpasswordTextField.resignFirstResponder()
+ 
+        
+     
+        
         
         
     }
@@ -56,6 +88,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         repeatpasswordTextField.resignFirstResponder()
+        
+        
         
         firstNameTextField.endEditing(true)
         

@@ -1,5 +1,5 @@
 //
-//  SignUpUIView.swift
+//  SignUpScrollView.swift
 //  ResteurantPos
 //
 //  Created by Lin Wei on 3/14/16.
@@ -8,23 +8,23 @@
 
 import UIKit
 
-protocol SignUpUiViewDelegate {
+protocol SignUpScrollViewDelegate {
     
-    func dismisskeyboard()
+    func dissmiss()
 }
 
+class SignUpScrollView: UIScrollView {
 
-class SignUpUIView: UIView {
-
-    var delegate:SignUpUiViewDelegate?
-    
-    
+    var delegateB:SignUpScrollViewDelegate?
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        delegate?.dismisskeyboard()
+        delegateB?.dissmiss()
         
     }
+    
+    
+    
     
     /*
     // Only override drawRect: if you perform custom drawing.

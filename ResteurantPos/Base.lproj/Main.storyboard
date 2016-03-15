@@ -165,11 +165,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-9L-yfY">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FC8-Qw-xZa" customClass="SignUpUIView" customModule="ResteurantPos" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6p-Pf-bBD" userLabel="subAView" customClass="SignUpUIView" customModule="ResteurantPos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ0-wP-wiB">
-                                                <rect key="frame" x="202" y="19" width="196" height="225"/>
+                                                <rect key="frame" x="202" y="62" width="196" height="225"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnl-Th-cBX">
                                                         <rect key="frame" x="0.0" y="0.0" width="196" height="30"/>
@@ -230,30 +230,30 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="ZJ0-wP-wiB" firstAttribute="top" secondItem="FC8-Qw-xZa" secondAttribute="top" constant="19" id="2Xi-Km-5Bd"/>
-                                            <constraint firstItem="ZJ0-wP-wiB" firstAttribute="centerX" secondItem="FC8-Qw-xZa" secondAttribute="centerX" id="7df-df-YT0"/>
-                                            <constraint firstAttribute="height" constant="536" id="OZh-1U-RWf"/>
+                                            <constraint firstAttribute="height" constant="536" id="Rg2-ho-Arj"/>
+                                            <constraint firstItem="ZJ0-wP-wiB" firstAttribute="top" secondItem="j6p-Pf-bBD" secondAttribute="top" constant="62" id="Vb6-uP-rQA"/>
+                                            <constraint firstItem="ZJ0-wP-wiB" firstAttribute="centerX" secondItem="j6p-Pf-bBD" secondAttribute="centerX" id="ZXN-4E-DR7"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="FC8-Qw-xZa" secondAttribute="bottom" constant="-64" id="0ho-SF-JXV"/>
-                                    <constraint firstItem="FC8-Qw-xZa" firstAttribute="top" secondItem="nu7-9L-yfY" secondAttribute="top" constant="64" id="Iyr-98-tL9"/>
-                                    <constraint firstItem="FC8-Qw-xZa" firstAttribute="centerX" secondItem="nu7-9L-yfY" secondAttribute="centerX" id="V04-X8-jfe"/>
-                                    <constraint firstItem="FC8-Qw-xZa" firstAttribute="leading" secondItem="nu7-9L-yfY" secondAttribute="leading" id="af3-RO-cF0"/>
-                                    <constraint firstAttribute="trailing" secondItem="FC8-Qw-xZa" secondAttribute="trailing" id="eib-7j-d7p"/>
+                                    <constraint firstAttribute="trailing" secondItem="j6p-Pf-bBD" secondAttribute="trailing" id="BcC-zi-cvK"/>
+                                    <constraint firstItem="j6p-Pf-bBD" firstAttribute="top" secondItem="nu7-9L-yfY" secondAttribute="top" id="H3m-vQ-HEb"/>
+                                    <constraint firstItem="j6p-Pf-bBD" firstAttribute="leading" secondItem="nu7-9L-yfY" secondAttribute="leading" id="oIP-jj-PgF"/>
+                                    <constraint firstItem="j6p-Pf-bBD" firstAttribute="centerX" secondItem="nu7-9L-yfY" secondAttribute="centerX" id="sjO-Tu-Y1p"/>
+                                    <constraint firstAttribute="bottom" secondItem="j6p-Pf-bBD" secondAttribute="bottom" id="uj2-hK-XZm"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="delegate" destination="bv4-gh-p9Q" id="ydu-6Q-9L2"/>
+                                    <outlet property="delegate" destination="bv4-gh-p9Q" id="Wqp-b0-w2o"/>
                                 </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nu7-9L-yfY" firstAttribute="leading" secondItem="lTy-rZ-cr4" secondAttribute="leading" id="SYO-SQ-ZVi"/>
-                            <constraint firstItem="nu7-9L-yfY" firstAttribute="bottom" secondItem="ypy-Ra-3MK" secondAttribute="top" id="exv-QK-7kE"/>
-                            <constraint firstAttribute="trailing" secondItem="nu7-9L-yfY" secondAttribute="trailing" id="pLG-ew-Z66"/>
-                            <constraint firstItem="nu7-9L-yfY" firstAttribute="top" secondItem="7hl-De-Slo" secondAttribute="bottom" id="ubn-IH-qHK"/>
+                            <constraint firstItem="nu7-9L-yfY" firstAttribute="leading" secondItem="lTy-rZ-cr4" secondAttribute="leading" id="3op-Yt-fMt"/>
+                            <constraint firstItem="nu7-9L-yfY" firstAttribute="top" secondItem="7hl-De-Slo" secondAttribute="bottom" id="CxR-KJ-5yr"/>
+                            <constraint firstAttribute="trailing" secondItem="nu7-9L-yfY" secondAttribute="trailing" id="ghj-Uq-upS"/>
+                            <constraint firstItem="nu7-9L-yfY" firstAttribute="bottom" secondItem="ypy-Ra-3MK" secondAttribute="top" id="vW2-BP-Ukm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="gJh-2E-MCS">
@@ -274,6 +274,8 @@
                         <outlet property="lastNameTextField" destination="iAR-Ya-DY6" id="W7J-uJ-Raq"/>
                         <outlet property="passwordTextField" destination="AGo-9m-FPG" id="I1G-pR-0O9"/>
                         <outlet property="repeatpasswordTextField" destination="P5u-Al-VYw" id="5au-xf-0ii"/>
+                        <outlet property="scrollView" destination="nu7-9L-yfY" id="B6e-Sf-ITF"/>
+                        <outlet property="signUpUIView" destination="j6p-Pf-bBD" id="EqO-7L-Smi"/>
                         <outlet property="usernameTextField" destination="Dpp-eV-KHn" id="Q0D-Gp-Re8"/>
                     </connections>
                 </viewController>
