@@ -10,10 +10,11 @@ import UIKit
 import CoreData
 
 
-class TicketInfoViewController: UIViewController {
+class TicketInfoViewController: UIViewController,SignUpUiViewDelegate {
     let moc =  (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var ticketInfos = [TicketInfo]()
 
+    @IBOutlet weak var subUIView: SignUpUIView!
     @IBOutlet weak var companyNameTextField: UITextField!
     @IBOutlet weak var companyStreetAddressTextField: UITextField!
     @IBOutlet weak var companyCity: UITextField!
@@ -25,7 +26,9 @@ class TicketInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.subUIView.delegate = self
+        
         loadData()
         
         if (ticketInfos.count == 1){
@@ -41,9 +44,8 @@ class TicketInfoViewController: UIViewController {
 
     }
     
-    
-    //dismiss keyboard
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //custome dismiss keyboard protocol method
+    func dismisskeyboard() {
         companyNameTextField.resignFirstResponder()
         companyStreetAddressTextField.resignFirstResponder()
         companyCity.resignFirstResponder()
@@ -51,8 +53,11 @@ class TicketInfoViewController: UIViewController {
         CompanyPhoneNumber.resignFirstResponder()
         ticketGratuityTextField.resignFirstResponder()
         ticketTaxTextField.resignFirstResponder()
-        
+        companyState.resignFirstResponder()
     }
+    
+
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

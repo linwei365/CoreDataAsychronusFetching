@@ -52,7 +52,6 @@
 		65CAEE781C969F4500CF1A9D /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE761C969F4500CF1A9D /* Sale.swift */; };
 		65CAEE7A1C972BC400CF1A9D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE791C972BC400CF1A9D /* LogInViewController.swift */; };
 		65CAEE7C1C973C6300CF1A9D /* SignUpUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE7B1C973C6300CF1A9D /* SignUpUIView.swift */; };
-		65CAEE7E1C974E1D00CF1A9D /* SignUpScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAEE7D1C974E1D00CF1A9D /* SignUpScrollView.swift */; };
 		65CDD3DA1C80260500E066CC /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,7 +151,6 @@
 		65CAEE761C969F4500CF1A9D /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		65CAEE791C972BC400CF1A9D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		65CAEE7B1C973C6300CF1A9D /* SignUpUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpUIView.swift; sourceTree = "<group>"; };
-		65CAEE7D1C974E1D00CF1A9D /* SignUpScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpScrollView.swift; sourceTree = "<group>"; };
 		65CDD3D91C80260500E066CC /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		77F57B6475FAB7CB4B08AA8E /* Pods_ResteurantPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResteurantPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0150A79D70405790BA073C2 /* Pods-ResteurantPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResteurantPos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResteurantPos/Pods-ResteurantPos.release.xcconfig"; sourceTree = "<group>"; };
@@ -332,7 +330,6 @@
 			children = (
 				65CAEE791C972BC400CF1A9D /* LogInViewController.swift */,
 				65CAEE7B1C973C6300CF1A9D /* SignUpUIView.swift */,
-				65CAEE7D1C974E1D00CF1A9D /* SignUpScrollView.swift */,
 				65B0D6F81C8255C10057C077 /* SignUpViewController.swift */,
 			);
 			name = "in progress";
@@ -641,7 +638,6 @@
 				65CAEE741C969DA300CF1A9D /* Table.swift in Sources */,
 				6545D8B61C8944F8004B5D5B /* Dish.swift in Sources */,
 				65CAEE1F1C93159700CF1A9D /* Ticket.swift in Sources */,
-				65CAEE7E1C974E1D00CF1A9D /* SignUpScrollView.swift in Sources */,
 				65B0D6F91C8255C10057C077 /* SignUpViewController.swift in Sources */,
 				65CAEE7C1C973C6300CF1A9D /* SignUpUIView.swift in Sources */,
 				65CAEE2B1C931A7700CF1A9D /* TicketInfoViewController.swift in Sources */,

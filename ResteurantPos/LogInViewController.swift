@@ -8,23 +8,29 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, SignUpUiViewDelegate {
 
+    @IBOutlet weak var subUIView: SignUpUIView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    override func viewDidLoad() {
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentSize.height = 700
+        subUIView.delegate = self
 
         // Do any additional setup after loading the view.
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func dismisskeyboard() {
         userNameTextField.resignFirstResponder()
         passwordTextfield.resignFirstResponder()
-        
     }
+    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

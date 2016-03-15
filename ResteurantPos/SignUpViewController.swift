@@ -39,22 +39,22 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,SignUpUiViewDel
         passwordTextField.resignFirstResponder()
         repeatpasswordTextField.resignFirstResponder()
         
-     print("touched subUIView")
+    
         
         
     }
     
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        firstNameTextField.resignFirstResponder()
-        lastNameTextField.resignFirstResponder()
-        emailTextField.resignFirstResponder()
-        usernameTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        repeatpasswordTextField.resignFirstResponder()
-        
-    }
+//    
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        
+//        firstNameTextField.resignFirstResponder()
+//        lastNameTextField.resignFirstResponder()
+//        emailTextField.resignFirstResponder()
+//        usernameTextField.resignFirstResponder()
+//        passwordTextField.resignFirstResponder()
+//        repeatpasswordTextField.resignFirstResponder()
+//        
+//    }
     
     
     override func viewDidLoad() {
