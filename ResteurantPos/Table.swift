@@ -2,7 +2,7 @@
 //  Table.swift
 //  ResteurantPos
 //
-//  Created by Lin Wei on 3/14/16.
+//  Created by Lin Wei on 3/16/16.
 //  Copyright © 2016 Lin Wei. All rights reserved.
 //
 

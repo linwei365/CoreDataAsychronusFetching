@@ -202,7 +202,6 @@ var formatter =  NSDateFormatter()
                         }
 
                         
-                        
                     
                     }
                     
@@ -319,8 +318,12 @@ var formatter =  NSDateFormatter()
                                 
                                 let newTableNumber = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: self.moc) as! Table
                                
-                                newTableNumber.orderNumber = "\(self.orderCount)"
+                                
                                 newTableNumber.time = self.time()
+                                
+                                
+                                newTableNumber.orderNumber = "\(self.orderCount)"
+                                
                                 
                                 //create relatiionship
                                 newTableNumber.tableNumber = tableNumber.text
