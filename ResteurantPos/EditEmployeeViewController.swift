@@ -18,9 +18,10 @@ protocol EditEmployeeViewControllerDelegate {
     
 }
 
-class EditEmployeeViewController: UIViewController {
+class EditEmployeeViewController: UIViewController, SignUpUiViewDelegate {
 
     
+    @IBOutlet weak var subUIView: SignUpUIView!
     
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
@@ -32,9 +33,18 @@ class EditEmployeeViewController: UIViewController {
     var delegate:EditEmployeeViewControllerDelegate?
     
     
+    func dismisskeyboard() {
+        firstnameTextField.resignFirstResponder()
+        lastnameTextField.resignFirstResponder()
+        pinNumberTextField.resignFirstResponder()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        subUIView.delegate = self
+        
         
         firstnameTextField.text = employee!.employeeFirstname
         lastnameTextField.text = employee!.empolyeeLastname
@@ -43,7 +53,10 @@ class EditEmployeeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,7 +79,7 @@ class EditEmployeeViewController: UIViewController {
             let alertAction =  UIAlertAction(title: "ok", style: .Default, handler: nil)
             alertController.addAction(alertAction)
             self.presentViewController(alertController, animated: true, completion: nil)
-             
+            
         }
         else
         {   //if textfield pin is same as moc pinNumber then perform
