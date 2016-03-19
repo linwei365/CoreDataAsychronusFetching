@@ -762,7 +762,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BcJ-RX-Zrb">
-                                                <rect key="frame" x="217" y="198" width="167" height="140"/>
+                                                <rect key="frame" x="217" y="94" width="167" height="140"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9c-6A-UBQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
@@ -797,7 +797,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="BcJ-RX-Zrb" firstAttribute="centerX" secondItem="Adx-KP-5Gz" secondAttribute="centerX" id="Bkr-Sm-yDR"/>
-                                            <constraint firstItem="BcJ-RX-Zrb" firstAttribute="top" secondItem="Adx-KP-5Gz" secondAttribute="top" constant="198" id="c7J-2c-XPm"/>
+                                            <constraint firstItem="BcJ-RX-Zrb" firstAttribute="top" secondItem="Adx-KP-5Gz" secondAttribute="top" constant="94" id="c7J-2c-XPm"/>
                                             <constraint firstAttribute="height" constant="536" id="tEp-Zc-KgH"/>
                                         </constraints>
                                     </view>
