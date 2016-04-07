@@ -230,9 +230,13 @@ var formatter =  NSDateFormatter()
     
     @IBAction func reportOnClick(sender: AnyObject) {
         
+          //on progress ...........
+        //report clears out daily 
+        //same as check needs to copy all the inputs from temp store to a permenant store.
+        //temp store will be removed all the table will be removed and set count to 0 
         if (sales.count > 0){
             
- 
+       
             sales[0].orderNumber = "0"
             
             do {
